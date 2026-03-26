@@ -7,6 +7,9 @@
     },
     "cappasoft/web-dev-estimation": {
       "version": "1.1.0"
+    },
+    "pantheon-ai/agents-md": {
+      "version": "0.1.3"
     }
   }
 }
