@@ -54,7 +54,7 @@ critical path for the automated pipeline.
 | [P03T09](tasks/task-P03T09-compare-ts.md) | `scripts/compare.ts` (TDD) | pending |
 | [P03T10](tasks/task-P03T10-compare-workflow.md) | `.github/workflows/compare.yml` | pending |
 | [P03T11](tasks/task-P03T11-extend-review-workflow.md) | Extend `review.yml` for compare branches | pending |
-| [P03T12](tasks/task-P03T12-seed-first-group.md) | Seed first group in `groups.yaml` | pending |
+| [P03T12](tasks/task-P03T12-seed-first-group.md) | Seed fixture repos + first group in `groups.yaml` | pending |
 | [P03T13](tasks/task-P03T13-run-comparison-scenarios.md) | Run Phase 3 BDD comparison scenarios | pending |
 
 ### Phase 3a gate
@@ -81,7 +81,9 @@ to populate tag/category pages meaningfully).
 ### Testing approach
 
 No new TDD targets in 3b (all logic is data-loader or VitePress config). BDD scenario
-at P03T04 covers the comparison side; 3b work is verified by visual/navigation smoke tests.
+at P03T04 covers the comparison side. Add a minimal automated navigation check
+(link-check or loader unit tests) to reduce regression risk; supplement with
+visual/navigation smoke tests.
 
 ### Navigation — tags and categories
 
@@ -110,11 +112,14 @@ at P03T04 covers the comparison side; 3b work is verified by visual/navigation s
 | [P03T24](tasks/task-P03T24-stats-dashboard.md) | Stats dashboard on `docs/index.md` | pending |
 | [P03T25](tasks/task-P03T25-local-search.md) | VitePress built-in local search | pending |
 | [P03T26](tasks/task-P03T26-group-discovery-hint.md) | Group-discovery hint in `evaluate.ts` | pending |
+| [P03T31](tasks/task-P03T31-navigation-checks.md) | Minimal automated navigation checks | pending |
 
 ### Phase 3b gate
 
 ```sh
 bun run docs:build   # VitePress build must pass with all pages rendering
 bun test
+# Minimal navigation checks (link-check or loader unit tests)
+bun run check:links
 # Tag, category, and cross-reference pages navigable; score cards render
 ```

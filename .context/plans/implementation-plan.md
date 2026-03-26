@@ -22,6 +22,9 @@ Refer to sibling documents for full detail on each area:
   `GH_PAT`. They are tagged `@integration` and run only on the `main` branch via the
   `integration` cucumber profile. The `default` profile (PR CI) runs unit tests only.
   See `P01T02` for the two-profile `cucumber.json` setup.
+- **Integration-lite profile**: add a hermetic Cucumber profile for PR CI that uses a
+  fixture repo (or mocked GitHub API) and deterministic test data. Live GitHub remains
+  the `main`-branch gate; integration-lite provides repeatable signal earlier.
 
 ---
 
