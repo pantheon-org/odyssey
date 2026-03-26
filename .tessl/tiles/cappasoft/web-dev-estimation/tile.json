@@ -1,0 +1,11 @@
+{
+  "name": "cappasoft/web-dev-estimation",
+  "version": "1.1.0",
+  "private": false,
+  "summary": "Estimates implementation time for web development tasks (frontend and/or backend) by analyzing the existing codebase and calibrating for an AI coding agent as executor — not a human developer. Use when the user asks about effort, sizing, or feasibility: 'how long', 'how much work', 'estimate this', 'what is the effort', 'breakdown this task', 'can we do this in X days', 'is this a big task', 'how complex is', 'what's involved in', 'fits in the sprint', 'rough sizing', 't-shirt size', 'story points'. Also use when the user describes a feature and implicitly wants to know scope — e.g. 'we need to add X to the app', 'thinking about building Y', 'is this feasible by Friday'. Supports batch estimation from any structured source (BMAD output, spec folders, PRDs, backlogs, task lists) — use when the user mentions 'estimate the stories', 'estimate the epic', 'scan the backlog', 'estimate all tasks', 'estimate the specs', or points to a folder of task/story/spec files.",
+  "skills": {
+    "web-dev-estimation": {
+      "path": "SKILL.md"
+    }
+  }
+}
