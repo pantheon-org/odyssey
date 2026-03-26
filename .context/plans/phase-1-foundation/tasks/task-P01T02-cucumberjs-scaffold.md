@@ -38,6 +38,28 @@ Feature: Manual repo evaluation
 - Steps are initially `pending` — they turn green as P01T03–P01T15 implement
   the pipeline.
 
+## CI limitations
+
+These BDD scenarios are **integration tests against live GitHub**, not unit tests.
+They require:
+- A `GH_PAT` with `repo`, `workflow`, and `read:user` scopes
+- The `pantheon-org/odyssey` repo accessible with Actions enabled
+- GitHub Pages configured on the repo
+
+**They cannot run in standard PR CI** (forks have no access to org secrets).
+Tag all Phase 1/2/3 e2e scenarios `@integration` in addition to their phase tag.
+The `bun test` gate (unit tests) runs on every PR; BDD gates run on the `main`
+branch only, with secrets injected via the repo's Actions environment.
+
+Concretely, `cucumber.json` defines two profiles:
+- `default` — runs `not @integration` (safe for PR CI)
+- `integration` — runs all scenarios (main branch, requires secrets)
+
+Phase gates use the `integration` profile:
+```sh
+bunx cucumber-js --config cucumber.json --profile integration --tags "@phase1"
+```
+
 ## References
 - `adr/018-testing-strategy.md` — BDD testing strategy
 

@@ -1,4 +1,4 @@
-# P02T09 — `.github/workflows/schema-sync.yml`
+# P03T30 — `.github/workflows/schema-sync.yml`
 
 ## Goal
 Trigger `schema-sync.ts` whenever `classification.yaml` is pushed to `main`.
