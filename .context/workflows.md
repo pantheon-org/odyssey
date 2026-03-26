@@ -75,15 +75,20 @@ permissions:
 **Job condition** (must be first):
 ```yaml
 if: >
-  github.event.label.name == 'pending-evaluation' ||
-  github.event.label.name == 'pending-re-evaluation'
+  (github.event.label.name == 'pending-evaluation' ||
+   github.event.label.name == 'pending-re-evaluation') &&
+  (github.event.issue.author_association == 'OWNER' ||
+   github.event.issue.author_association == 'COLLABORATOR' ||
+   github.event.issue.author_association == 'MEMBER')
 ```
+
+> **Why author_association guard?** Issues submitted via the issue template auto-receive `pending-evaluation` on open, making the pipeline fully self-service for collaborators. The guard silently no-ops for external submitters — a maintainer can manually re-label any legitimate external issue to unblock it. See ADR-021.
 
 **Issue label lifecycle**:
 
 ```mermaid
 stateDiagram-v2
-    [*] --> pending_evaluation     : poll-stars / manual dispatch
+    [*] --> pending_evaluation     : poll-stars / issue template / manual dispatch
     [*] --> pending_re_evaluation  : quarterly-check / schema-sync / manual retry
 
     pending_evaluation    --> in_flight : evaluate.yml triggered — label removed

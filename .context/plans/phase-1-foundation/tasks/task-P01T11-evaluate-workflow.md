@@ -9,7 +9,11 @@ GitHub Actions workflow that runs `evaluate.ts` on a manually provided repo.
 ## Implementation
 - Trigger: `workflow_dispatch` with `owner/repo` string input.
 - Also triggers on `issues` (labeled `pending-evaluation` or `pending-re-evaluation`)
-  to support Phase 2 automation.
+  to support Phase 2 automation and manual submissions (Path D).
+- **Job condition** (must be first check): label must be `pending-evaluation` or
+  `pending-re-evaluation` AND `github.event.issue.author_association` must be
+  `OWNER`, `COLLABORATOR`, or `MEMBER`. Silently no-ops for external submitters.
+  See ADR-021.
 - Steps: checkout → `setup-bun@v2` (reads `.bun-version`) → `bun install` →
   `bun scripts/evaluate.ts <owner/repo>` → open PR targeting `main`.
 - Branch name: `eval/<owner>-<repo>-<GITHUB_RUN_ID>` (manual) or

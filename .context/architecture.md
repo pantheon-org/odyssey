@@ -7,6 +7,7 @@ Six GitHub Actions workflows form a fully automated pipeline. Stars become issue
 ```mermaid
 flowchart TD
     Star([thoroc stars a repo])
+    Submit([collaborator opens Evaluate: issue])
 
     subgraph A["Path A — New star"]
         PS["poll-stars.yml\ncron every 15 min\nDiff starred list against cursor\nCreate issue: pending-evaluation"]
@@ -18,6 +19,10 @@ flowchart TD
 
     subgraph C["Path C — Schema evolution"]
         SS["schema-sync.yml\non push to classification.yaml\nScan for schema_version mismatch\nCreate issue: pending-re-evaluation"]
+    end
+
+    subgraph D["Path D — Manual submission"]
+        IT["Issue template: Evaluate: owner/repo\nLabel pending-evaluation applied on open\nauthor_association guard: OWNER / COLLABORATOR / MEMBER only"]
     end
 
     subgraph Eval["evaluate.yml — on issue labeled"]
@@ -33,7 +38,9 @@ flowchart TD
     end
 
     Star --> PS
+    Submit --> IT
     PS --> EV
+    IT --> EV
     QC --> EV
     SS --> EV
     EV --> RV
@@ -69,6 +76,7 @@ flowchart LR
     PS[poll-stars.yml] -->|GH_PAT creates issue| EV[evaluate.yml]
     QC[quarterly-check.yml] -->|GH_PAT creates issue| EV
     SS[schema-sync.yml] -->|GH_PAT creates issue| EV
+    IT[issue template] -->|label on open| EV
     EV -->|GH_PAT opens PR| RV[review.yml]
     RV -->|auto-merge push| DP[deploy.yml]
     DP -->|push to docs/repos| CM[compare.yml]
