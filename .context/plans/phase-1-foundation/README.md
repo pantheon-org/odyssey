@@ -37,6 +37,7 @@ published to GitHub Pages, `bun test` passes, and the Phase 1 Cucumber e2e scena
 | [P01T13](tasks/task-P01T13-deploy-workflow.md) | `.github/workflows/deploy.yml` | pending |
 | [P01T14](tasks/task-P01T14-branch-protection.md) | Branch protection on `main` | pending |
 | [P01T15](tasks/task-P01T15-smoke-test.md) | BDD: Phase 1 step definitions + run scenarios | pending |
+| [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | done |
 
 ---
 
@@ -44,6 +45,7 @@ published to GitHub Pages, `bun test` passes, and the Phase 1 Cucumber e2e scena
 
 ```sh
 bun test
-bunx cucumber-js --config cucumber.json --tags "@phase1"
+# Phase gate — requires GH_PAT + live GitHub (main branch only, see P01T02 for CI limitations)
+bunx cucumber-js --config cucumber.json --profile integration --tags "@phase1"
 # All Phase 1 scenarios green
 ```

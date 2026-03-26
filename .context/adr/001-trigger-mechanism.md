@@ -21,3 +21,9 @@ Cron polling every 15 minutes via `poll-stars.yml`. A cursor (`last-starred.txt`
 - No missed events: cursor advances only after all issues are created
 - Requires `GH_PAT` with `read:user` scope to read another user's starred list
 - Concurrent runs can overlap; deduplication (ADR-009) is required
+
+## Cursor persistence
+
+The cursor is stored via `actions/cache` (key: `poll-stars-cursor`) rather than committed back to `main`. Committing the cursor on every run would produce noise in git history and a race window when two cron runs overlap and both read the same stale cursor value before either writes back.
+
+`actions/cache` provides last-write-wins semantics scoped to the branch; the poll workflow saves the updated cursor at the end of a successful run. Worst case on a cold cache miss: the poll re-scans from the configured start date and deduplication (ADR-009) suppresses duplicate issues.

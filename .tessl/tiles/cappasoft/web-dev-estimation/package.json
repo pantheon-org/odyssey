@@ -1,0 +1,31 @@
+{
+  "name": "web-dev-estimation",
+  "version": "1.0.1",
+  "description": "Agent-calibrated web development estimation skill for Claude Code, Cursor, and any Agent Skills-compatible tool",
+  "bin": {
+    "web-dev-estimation": "bin/install.js"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "claude-code",
+    "cursor",
+    "estimation",
+    "web-development",
+    "ai-agent",
+    "skill"
+  ],
+  "author": "Eric Cappannelli",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecappa/web-dev-estimation.git"
+  },
+  "files": [
+    "bin/",
+    "SKILL.md",
+    "references/",
+    "evals/",
+    "README.md"
+  ]
+}

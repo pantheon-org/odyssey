@@ -25,10 +25,19 @@ write evaluated page as a pull request branch.
 ## TDD
 Write `scripts/evaluate.test.ts` collocated **before** implementing. Extract pure functions
 to make them testable in isolation.
+
+**Happy path**
 - Prompt builder: README at exactly 4000 chars truncates at last newline, not mid-word
 - Prompt builder: README shorter than 4000 chars is not truncated
 - Page renderer: valid LLM JSON response → correct frontmatter field values
 - Idempotency guard: existing page file → returns skip signal; missing file → proceeds
+
+**Failure modes**
+- LLM returns JSON that fails Zod schema → script exits non-zero, no file written, error logged with raw response excerpt
+- GitHub Models API responds 429 → script exits non-zero with "rate limited" message (no retry; workflow will requeue)
+- GitHub Models API responds 5xx → script exits non-zero with status code in message
+- GitHub REST API returns 404 for the repo → script exits non-zero with "repo not found" message
+- PR already open on branch `eval/<owner>-<repo>-*` → script exits 0 with "PR already open, skipping" message (idempotent)
 
 ## References
 - `adr/002-llm-model-and-auth.md` — GitHub Models API + gpt-4o-mini
