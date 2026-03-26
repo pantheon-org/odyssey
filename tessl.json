@@ -1,0 +1,9 @@
+{
+  "name": "my-project",
+  "mode": "vendored",
+  "dependencies": {
+    "neomatrix369/learning-opportunity": {
+      "version": "0.1.2"
+    }
+  }
+}

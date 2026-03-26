@@ -1,0 +1,11 @@
+{
+  "name": "neomatrix369/learning-opportunity",
+  "version": "0.1.2",
+  "private": false,
+  "summary": "Progressive concept teaching through three depth levels (Core → Mechanics → Deep Dive). Creates diagrams, provides annotated code walkthroughs from the current codebase, and builds explanations from fundamentals to production internals.\nTriggers: \"teach me about [pattern/concept]\", \"how does [architecture/pattern] work\", \"walk me through [this implementation]\", \"tutorial on [concept]\", \"deep dive into [system/pattern]\", \"help me understand [this design]\"\nUse when: user requests multi-level learning about code patterns, architecture, or implementation mechanics with checkpoint-based progression.\nNot for: quick answers, single-sentence explanations, code fixes, or \"what does this line do\" questions—those are standard assistance.\n",
+  "skills": {
+    "learning-opportunity": {
+      "path": "SKILL.md"
+    }
+  }
+}
