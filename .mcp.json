@@ -1,0 +1,28 @@
+{
+    "mcpServers": {
+        "jcodemunch": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "jcodemunch-mcp"
+            ],
+            "env": {}
+        },
+        "jdocmunch": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "jdocmunch-mcp"
+            ],
+            "env": {}
+        },
+        "context": {
+            "type": "stdio",
+            "command": "context",
+            "args": [
+                "serve"
+            ],
+            "env": {}
+        }
+    }
+}
