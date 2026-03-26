@@ -35,9 +35,9 @@ published to GitHub Pages, `bun test` passes, and the Phase 1 Cucumber e2e scena
 | [P01T11](tasks/task-P01T11-evaluate-workflow.md) | `.github/workflows/evaluate.yml` | pending |
 | [P01T12](tasks/task-P01T12-review-workflow.md) | `.github/workflows/review.yml` | pending |
 | [P01T13](tasks/task-P01T13-deploy-workflow.md) | `.github/workflows/deploy.yml` | pending |
-| [P01T14](tasks/task-P01T14-branch-protection.md) | Branch protection on `main` | pending |
 | [P01T15](tasks/task-P01T15-smoke-test.md) | BDD: Phase 1 step definitions + run scenarios | pending |
 | [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | done |
+| [P01T17](tasks/task-P01T17-integration-lite.md) | Integration-lite test profile (fixture repo / mocked GH) | pending |
 
 ---
 
@@ -45,6 +45,7 @@ published to GitHub Pages, `bun test` passes, and the Phase 1 Cucumber e2e scena
 
 ```sh
 bun test
+bun run docs:build
 # Phase gate — requires GH_PAT + live GitHub (main branch only, see P01T02 for CI limitations)
 bunx cucumber-js --config cucumber.json --profile integration --tags "@phase1"
 # All Phase 1 scenarios green

@@ -54,6 +54,8 @@ branch only, with secrets injected via the repo's Actions environment.
 Concretely, `cucumber.json` defines two profiles:
 - `default` — runs `not @integration` (safe for PR CI)
 - `integration` — runs all scenarios (main branch, requires secrets)
+Add a third profile:
+- `integration-lite` — runs deterministic fixture-based scenarios (safe for PR CI)
 
 Phase gates use the `integration` profile:
 ```sh

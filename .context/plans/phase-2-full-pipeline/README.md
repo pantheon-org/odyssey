@@ -11,6 +11,10 @@
 to Phase 3 — they require a populated `docs/repos/` to be meaningful and are not on the
 critical path for the automated pipeline.
 
+**Note:** Star automation prerequisites — the star-based pipeline depends on verified
+PAT scopes and a dedicated test account. This research is captured in `P02T07` and
+must be completed before the Phase 2 integration gate is reliable.
+
 ---
 
 ## Testing approach
@@ -32,6 +36,8 @@ critical path for the automated pipeline.
 | [P02T04](tasks/task-P02T04-poll-stars-workflow.md) | `.github/workflows/poll-stars.yml` | pending |
 | [P02T05](tasks/task-P02T05-verify-evaluate-trigger.md) | Verify `evaluate.yml` label trigger | pending |
 | [P02T06](tasks/task-P02T06-e2e-test.md) | Run Phase 2 BDD scenarios | pending |
+| [P02T07](tasks/task-P02T07-star-test-harness.md) | Star automation test harness (test acct + fallback trigger) | pending |
+| [P02T08](tasks/task-P02T08-branch-protection.md) | Enable branch protection after workflows stable | pending |
 
 ---
 

@@ -1,12 +1,15 @@
-# P03T12 — Seed first group in `groups.yaml`
+# P03T12 — Seed fixture repos + first group in `groups.yaml`
 
 ## Goal
-Add the first real comparison group once ≥2 overlapping repos are evaluated.
+Create deterministic fixture repos and seed the first real comparison group once
+≥2 overlapping repos are evaluated.
 
 ## Files
 - `docs/schema/groups.yaml`
 
 ## Implementation
+- Establish fixture repos (or controlled test repos) with overlapping tags so the
+  comparison pipeline has stable inputs.
 - Prerequisite: ≥2 repos evaluated that share 2+ tags (group-discovery hint from
   P03T25 surfaces candidates).
 - Add a group entry: `id`, `label`, `description`, `members: [owner/repo, ...]`.
