@@ -9,6 +9,8 @@ All workflows use explicit `permissions:` blocks. `GITHUB_TOKEN` is used for rea
 | `GITHUB_TOKEN` | Auto-injected | GitHub Models API calls; read-only GitHub API calls |
 | `GH_PAT` | `public_repo` + `workflow` on `thoroc` | Creating issues, branches, PRs — all cross-workflow trigger points |
 
+> **Security Note**: Prefer **Fine-grained Personal Access Tokens** over classic PATs. Scope the token specifically to the `odyssey` repository with "Read & Write" access to `Contents`, `Issues`, `Pull requests`, and `Workflows`.
+
 > **Why GH_PAT?** When `GITHUB_TOKEN` creates an issue or PR, GitHub suppresses downstream `issues` / `pull_request` workflow triggers to prevent infinite loops. `GH_PAT` bypasses this and allows the chain: `poll-stars → evaluate → review → deploy`.
 
 > **Why `public_repo` + `workflow` only?** All target repos are public and `odyssey` itself is public. `repo` (full private-repo control) is unnecessary and widens blast radius on PAT compromise. `workflow` is required to trigger workflow dispatch events via the API.
@@ -110,9 +112,10 @@ To retry: remove `evaluation-failed`, add `pending-evaluation` (or `pending-re-e
    - **Idempotency guard** (skipped for `pending-re-evaluation`): check if `docs/repos/<owner>-<repo>.md` already exists on `main` (`GET /repos/.../contents/...`). If so, close the issue as a duplicate (comment: "page already exists at `docs/repos/<owner>-<repo>.md`"), label `duplicate`, and exit 0. This is the second line of defence against duplicate issues surviving the dedup search. When the triggering label is `pending-re-evaluation`, this guard is **skipped** — the page is expected to already exist and will be overwritten. See ADR-013.
    - Load `docs/schema/classification.yaml`
    - Parse `owner/repo` from issue title (`Evaluate:` / `Re-evaluate:` prefix)
-   - Pre-fetch repo data (description, README, languages, latest release) — see ADR-007; README is truncated to the last newline at or before 4,000 chars (never mid-sentence/mid-word)
+   - Pre-fetch repo data (description, README, languages, latest release) — see ADR-007; README is truncated to the last newline at or before 15,000 chars
    - Build prompt dynamically from classification config
    - Call GitHub Models API (`gpt-4o-mini`) with up to 3 retries
+   - **Reality Check**: Compare LLM scores against repo metadata (e.g., if Maturity is 5/5 but repo has 0 releases and was created < 30 days ago, flag with a `hallucination-risk` label instead of auto-merging).
    - Validate response with Zod `ClassificationSchema`
    - Create branch: `eval/<owner>-<repo>` or `re-eval/<owner>-<repo>-<GITHUB_RUN_ID>`
    - Write `docs/repos/<owner>-<repo>.md` (frontmatter + body with rationale table); record `model_id` constant in frontmatter alongside `schema_version`
@@ -228,7 +231,7 @@ permissions:
 | Archived | `archived: true` |
 | Long dormancy | No commits in 12 months AND maintenance score was ≥ 3 |
 | Revival | Commits resumed after 6+ months of silence |
-| Stars surge | `stargazers_count` grew > 50% since `stars_at_eval` |
+| Stars surge | `stargazers_count` grew > 50% since `stars_at_eval` AND absolute growth > 50 stars |
 | Schema drift | `schema_version` != current `classification.yaml` version |
 
 ---

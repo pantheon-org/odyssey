@@ -16,7 +16,7 @@ Material change signals identified:
 - Repo archived
 - Long dormancy (no commits in 12 months AND maintenance score was ≥ 3)
 - Revival (commits resumed after 6+ months of silence)
-- Stars surge (star count grew > 50% since last evaluation)
+- Stars surge (star count grew > 50% since last evaluation AND absolute growth > 50 stars)
 - Schema drift (classification config version changed — see ADR-012)
 
 ## Decision
