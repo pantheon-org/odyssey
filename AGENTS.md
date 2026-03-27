@@ -8,6 +8,20 @@ VitePress site have been implemented yet.
 
 Start here: `.context/plans/implementation-plan.md`
 
+## Skills
+
+The following [Tessl](https://tessl.io) tiles are vendored in this repo (see `tessl.json`):
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| `pantheon-ai/agents-md` | writing or updating AGENTS.md | Deterministic AGENTS.md authoring |
+| `pantheon-ai/markdown-authoring` | writing Markdown docs | Lint-compliant Markdown with CI integration |
+| `neomatrix369/learning-opportunity` | explaining concepts | Progressive concept teaching (3 depth levels) |
+| `cappasoft/web-dev-estimation` | estimating tasks | Calibrated web-dev time estimates |
+
+Skill stubs are vendored into `.agents/skills/`, `.claude/skills/`, `.cursor/skills/`, etc.
+for harness-agnostic access.
+
 ## Intended commands (once implemented)
 
 All commands will use `bun` — Node.js will not be required.
