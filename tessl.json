@@ -13,6 +13,12 @@
     },
     "pantheon-ai/markdown-authoring": {
       "version": "0.1.1"
+    },
+    "pantheon-ai/moscow-prioritization": {
+      "version": "0.1.1"
+    },
+    "pantheon-ai/acceptance-criteria": {
+      "version": "0.1.1"
     }
   }
 }
