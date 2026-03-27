@@ -40,5 +40,21 @@ bun run check:schema && echo "schemas in sync"
 - [ ] `compare-page.schema.json` includes fields: `group_id`, `group_label`, `members`, `generated_at`, `model_id`, `schema_version`
 - [ ] Existing `repo-page.schema.json` generation is unaffected
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run generate:schema` emits both `repo-page.schema.json` and `compare-page.schema.json`
+- [ ] `compare-page.schema.json` includes all required fields: `group_id`, `group_label`, `members`, `generated_at`, `model_id`, `schema_version`
+- [ ] `bun run check:schema` exits 0 when both committed schemas are fresh; exits 1 when `compare-page.schema.json` is stale
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the regression check that existing `repo-page.schema.json` generation is unaffected
+
+**Could Have**
+- [ ] Inline JSDoc on `buildCompareSchema()` documenting the frontmatter fields it emits
+
+**Won't Have (this iteration)**
+- Automatic schema publishing to an external registry — committed JSON Schema files in the repo are sufficient
+
 ## Status
 pending

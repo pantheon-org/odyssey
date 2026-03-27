@@ -32,5 +32,20 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const g
 - [ ] `groups` is an array (empty at creation)
 - [ ] Once a group is added, each entry contains `id`, `label`, `description`, and `members[]` fields
 
+## Definition of Done
+
+**Must Have**
+- [ ] `docs/schema/groups.yaml` exists, parses as valid YAML, and contains `version: "1.0.0"` and `groups: []` at creation
+- [ ] Once a group entry is added, it contains `id`, `label`, `description`, and `members[]` fields
+
+**Should Have**
+- [ ] All acceptance criteria verified via the inline bun parse snippet
+
+**Could Have**
+- [ ] JSON Schema or Zod schema for `groups.yaml` to catch malformed group entries at edit time
+
+**Won't Have (this iteration)**
+- Automated group-membership validation against existing `docs/repos/` pages — that is handled by P03T12 seeding prerequisites
+
 ## Status
 pending

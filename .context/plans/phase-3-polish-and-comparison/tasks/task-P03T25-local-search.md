@@ -30,5 +30,20 @@ ls docs/.vitepress/dist/assets/ | grep -i "search\|index"
 - [ ] `search: { provider: 'local' }` is set in `docs/.vitepress/config.ts`
 - [ ] No external search plugin or additional dependency is introduced
 
+## Definition of Done
+
+**Must Have**
+- [ ] `search: { provider: 'local' }` is set in `docs/.vitepress/config.ts`
+- [ ] A search index file is present in `docs/.vitepress/dist/assets/` after `bun run docs:build`
+
+**Should Have**
+- [ ] All acceptance criteria pass, including search coverage of repo, comparison, tag, and category pages, with no external plugin introduced
+
+**Could Have**
+- [ ] Search configuration includes `miniSearch` options to improve result ranking for frontmatter fields like `category` and `tags`
+
+**Won't Have (this iteration)**
+- Algolia DocSearch or any external hosted search service — built-in local search is the chosen approach
+
 ## Status
 pending

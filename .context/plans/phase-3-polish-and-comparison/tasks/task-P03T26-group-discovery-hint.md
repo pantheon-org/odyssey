@@ -31,5 +31,20 @@ gh workflow run evaluate.yml -f repo=owner/repo-with-shared-tags
 - [ ] Comment is posted on the evaluation PR (not as a separate issue)
 - [ ] No new workflow step is required — hint runs at the end of the existing evaluate workflow
 
+## Definition of Done
+
+**Must Have**
+- [ ] Evaluating a repo that shares ≥2 tags with any existing group member posts a PR comment listing the matching group names
+- [ ] Evaluating a repo with fewer than 2 shared tags with any group member posts no comment
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the comment appearing on the evaluation PR (not a separate issue) and no new workflow step being required
+
+**Could Have**
+- [ ] Comment includes direct links to the candidate group's comparison and ranking pages
+
+**Won't Have (this iteration)**
+- Automated group creation from the discovery hint — manual curation of `groups.yaml` remains the process
+
 ## Status
 pending

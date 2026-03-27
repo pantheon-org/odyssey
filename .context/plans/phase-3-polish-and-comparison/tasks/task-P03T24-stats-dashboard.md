@@ -32,5 +32,20 @@ grep -r "total\|average" docs/.vitepress/dist/index.html | head -5
 - [ ] Built `index.html` displays the category distribution (count per category)
 - [ ] Dashboard renders with zero repos without a build error (empty-state handling)
 
+## Definition of Done
+
+**Must Have**
+- [ ] Built `index.html` displays total evaluated repos, average total score, top 5 tags by repo count, and category distribution
+- [ ] Dashboard renders without a build error when `docs/repos/` is empty (zero-repo empty state)
+
+**Should Have**
+- [ ] All acceptance criteria verified against the built HTML output
+
+**Could Have**
+- [ ] Dashboard includes a "last updated" timestamp derived from the most recent `evaluated_at` frontmatter value
+
+**Won't Have (this iteration)**
+- Live/real-time stats updates — data is computed from committed frontmatter at build time only
+
 ## Status
 pending

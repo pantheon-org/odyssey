@@ -26,5 +26,20 @@ bun -e "import { getGroups } from './docs/.vitepress/loaders/groups.ts'; console
 - [ ] Returns an empty array when the repo has no group membership
 - [ ] Each returned entry includes links to the group's comparison page (`/compare/<group-id>`) and ranking page (`/rankings/<group-id>`)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `getGroups('owner/repo')` returns all groups whose `members[]` contains that repo, each entry including links to `/compare/<group-id>` and `/rankings/<group-id>`
+- [ ] Returns an empty array when the repo has no group membership
+
+**Should Have**
+- [ ] All acceptance criteria verified, including correct link paths for both comparison and ranking pages
+
+**Could Have**
+- [ ] Unit tests collocated at `docs/.vitepress/loaders/groups.test.ts` covering membership, non-membership, and multiple-group scenarios
+
+**Won't Have (this iteration)**
+- Transitive group membership or inheritance — direct `members[]` lookup only
+
 ## Status
 pending

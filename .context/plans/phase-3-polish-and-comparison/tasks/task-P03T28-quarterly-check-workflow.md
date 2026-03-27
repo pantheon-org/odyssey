@@ -29,5 +29,20 @@ gh run list --workflow=quarterly-check.yml --limit=1
 - [ ] `workflow_dispatch` trigger allows manual runs without changing the schedule
 - [ ] Workflow creates `pending-re-evaluation` issues only (no file writes)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `.github/workflows/quarterly-check.yml` exists with a `schedule` cron trigger `0 9 1 1,4,7,10 *` and `workflow_dispatch`
+- [ ] `gh workflow run quarterly-check.yml` completes with conclusion `success`
+
+**Should Have**
+- [ ] All acceptance criteria pass, including confirming the workflow creates `pending-re-evaluation` issues only (no file writes)
+
+**Could Have**
+- [ ] Workflow step summary output shows the count of repos scanned and issues created per run
+
+**Won't Have (this iteration)**
+- Per-repo configurable re-evaluation cadence — the quarterly schedule applies uniformly to all evaluated repos
+
 ## Status
 pending

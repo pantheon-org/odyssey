@@ -28,5 +28,21 @@ grep -r "rankings" docs/.vitepress/dist/ | head -5
 - [ ] Per-group ranking pages are reachable from the sidebar navigation
 - [ ] `bun run docs:build` completes without errors after this change
 
+## Definition of Done
+
+**Must Have**
+- [ ] Built HTML sidebar contains a "Rankings" section linking to `rankings/index.md`
+- [ ] Per-group ranking pages are reachable from the sidebar navigation
+- [ ] `bun run docs:build` completes without errors after this change
+
+**Should Have**
+- [ ] All acceptance criteria verified against the built HTML output
+
+**Could Have**
+- [ ] Sidebar auto-populates new group pages dynamically via a data loader so no manual config update is needed when groups are added
+
+**Won't Have (this iteration)**
+- Custom sidebar icons or visual theming for the Rankings section — default VitePress styling is sufficient
+
 ## Status
 pending

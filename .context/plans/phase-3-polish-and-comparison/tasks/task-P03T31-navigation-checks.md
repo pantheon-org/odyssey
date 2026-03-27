@@ -28,5 +28,20 @@ bun run check:links
 - [ ] Script makes no live network calls — runs against the built static output only
 - [ ] A broken internal link (e.g. missing page file) causes `check:links` to exit 1
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run check:links` exits 0 on a correctly built site and exits 1 when a broken internal link is detected
+- [ ] Script checks `/tags/`, `/categories/`, `/rankings/` index pages, at least one tag detail page, one category detail page, and one comparison page
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the no-live-network-calls constraint (runs against built static output only)
+
+**Could Have**
+- [ ] Check is integrated as a CI step in the deploy workflow so broken links block deployment
+
+**Won't Have (this iteration)**
+- External URL validation (e.g. checking GitHub repo links are still live) — internal static link checking only
+
 ## Status
 pending

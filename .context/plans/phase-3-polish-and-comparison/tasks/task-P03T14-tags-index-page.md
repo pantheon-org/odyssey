@@ -28,5 +28,20 @@ grep -r "tags/index" docs/.vitepress/dist/ | head -3
 - [ ] Each tag shows its repo usage count and links to `docs/tags/<tag-id>.md`
 - [ ] Deprecated tags (with `replaced_by`) are visually distinguished from active tags
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run docs:build` generates `docs/.vitepress/dist/tags/index.html` without error
+- [ ] Index lists all tag groups from `classification.yaml` as named sections, each tag showing its repo count and linking to its detail page
+
+**Should Have**
+- [ ] All acceptance criteria pass, including deprecated tags being visually distinguished from active tags
+
+**Could Have**
+- [ ] Tags with zero usage count are visually de-emphasised (e.g. greyed out) to help curators identify unused tags
+
+**Won't Have (this iteration)**
+- Tag merge or rename tooling — tag lifecycle management is out of scope for this page
+
 ## Status
 pending

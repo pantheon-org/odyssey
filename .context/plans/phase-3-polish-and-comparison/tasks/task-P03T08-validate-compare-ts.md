@@ -43,5 +43,20 @@ echo $?  # 0 = valid
 - [ ] `--dry-run` with an invalid page exits 0 but prints all validation errors
 - [ ] All TDD cases pass (`bun test scripts/validate-compare.test.ts` exits 0)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun scripts/validate-compare.ts <file>` exits 0 for a valid compare page and exits 1 for missing `members` field or missing required section
+- [ ] `--dry-run` with an invalid page exits 0 but prints all validation errors
+
+**Should Have**
+- [ ] All TDD cases pass (`bun test scripts/validate-compare.test.ts` exits 0)
+
+**Could Have**
+- [ ] Error output includes the line number or section context where the validation failure occurred
+
+**Won't Have (this iteration)**
+- Auto-fix mode that inserts missing sections — validation-only is the intended scope
+
 ## Status
 pending

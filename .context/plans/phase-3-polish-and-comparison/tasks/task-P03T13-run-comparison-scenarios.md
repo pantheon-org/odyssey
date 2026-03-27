@@ -30,5 +30,20 @@ bunx cucumber-js --config cucumber.json --tags "@phase3"
 ## Exit criteria
 `bunx cucumber-js --tags "@phase3"` exits 0.
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bunx cucumber-js --config cucumber.json --tags "@phase3"` exits 0 with 1 scenario passed, 0 failed
+- [ ] All 5 pipeline steps (groups.yaml push → compare.yml → PR → review → page published) are asserted
+
+**Should Have**
+- [ ] Full scenario completes end-to-end with the comparison page accessible at `/compare/test-group` containing "Recommendation" and "Summary table" sections
+
+**Could Have**
+- [ ] Scenario step outputs structured logs so each pipeline step is diagnosable independently in CI
+
+**Won't Have (this iteration)**
+- Multi-group parallel scenario coverage — single group scenario is the target for this phase
+
 ## Status
 pending

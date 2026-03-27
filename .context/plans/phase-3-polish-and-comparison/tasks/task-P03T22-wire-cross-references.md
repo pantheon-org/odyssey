@@ -31,5 +31,21 @@ grep -r "related\|groups" docs/.vitepress/dist/repos/ | head -5
 - [ ] "Part of groups" section is absent when the repo has no group membership
 - [ ] `bun run docs:build` completes without theme or component errors
 
+## Definition of Done
+
+**Must Have**
+- [ ] Built repo pages include a "Related repos" section (up to 3 entries) and a "Part of groups" section
+- [ ] "Related repos" section is absent when the repo shares no tags; "Part of groups" section is absent when the repo has no group membership
+- [ ] `bun run docs:build` completes without theme or component errors
+
+**Should Have**
+- [ ] All acceptance criteria verified against built HTML output in `docs/.vitepress/dist/repos/`
+
+**Could Have**
+- [ ] Visual snapshot tests for the cross-reference sections to prevent unintentional regressions in layout
+
+**Won't Have (this iteration)**
+- User-facing "add to group" or "suggest related repo" interactions — read-only display only
+
 ## Status
 pending

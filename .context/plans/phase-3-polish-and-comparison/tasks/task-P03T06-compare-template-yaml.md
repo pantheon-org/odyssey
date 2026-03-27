@@ -28,5 +28,20 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const t
 - [ ] `sections[]` contains exactly "Summary table", "Recommendation", and "Comparison"
 - [ ] `validate-compare.ts` (P03T08) uses these section names verbatim for its body check
 
+## Definition of Done
+
+**Must Have**
+- [ ] `docs/schema/compare-template.yaml` exists, parses as valid YAML, and `sections[]` contains exactly "Summary table", "Recommendation", and "Comparison"
+- [ ] `validate-compare.ts` (P03T08) uses these section names verbatim for its body check
+
+**Should Have**
+- [ ] All acceptance criteria verified via the inline bun parse snippet confirming `sections.length > 0`
+
+**Could Have**
+- [ ] Section names annotated with descriptions explaining what each section must contain
+
+**Won't Have (this iteration)**
+- Dynamic section configuration per group — a single shared template is the design intent for this iteration
+
 ## Status
 pending

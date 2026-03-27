@@ -15,5 +15,20 @@ Turn on branch protection on `main` once `evaluate.yml`, `review.yml`, and
 ## Verification
 Attempt a direct push to `main` and confirm it is blocked without required checks.
 
+## Definition of Done
+
+**Must Have**
+- [ ] Branch protection rule on `main` is enabled, requiring `evaluate.yml`, `review.yml`, and `deploy.yml` as required status checks
+- [ ] A direct push to `main` without passing required checks is blocked
+
+**Should Have**
+- [ ] Linear history and block-force-pushes settings are also enabled alongside required checks
+
+**Could Have**
+- [ ] Branch protection settings are documented in the repository wiki or a `docs/` reference page for future maintainers
+
+**Won't Have (this iteration)**
+- Infrastructure-as-code (e.g. Terraform) management of branch protection — manual GitHub UI configuration is sufficient
+
 ## Status
 pending

@@ -31,5 +31,21 @@ bun run docs:build
 - [ ] `bun run docs:build` completes without component-resolution errors
 - [ ] No external UI library is introduced — styling uses inline CSS or VitePress CSS variables only
 
+## Definition of Done
+
+**Must Have**
+- [ ] `ScoreCard.vue` renders all dimension labels and numeric scores with correct colour coding (green 4–5, yellow 3, red 1–2)
+- [ ] Component is registered globally in the VitePress theme index
+- [ ] `bun run docs:build` completes without component-resolution errors
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the no-external-UI-library constraint
+
+**Could Have**
+- [ ] Accessible `aria-label` attributes on score cells for screen reader compatibility
+
+**Won't Have (this iteration)**
+- Interactive score filtering or drill-down — display-only component
+
 ## Status
 pending

@@ -53,5 +53,21 @@ echo $?  # 0 = LLM round-trip succeeded, page not written
 - [ ] LLM JSON validation failure causes non-zero exit; no file written
 - [ ] All TDD cases pass (`bun test scripts/compare.test.ts` exits 0)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun scripts/compare.ts --dry-run <group-id>` exits 0 (LLM round-trip succeeded, no file written)
+- [ ] A repo belonging to no group causes immediate exit 0 without making an LLM call
+- [ ] Generated comparison page contains "Summary table", "Recommendation", and "Comparison" sections
+
+**Should Have**
+- [ ] All TDD cases pass (`bun test scripts/compare.test.ts` exits 0), including `p-limit(3)` concurrency and no-op fast exit
+
+**Could Have**
+- [ ] `--dry-run` output includes a preview of the generated page content for manual review before committing
+
+**Won't Have (this iteration)**
+- Retry logic for transient LLM API failures — a single-attempt fail-fast approach is sufficient
+
 ## Status
 pending

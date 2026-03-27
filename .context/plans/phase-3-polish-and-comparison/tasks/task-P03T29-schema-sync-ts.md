@@ -43,5 +43,21 @@ echo $?  # 0 = ran without error
 - [ ] At most 5 simultaneous issue-creation calls are in flight (`p-limit(5)`)
 - [ ] All TDD cases pass (`bun test scripts/schema-sync.test.ts` exits 0)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun scripts/schema-sync.ts --dry-run` exits 0 without creating any issues
+- [ ] Repo pages with a mismatched `schema_version` are collected for re-evaluation; pages with a matching version are skipped
+- [ ] An already-open `pending-re-evaluation` issue prevents a duplicate from being created
+
+**Should Have**
+- [ ] All TDD cases pass (`bun test scripts/schema-sync.test.ts` exits 0), including empty-repos-directory and `p-limit(5)` throttle cases
+
+**Could Have**
+- [ ] `--dry-run` output lists all mismatched repos with their stored vs current `schema_version` values
+
+**Won't Have (this iteration)**
+- Automatic page re-generation without human review — issues are created to trigger the existing evaluation workflow
+
 ## Status
 pending

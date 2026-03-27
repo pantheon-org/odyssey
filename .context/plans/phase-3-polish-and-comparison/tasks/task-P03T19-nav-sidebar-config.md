@@ -27,5 +27,21 @@ grep -r "tags\|categories" docs/.vitepress/dist/index.html | head -5
 - [ ] "Categories" section links to `categories/index.md`
 - [ ] `bun run docs:build` completes without errors after this change
 
+## Definition of Done
+
+**Must Have**
+- [ ] Built `index.html` sidebar contains "Tags" and "Categories" sections
+- [ ] "Tags" section links to `tags/index.md` and at least one tag group page; "Categories" section links to `categories/index.md`
+- [ ] `bun run docs:build` completes without errors after this change
+
+**Should Have**
+- [ ] All acceptance criteria verified against the built HTML output
+
+**Could Have**
+- [ ] Sidebar sections auto-populate new tag groups and category pages dynamically so no manual config update is needed when new entries are added
+
+**Won't Have (this iteration)**
+- Collapsible sidebar sections or custom icons — default VitePress navigation styling is sufficient
+
 ## Status
 pending
