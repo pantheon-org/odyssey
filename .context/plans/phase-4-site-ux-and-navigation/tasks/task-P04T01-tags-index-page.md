@@ -43,5 +43,16 @@ grep -r "tags/index" docs/.vitepress/dist/ | head -3
 **Won't Have (this iteration)**
 - Tag merge or rename tooling — tag lifecycle management is out of scope for this page
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete (≥several evaluated repos to populate tag pages meaningfully)._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — tags navigation structure
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

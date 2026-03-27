@@ -44,5 +44,16 @@ ls docs/.vitepress/dist/tags/groups/
 **Won't Have (this iteration)**
 - Dynamically generated tag group pages from a single template route — static per-group pages are the current approach
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — tags/groups navigation structure
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

@@ -43,5 +43,16 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const t
 **Won't Have (this iteration)**
 - Dynamic section configuration per group — a single shared template is the design intent for this iteration
 
+## Depends on
+
+_None — this is a Wave 1 task._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — compare page structure
+- `../../../knowledge-base/classification.md` — classification dimensions used in comparison
+
 ## Status
 pending

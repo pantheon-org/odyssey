@@ -45,5 +45,16 @@ bun run docs:build 2>&1 | grep -i "rankings"
 **Won't Have (this iteration)**
 - Cross-group score comparison within a single page — that is the responsibility of the comparison pipeline (P03T09)
 
+## Depends on
+
+- [P03T05](task-P03T05-groups-yaml.md) — `docs/schema/groups.yaml` must exist; the ranking page reads group membership from it
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — rankings and groups data flow
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

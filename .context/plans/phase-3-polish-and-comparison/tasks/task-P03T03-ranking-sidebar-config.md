@@ -44,5 +44,16 @@ grep -r "rankings" docs/.vitepress/dist/ | head -5
 **Won't Have (this iteration)**
 - Custom sidebar icons or visual theming for the Rankings section — default VitePress styling is sufficient
 
+## Depends on
+
+- [P03T01](task-P03T01-ranking-index-page.md) — rankings index page must exist before registering in sidebar
+- [P03T02](task-P03T02-ranking-group-pages.md) — group ranking pages must exist before registering in sidebar
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress sidebar config pattern
+
 ## Status
 pending

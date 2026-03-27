@@ -41,5 +41,16 @@ bun -e "import { getGroups } from './docs/.vitepress/loaders/groups.ts'; console
 **Won't Have (this iteration)**
 - Transitive group membership or inheritance — direct `members[]` lookup only
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — groups.ts loader role
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

@@ -45,5 +45,15 @@ ls docs/.vitepress/dist/assets/ | grep -i "search\|index"
 **Won't Have (this iteration)**
 - Algolia DocSearch or any external hosted search service — built-in local search is the chosen approach
 
+## Depends on
+
+_None — this is a Wave 1 task._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress built-in local search configuration
+
 ## Status
 pending

@@ -64,5 +64,16 @@ bunx cucumber-js --config cucumber.json --tags "@phase2" --dry-run
 **Won't Have (this iteration)**
 - Live end-to-end execution against the real GitHub API — that is deferred to the slow `@phase2` suite run in P02T06
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 1 must be complete (evaluate.yml, review.yml, deploy.yml working)._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — evaluate.yml label trigger and pipeline flow
+- `../../../adr/018-testing-strategy.md` — BDD-first rationale
+
 ## Status
 pending

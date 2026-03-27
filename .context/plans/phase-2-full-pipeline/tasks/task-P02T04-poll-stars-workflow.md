@@ -45,5 +45,16 @@ gh run list --workflow=poll-stars.yml --limit=1
 **Won't Have (this iteration)**
 - Cursor commit-back logic — the full-list strategy (ADR-022) means no cursor file needs to be committed
 
+## Depends on
+
+- [P02T03](task-P02T03-poll-stars-ts.md) — workflow calls `scripts/poll-stars.ts`; script must be merged first
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — poll-stars.yml steps and secrets matrix
+- `../../../knowledge-base/toolchain.md` — actions/cache for cursor persistence
+
 ## Status
 pending

@@ -59,5 +59,17 @@ echo $?  # 0 = ran without error
 **Won't Have (this iteration)**
 - Automatic page re-generation without human review — issues are created to trigger the existing evaluation workflow
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 2 must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — schema-sync.ts role and schema_version tracking
+- `../../../knowledge-base/toolchain.md` — p-limit concurrency
+- `../../../adr/017-schema-drift-ci.md` — schema drift detection rationale
+
 ## Status
 pending

@@ -61,5 +61,17 @@ echo $?  # 0 = ran without error
 **Won't Have (this iteration)**
 - Timestamp-based cursor advancement — the full-list fetch strategy (ADR-022) replaces it and is out of scope
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 1 must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — poll-stars pipeline context
+- `../../../knowledge-base/toolchain.md` — GraphQL client and Bun runtime choices
+- `../../../knowledge-base/architecture.md` — poll-stars.ts role in the pipeline
+
 ## Status
 pending

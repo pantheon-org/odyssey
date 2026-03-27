@@ -48,5 +48,15 @@ gh run list --workflow=schema-sync.yml --limit=1
 **Won't Have (this iteration)**
 - Automatic schema generation within this workflow — `generate:schema` must be run and committed manually before pushing `classification.yaml`
 
+## Depends on
+
+- [P03T16](task-P03T16-schema-sync-ts.md) — `scripts/schema-sync.ts` must be implemented; the workflow calls it
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — schema-sync.yml trigger (push to classification.yaml) and GH_PAT secrets
+
 ## Status
 pending

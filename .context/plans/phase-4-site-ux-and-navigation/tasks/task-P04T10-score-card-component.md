@@ -47,5 +47,16 @@ bun run docs:build
 **Won't Have (this iteration)**
 - Interactive score filtering or drill-down — display-only component
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress custom theme and Vue component approach
+- `../../../knowledge-base/classification.md` — dimensions and scoring structure for the score card
+
 ## Status
 pending

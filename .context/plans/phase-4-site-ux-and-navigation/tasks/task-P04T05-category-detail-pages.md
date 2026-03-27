@@ -43,5 +43,16 @@ ls docs/.vitepress/dist/categories/ | head -5
 **Won't Have (this iteration)**
 - Sub-category or nested category hierarchy — flat category structure per `classification.yaml` is the design
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — category detail page structure
+- `../../../knowledge-base/classification.md` — classification categories and their values
+
 ## Status
 pending

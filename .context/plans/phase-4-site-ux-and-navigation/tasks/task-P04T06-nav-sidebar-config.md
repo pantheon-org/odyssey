@@ -43,5 +43,19 @@ grep -r "tags\|categories" docs/.vitepress/dist/index.html | head -5
 **Won't Have (this iteration)**
 - Collapsible sidebar sections or custom icons — default VitePress navigation styling is sufficient
 
+## Depends on
+
+- [P04T01](task-P04T01-tags-index-page.md) — `docs/tags/index.md` must exist before registering in sidebar
+- [P04T02](task-P04T02-tags-group-pages.md) — `docs/tags/groups/` pages must exist
+- [P04T03](task-P04T03-tag-detail-pages.md) — `docs/tags/<tag-id>.md` pages must exist
+- [P04T04](task-P04T04-categories-index-page.md) — `docs/categories/index.md` must exist
+- [P04T05](task-P04T05-category-detail-pages.md) — `docs/categories/<category>.md` pages must exist
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress sidebar config pattern
+
 ## Status
 pending

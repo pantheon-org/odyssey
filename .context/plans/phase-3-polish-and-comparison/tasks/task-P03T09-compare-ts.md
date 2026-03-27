@@ -30,9 +30,9 @@ pure functions to make them testable in isolation.
 - `p-limit(3)`: ≤3 concurrent LLM call slots
 
 ## Depends on
-- P03T05 — reads `docs/schema/groups.yaml`; group entry shape: `{ id: string, label: string, description: string, members: string[] }`
-- P03T06 — reads `docs/schema/compare-template.yaml` for required body section names when rendering the output page
-- P01T10 — reads existing evaluated repo pages from `docs/repos/<owner>-<repo>.md` (written by evaluate.ts) to build the comparison prompt; these pages must exist for any group member before compare.ts can run for that group
+
+- [P03T05](task-P03T05-groups-yaml.md) — `docs/schema/groups.yaml` must exist; `compare.ts` reads group membership from it
+- [P03T06](task-P03T06-compare-template-yaml.md) — `docs/schema/compare-template.yaml` must exist; used to structure the compare page output
 
 ## References
 - `adr/015-compare-rankings.md` — comparison page design
@@ -68,6 +68,14 @@ echo $?  # 0 = LLM round-trip succeeded, page not written
 
 **Won't Have (this iteration)**
 - Retry logic for transient LLM API failures — a single-attempt fail-fast approach is sufficient
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — compare.ts role and output format
+- `../../../knowledge-base/toolchain.md` — GitHub Models API and p-limit concurrency
+- `../../../knowledge-base/classification.md` — classification dimensions used in comparison
 
 ## Status
 pending

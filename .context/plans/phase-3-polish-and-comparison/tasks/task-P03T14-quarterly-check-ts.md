@@ -64,5 +64,17 @@ echo $?  # 0 = ran without error
 **Won't Have (this iteration)**
 - GitHub Activity or commit-frequency signals as additional heuristics — star count, description, and archived status are the defined triggers
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 2 must be complete (≥1 evaluated repo in `docs/repos/`)._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — quarterly-check.ts role and material-change criteria
+- `../../../knowledge-base/toolchain.md` — p-limit concurrency and Bun runtime
+- `../../../adr/006-re-evaluation-cadence.md` — re-evaluation trigger rationale
+
 ## Status
 pending

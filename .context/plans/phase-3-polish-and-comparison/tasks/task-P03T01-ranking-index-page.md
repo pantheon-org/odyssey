@@ -44,5 +44,16 @@ bun run docs:build 2>&1 | grep -i "rankings"
 **Won't Have (this iteration)**
 - Live score recomputation via API — scores are read from committed frontmatter only
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 2 must be complete (≥2 evaluated repos in `docs/repos/`)._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — rankings page data flow
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

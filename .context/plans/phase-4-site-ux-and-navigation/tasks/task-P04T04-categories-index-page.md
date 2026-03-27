@@ -43,5 +43,16 @@ grep -r "categories/index" docs/.vitepress/dist/ | head -3
 **Won't Have (this iteration)**
 - Category create/edit UI — categories are managed via `classification.yaml` directly
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — categories navigation structure
+- `../../../knowledge-base/classification.md` — category dimension structure
+
 ## Status
 pending
