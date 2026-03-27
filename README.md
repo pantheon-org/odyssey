@@ -25,10 +25,13 @@ flowchart LR
 
 ## Status
 
-**Planning and documentation phase.** No source code or workflows have been implemented yet.
+**Ready to implement — Phase 1.** Architecture and planning are complete; no source code
+or workflows exist yet. Phase 1 tasks have a wave-based execution graph with explicit
+dependencies, enabling parallel implementation.
 
-See [`AGENTS.md`](./AGENTS.md) for architecture, commands, testing strategy, and context
-documents. Start at [`.context/plans/implementation-plan.md`](./.context/plans/implementation-plan.md).
+See [`AGENTS.md`](./AGENTS.md) for architecture, commands, testing strategy, and
+implementation conventions. Start at
+[`.context/plans/implementation-plan.md`](./.context/plans/implementation-plan.md).
 
 ## Contributing / agents
 

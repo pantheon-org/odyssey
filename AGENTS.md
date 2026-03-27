@@ -182,9 +182,9 @@ Tasks within the same **Wave** in a phase README can be implemented concurrently
 Use Claude Code's `Agent` tool with `isolation: "worktree"` to run parallel tasks in
 isolated git worktrees — each agent gets its own branch and cannot conflict with others.
 
-Example: to run Wave 2 of Phase 1 in parallel, launch three agents simultaneously:
+Example: to run Wave 2 of Phase 1 in parallel, launch four agents simultaneously:
 
-```
+```text
 Agent(isolation: "worktree", prompt: "Implement P01T02 ...")
 Agent(isolation: "worktree", prompt: "Implement P01T03 ...")
 Agent(isolation: "worktree", prompt: "Implement P01T07 ...")
@@ -209,4 +209,4 @@ Do not start a Wave N+1 agent until all Wave N PRs are merged.
 | `.context/knowledge-base/toolchain.md` | Full tool choices with rationale |
 | `.context/knowledge-base/workflows.md` | All GitHub Actions workflows with steps and secrets |
 | `.context/knowledge-base/classification.md` | Classification schema design |
-| `.context/adr/` | All architectural decision records (001–022) |
+| `.context/adr/` | All architectural decision records (001–023) |
