@@ -29,5 +29,21 @@ bunx cucumber-js --config cucumber.json --profile integration --tags "@phase2"
 - [ ] The fallback trigger mechanism is documented with a clear note on when to use it
 - [ ] `bunx cucumber-js --profile integration --tags "@phase2"` exits 0
 
+## Definition of Done
+
+**Must Have**
+- [ ] Required PAT scopes for starring and polling are documented (in a comment or README section)
+- [ ] A dedicated test account and controlled fixture repo are defined and referenced in step definitions
+- [ ] Step definitions use the real star path by default; fallback trigger invoked only when the API is unavailable
+
+**Should Have**
+- [ ] `bunx cucumber-js --profile integration --tags "@phase2"` exits 0 (all acceptance criteria checked off)
+
+**Could Have**
+- [ ] Fallback trigger documentation includes a worked example showing exactly when and how to invoke it
+
+**Won't Have (this iteration)**
+- Automated PAT rotation or secret management for the test account — manual rotation is acceptable at this stage
+
 ## Status
 pending

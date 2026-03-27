@@ -30,5 +30,20 @@ bun run docs:build 2>&1 | grep -i "rankings"
 - [ ] Repos are sorted by total score descending
 - [ ] A group with no evaluated members renders an empty table without a build error
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run docs:build` generates a per-group ranking page for each seeded group in `groups.yaml`
+- [ ] Each per-group page lists only that group's member repos, sorted by total score descending
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the empty-group edge case rendering an empty table without a build error
+
+**Could Have**
+- [ ] Script or generator to scaffold new per-group pages automatically when a group is added to `groups.yaml`
+
+**Won't Have (this iteration)**
+- Cross-group score comparison within a single page — that is the responsibility of the comparison pipeline (P03T09)
+
 ## Status
 pending

@@ -1,4 +1,4 @@
-# P03T21 — `docs/.vitepress/loaders/groups.ts`
+# P04T08 — `docs/.vitepress/loaders/groups.ts`
 
 ## Goal
 Data loader returning the groups a given repo belongs to.
@@ -10,7 +10,7 @@ Data loader returning the groups a given repo belongs to.
 - Reads `docs/schema/groups.yaml`.
 - For a given `owner/repo`, returns all group entries where `members[]` contains
   it, along with links to the group's comparison and ranking pages.
-- Used by the repo page template (P03T21).
+- Used by the repo page template (P04T09).
 
 ## References
 - `../../../knowledge-base/site-structure.md` — groups cross-reference loader spec
@@ -25,6 +25,21 @@ bun -e "import { getGroups } from './docs/.vitepress/loaders/groups.ts'; console
 - [ ] `getGroups('owner/repo')` returns all groups whose `members[]` contains that repo
 - [ ] Returns an empty array when the repo has no group membership
 - [ ] Each returned entry includes links to the group's comparison page (`/compare/<group-id>`) and ranking page (`/rankings/<group-id>`)
+
+## Definition of Done
+
+**Must Have**
+- [ ] `getGroups('owner/repo')` returns all groups whose `members[]` contains that repo, each entry including links to `/compare/<group-id>` and `/rankings/<group-id>`
+- [ ] Returns an empty array when the repo has no group membership
+
+**Should Have**
+- [ ] All acceptance criteria verified, including correct link paths for both comparison and ranking pages
+
+**Could Have**
+- [ ] Unit tests collocated at `docs/.vitepress/loaders/groups.test.ts` covering membership, non-membership, and multiple-group scenarios
+
+**Won't Have (this iteration)**
+- Transitive group membership or inheritance — direct `members[]` lookup only
 
 ## Status
 pending

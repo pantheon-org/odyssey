@@ -1,4 +1,4 @@
-# P03T17 — `docs/categories/index.md`
+# P04T04 — `docs/categories/index.md`
 
 ## Goal
 Categories index page: all categories with repo counts and average total scores.
@@ -27,6 +27,21 @@ grep -r "categories/index" docs/.vitepress/dist/ | head -3
 - [ ] Index table lists all categories defined in `classification.yaml`
 - [ ] Each row shows repo count, average total score, and a link to the category detail page
 - [ ] Categories are sorted by repo count descending
+
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run docs:build` generates `docs/.vitepress/dist/categories/index.html` without error
+- [ ] Index table lists all categories from `classification.yaml` sorted by repo count descending, with repo count, average total score, and a link to the detail page per row
+
+**Should Have**
+- [ ] All acceptance criteria pass including correct sort order and link targets
+
+**Could Have**
+- [ ] Categories with zero repos are shown at the bottom with a visual indicator that they have no entries yet
+
+**Won't Have (this iteration)**
+- Category create/edit UI — categories are managed via `classification.yaml` directly
 
 ## Status
 pending

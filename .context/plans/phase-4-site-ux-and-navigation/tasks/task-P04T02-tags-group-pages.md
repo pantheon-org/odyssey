@@ -1,4 +1,4 @@
-# P03T15 — `docs/tags/groups/<group>.md`
+# P04T02 — `docs/tags/groups/<group>.md`
 
 ## Goal
 Per-tag-group page: all tags in a group with their repos.
@@ -27,6 +27,22 @@ ls docs/.vitepress/dist/tags/groups/
 - [ ] Each page lists only tags belonging to that specific group
 - [ ] Each tag entry shows its repo count and links to the corresponding `docs/tags/<tag-id>.md`
 - [ ] Number of generated pages matches the number of tag groups in `classification.yaml`
+
+## Definition of Done
+
+**Must Have**
+- [ ] `bun run docs:build` generates one page per tag group under `docs/.vitepress/dist/tags/groups/`
+- [ ] Number of generated pages matches the number of tag groups in `classification.yaml`
+- [ ] Each page lists only tags belonging to that specific group, with repo counts and links to detail pages
+
+**Should Have**
+- [ ] All acceptance criteria pass, including per-tag entry counts and detail page links being correct
+
+**Could Have**
+- [ ] Tag group pages include a back-link to the tags index page for easier navigation
+
+**Won't Have (this iteration)**
+- Dynamically generated tag group pages from a single template route — static per-group pages are the current approach
 
 ## Status
 pending

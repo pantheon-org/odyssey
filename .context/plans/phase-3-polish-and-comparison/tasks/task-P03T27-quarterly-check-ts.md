@@ -48,5 +48,21 @@ echo $?  # 0 = ran without error
 - [ ] At most 5 simultaneous GitHub API calls are in flight at any time (`p-limit(5)`)
 - [ ] All TDD cases pass (`bun test scripts/quarterly-check.test.ts` exits 0)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `bun scripts/quarterly-check.ts --dry-run` exits 0 without creating any issues
+- [ ] Repos with star delta ≥20%, changed description, or changed archived status are flagged; repos with no material change are not flagged
+- [ ] An already-open `pending-re-evaluation` issue prevents a duplicate from being created
+
+**Should Have**
+- [ ] All TDD cases pass (`bun test scripts/quarterly-check.test.ts` exits 0), including `p-limit(5)` concurrency and null-safe version comparison
+
+**Could Have**
+- [ ] `--dry-run` output includes a human-readable summary of flagged repos and the triggered heuristic for each
+
+**Won't Have (this iteration)**
+- GitHub Activity or commit-frequency signals as additional heuristics — star count, description, and archived status are the defined triggers
+
 ## Status
 pending

@@ -29,5 +29,21 @@ gh run list --workflow=poll-stars.yml --limit=1
 - [ ] `workflow_dispatch` trigger allows manual re-runs
 - [ ] Workflow requires `contents: write` permission (to support future cursor commits if needed)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `.github/workflows/poll-stars.yml` exists with a `schedule` cron trigger (`*/15 * * * *`) and `workflow_dispatch`
+- [ ] `gh workflow run poll-stars.yml` completes with conclusion `success`
+- [ ] Workflow declares `contents: write` permission
+
+**Should Have**
+- [ ] All acceptance criteria are verified (cron trigger, dispatch trigger, permission, successful manual run)
+
+**Could Have**
+- [ ] Workflow includes a step summary output showing how many new issues were created on each run
+
+**Won't Have (this iteration)**
+- Cursor commit-back logic — the full-list strategy (ADR-022) means no cursor file needs to be committed
+
 ## Status
 pending

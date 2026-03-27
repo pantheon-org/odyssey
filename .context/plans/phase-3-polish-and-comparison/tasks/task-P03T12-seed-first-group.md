@@ -30,5 +30,21 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const g
 - [ ] The seeded group's members share at least 2 tags (prerequisite for meaningful comparison)
 - [ ] Committing `groups.yaml` via a PR and merging to `main` triggers `compare.yml`
 
+## Definition of Done
+
+**Must Have**
+- [ ] `groups.yaml` contains at least one group entry with valid `id`, `label`, `description`, and `members[]`
+- [ ] All repos in `members[]` have existing evaluated pages in `docs/repos/`
+- [ ] Merging the PR containing the seeded group triggers `compare.yml`
+
+**Should Have**
+- [ ] All acceptance criteria pass, including the shared-tags prerequisite (≥2 tags shared among members)
+
+**Could Have**
+- [ ] A short comment in `groups.yaml` documenting why the first group was chosen and which shared tags qualified it
+
+**Won't Have (this iteration)**
+- Automated group-candidate discovery tooling — the group-discovery hint from P03T26 surfaces candidates but manual curation is the process
+
 ## Status
 pending

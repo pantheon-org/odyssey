@@ -29,5 +29,21 @@ gh pr list --head "compare/" --limit 3
 - [ ] Auto-merge on success still applies for `compare/*` PRs
 - [ ] All other steps (check:schema) remain unchanged
 
+## Definition of Done
+
+**Must Have**
+- [ ] Opening a `compare/*` PR triggers `review.yml`
+- [ ] A changed file under `docs/compare/` runs `validate-compare.ts` (not `validate-page.ts`)
+- [ ] A changed file under `docs/repos/` still runs `validate-page.ts` as before
+
+**Should Have**
+- [ ] All acceptance criteria pass, including auto-merge on success for `compare/*` PRs and `check:schema` remaining unchanged
+
+**Could Have**
+- [ ] Inline comments in `review.yml` explaining the conditional validator dispatch logic
+
+**Won't Have (this iteration)**
+- Separate review workflow file for compare branches — a conditional step within the existing `review.yml` is the chosen approach
+
 ## Status
 pending

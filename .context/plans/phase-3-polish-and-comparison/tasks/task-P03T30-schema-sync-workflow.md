@@ -32,5 +32,21 @@ gh run list --workflow=schema-sync.yml --limit=1
 - [ ] Workflow completes with conclusion `success` when schemas are in sync and no stale pages are found
 - [ ] `workflow_dispatch` allows manual runs
 
+## Definition of Done
+
+**Must Have**
+- [ ] Push of `docs/schema/classification.yaml` to `main` triggers `schema-sync.yml`
+- [ ] `bun run check:schema` runs first; a stale JSON schema causes the workflow to fail before scanning pages
+- [ ] Workflow completes with conclusion `success` when schemas are in sync and no stale pages exist
+
+**Should Have**
+- [ ] All acceptance criteria pass, including `workflow_dispatch` allowing manual runs
+
+**Could Have**
+- [ ] Workflow summary step reports the number of stale pages found and issues created
+
+**Won't Have (this iteration)**
+- Automatic schema generation within this workflow — `generate:schema` must be run and committed manually before pushing `classification.yaml`
+
 ## Status
 pending

@@ -49,5 +49,20 @@ bunx cucumber-js --config cucumber.json --tags "@phase2" --dry-run
 - [ ] `bunx cucumber-js --tags "@phase2" --dry-run` exits 0 with no "undefined" steps
 - [ ] All step definitions are registered in `features/step-definitions/poll-stars.steps.ts`
 
+## Definition of Done
+
+**Must Have**
+- [ ] `features/poll-stars.feature` exists and contains the exact Gherkin scenario specified in this task with `@phase2 @slow` tags
+- [ ] `features/step-definitions/poll-stars.steps.ts` registers all step definitions for the scenario
+
+**Should Have**
+- [ ] `bunx cucumber-js --tags "@phase2" --dry-run` exits 0 with no "undefined" steps (all acceptance criteria checked off)
+
+**Could Have**
+- [ ] Step definitions include inline JSDoc explaining the World helpers used for starring and issue polling
+
+**Won't Have (this iteration)**
+- Live end-to-end execution against the real GitHub API — that is deferred to the slow `@phase2` suite run in P02T06
+
 ## Status
 pending

@@ -45,5 +45,21 @@ echo $?  # 0 = ran without error
 - [ ] Missing `LIST_NAME` among the owner's lists causes non-zero exit with a descriptive error
 - [ ] All TDD cases pass (`bun test scripts/poll-stars.test.ts` exits 0)
 
+## Definition of Done
+
+**Must Have**
+- [ ] `scripts/poll-stars.ts` exists and fetches all pages of the GitHub List via GraphQL, deduplicates against existing issues, and creates one `pending-evaluation` issue per new repo
+- [ ] `--dry-run` flag exits 0 without creating any GitHub issues
+- [ ] Missing `LIST_NAME` causes non-zero exit with a descriptive error message
+
+**Should Have**
+- [ ] All TDD cases pass (`bun test scripts/poll-stars.test.ts` exits 0), covering list filter, pagination, dedup, dry-run, and missing-list scenarios
+
+**Could Have**
+- [ ] Improved error messages that include the list of available list names when `LIST_NAME` is not found
+
+**Won't Have (this iteration)**
+- Timestamp-based cursor advancement — the full-list fetch strategy (ADR-022) replaces it and is out of scope
+
 ## Status
 pending

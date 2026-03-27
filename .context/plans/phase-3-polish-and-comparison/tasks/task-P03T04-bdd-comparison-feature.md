@@ -52,5 +52,20 @@ bunx cucumber-js --config cucumber.json --tags "@phase3"
 # 1 scenario (1 passed, 0 failed)
 ```
 
+## Definition of Done
+
+**Must Have**
+- [ ] `features/compare.feature` exists with the exact Gherkin scenario specified in this task, tagged `@phase3 @slow`
+- [ ] `features/step-definitions/compare.steps.ts` registers all step definitions with no "undefined" steps
+
+**Should Have**
+- [ ] `bunx cucumber-js --tags "@phase3" --dry-run` exits 0 with no undefined steps (structural check passes before P03T05–P03T12 are implemented)
+
+**Could Have**
+- [ ] Fast structural tag check (`--tags "@phase3 and not @slow" --dry-run`) is documented in a Makefile or `package.json` script
+
+**Won't Have (this iteration)**
+- Live end-to-end scenario execution — that is deferred to P03T13 once the full comparison pipeline is implemented
+
 ## Status
 pending
