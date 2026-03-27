@@ -209,4 +209,5 @@ Do not start a Wave N+1 agent until all Wave N PRs are merged.
 | `.context/knowledge-base/toolchain.md` | Full tool choices with rationale |
 | `.context/knowledge-base/workflows.md` | All GitHub Actions workflows with steps and secrets |
 | `.context/knowledge-base/classification.md` | Classification schema design |
+| `.context/knowledge-base/task-waves.md` | Wave-based parallel task execution — how waves are determined, how to run them |
 | `.context/adr/` | All architectural decision records (001–023) |
