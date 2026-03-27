@@ -1,4 +1,4 @@
-# P03T27 — `scripts/quarterly-check.ts`
+# P03T14 — `scripts/quarterly-check.ts`
 
 ## Goal
 Scan all evaluated repos for material changes; open `pending-re-evaluation` issues

@@ -18,7 +18,7 @@ and schema-sync workflows green on dry-run; Phase 3 Cucumber comparison scenario
 
 - **BDD first**: P03T04 (comparison e2e feature) must be completed before P03T05
   (groups.yaml). The Cucumber scenario is the acceptance criterion for the comparison pipeline.
-- **TDD**: implementation tasks P03T08, P03T09, P03T27, and P03T29 each have a
+- **TDD**: implementation tasks P03T08, P03T09, P03T14, and P03T16 each have a
   collocated test file written *before* the source file. Red → green → refactor.
 
 ### Operational hygiene (moved from Phase 2)
@@ -28,10 +28,10 @@ critical path for the automated pipeline.
 
 | ID | Task | Status |
 |----|------|--------|
-| [P03T27](tasks/task-P03T27-quarterly-check-ts.md) | `scripts/quarterly-check.ts` (TDD) | pending |
-| [P03T28](tasks/task-P03T28-quarterly-check-workflow.md) | `.github/workflows/quarterly-check.yml` | pending |
-| [P03T29](tasks/task-P03T29-schema-sync-ts.md) | `scripts/schema-sync.ts` (TDD) | pending |
-| [P03T30](tasks/task-P03T30-schema-sync-workflow.md) | `.github/workflows/schema-sync.yml` | pending |
+| [P03T14](tasks/task-P03T14-quarterly-check-ts.md) | `scripts/quarterly-check.ts` (TDD) | pending |
+| [P03T15](tasks/task-P03T15-quarterly-check-workflow.md) | `.github/workflows/quarterly-check.yml` | pending |
+| [P03T16](tasks/task-P03T16-schema-sync-ts.md) | `scripts/schema-sync.ts` (TDD) | pending |
+| [P03T17](tasks/task-P03T17-schema-sync-workflow.md) | `.github/workflows/schema-sync.yml` | pending |
 
 ### Ranking pages
 
