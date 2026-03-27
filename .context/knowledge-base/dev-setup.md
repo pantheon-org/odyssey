@@ -70,7 +70,9 @@ bun scripts/compare.ts --dry-run
 
 ```sh
 bun test                         # Unit tests (no secrets needed)
-bun run lint                     # Biome lint
+bun run lint                     # Biome lint (TS/JS/JSON)
+bun run lint:md                  # Markdown lint (markdownlint-cli2)
+bun run check:yaml               # Parse-check all .yaml/.yml files
 bun run check:schema             # Verify committed JSON schema is current
 ```
 
