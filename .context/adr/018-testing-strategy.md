@@ -57,6 +57,25 @@ Run with `bun test`.
 
 ---
 
+### Level 1.5 — Orchestration tests with mocked APIs
+
+**Mock Service Worker (MSW)** or direct `fetch` mocking is used to test the orchestration
+logic in `evaluate.ts`, `poll-stars.ts`, etc. This bridges the gap between pure
+functions and live e2e tests.
+
+These tests ensure:
+- API responses are correctly parsed and passed to prompt builders
+- Errors from GitHub API are handled (retries, issue labeling)
+- File system writes are correctly orchestrated (using a temporary directory)
+
+```
+scripts/
+  evaluate.orchestration.test.ts
+  poll-stars.orchestration.test.ts
+```
+
+---
+
 ### Level 2 — `--dry-run` flag on all scripts
 
 Each script accepts `--dry-run` (parsed from `process.argv`). In dry-run mode:
