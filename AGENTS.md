@@ -1,8 +1,16 @@
 # Odyssey — Agent Guide
 
-## Commands
+## Current status
 
-All commands use `bun` — Node.js is not required.
+This repository is in the **planning and documentation phase**. Only `.context/`
+planning documents, ADRs, and this guide exist. No source code, workflows, or
+VitePress site have been implemented yet.
+
+Start here: `.context/plans/implementation-plan.md`
+
+## Intended commands (once implemented)
+
+All commands will use `bun` — Node.js will not be required.
 
 ```bash
 bun install                     # Install dependencies (uses bun.lockb)
@@ -19,7 +27,7 @@ bun run docs:dev                # VitePress dev server
 bun run docs:build              # Build VitePress site → docs/.vitepress/dist
 ```
 
-Dry-run all scripts locally (suppresses all writes, safe against real GitHub state):
+Dry-run flags (all scripts will support this — reads execute, writes are skipped):
 
 ```bash
 bun scripts/evaluate.ts --dry-run
@@ -29,7 +37,7 @@ bun scripts/schema-sync.ts --dry-run
 bun scripts/compare.ts --dry-run
 ```
 
-## Architecture
+## Intended architecture
 
 Odyssey is a fully-automated GitHub Actions pipeline that classifies repos from a
 curated GitHub List and publishes a VitePress site to GitHub Pages. No server;
@@ -39,20 +47,46 @@ everything is scripts + workflows + static files.
 
 ```mermaid
 flowchart TD
-    A[GitHub List: Look the Loony Mob] --> B[poll-stars.ts]
-    B --> C[issue: pending-evaluation]
-    C --> D[evaluate.yml]
-    D --> E[evaluate.ts: fetch repo data, build prompt, call GitHub Models LLM]
-    E --> F[write docs/repos/repo.md and open PR]
-    F --> G[review.yml: validate-page.ts and check schema]
-    G --> H[auto-merge on pass]
-    H --> I[deploy.yml: vitepress build to GitHub Pages]
+    subgraph A["Path A — List intake"]
+        PS["poll-stars.yml\ncron every 15 min\nFetch GitHub List: Look the Loony Mob via GraphQL\nCreate issue: pending-evaluation"]
+    end
+
+    subgraph B["Path B — Quarterly re-eval"]
+        QC["quarterly-check.yml\ncron quarterly\nCheck material changes and schema drift\nCreate issue: pending-re-evaluation"]
+    end
+
+    subgraph C["Path C — Schema evolution"]
+        SS["schema-sync.yml\non push to classification.yaml\nScan for schema_version mismatch\nCreate issue: pending-re-evaluation"]
+    end
+
+    subgraph D["Path D — Manual submission"]
+        IT["Issue template: Evaluate: owner/repo\nLabel pending-evaluation applied on open\nauthor_association guard: OWNER / COLLABORATOR / MEMBER only"]
+    end
+
+    subgraph Eval["evaluate.yml — on issue labeled"]
+        EV["Guard: page exists? Close as duplicate\nFetch repo data via GitHub API\nCall GitHub Models API with retry\nWrite docs/repos/owner-repo.md\nCommit and open PR"]
+    end
+
+    subgraph Rev["review.yml — on PR opened"]
+        RV["Validate frontmatter and body sections\nPost score card comment\nAll checks pass: auto-merge"]
+    end
+
+    subgraph Dep["deploy.yml — on push to main"]
+        DP["bun run docs:build\nDeploy to GitHub Pages"]
+    end
+
+    PS --> EV
+    IT --> EV
+    QC --> EV
+    SS --> EV
+    EV --> RV
+    RV --> DP
 ```
 
-Comparison pages (`docs/rankings/`) are generated at build time by VitePress data
+Comparison pages (`docs/rankings/`) will be generated at build time by VitePress data
 loaders — never committed.
 
-### Key source locations
+### Planned source locations
 
 | Component | Path | Role |
 |-----------|------|------|
@@ -71,11 +105,10 @@ loaders — never committed.
 
 ### Schema versioning
 
-`classification.yaml` carries a `version` field. Every `docs/repos/*.md` frontmatter
-includes `schema_version`. When they diverge, `schema-sync.ts` creates a
+`classification.yaml` will carry a `version` field. Every `docs/repos/*.md` frontmatter
+will include `schema_version`. When they diverge, `schema-sync.ts` creates a
 `pending-re-evaluation` issue. The committed `repo-page.schema.json` is generated from
-`classification.yaml` — run `bun run check:schema` to verify they're in sync (enforced
-in CI).
+`classification.yaml` — `bun run check:schema` verifies they're in sync (enforced in CI).
 
 ### Secrets
 
@@ -83,7 +116,7 @@ in CI).
 Token) for all cross-workflow trigger points. See `.context/workflows.md` for the full
 secrets matrix.
 
-### Concurrency limits
+### Concurrency limits (planned)
 
 - GitHub API calls in `quarterly-check.ts` and issue creation in `schema-sync.ts`: `p-limit(5)`
 - LLM calls in `compare.ts`: `p-limit(3)`
@@ -97,8 +130,8 @@ Three levels — see `.context/adr/018-testing-strategy.md` for full rationale.
    `__tests__/`). Write the test file **before** the implementation (red → green →
    refactor).
 
-2. **`--dry-run` flag** — all scripts accept `--dry-run`; reads execute, writes are
-   skipped and logged. Use for local iteration against real GitHub state.
+2. **`--dry-run` flag** — all scripts will accept `--dry-run`; reads execute, writes
+   are skipped and logged. Use for local iteration against real GitHub state.
 
 3. **BDD e2e** (CucumberJS) — feature files in `features/`, step definitions in
    `features/step-definitions/`. Write the `.feature` file before implementing the
@@ -111,12 +144,13 @@ Three levels — see `.context/adr/018-testing-strategy.md` for full rationale.
 - All diagrams must be Mermaid — never ASCII art.
 - `.context/` files shard at 300 lines.
 
-## Key context documents
+## Context documents
 
 | Document | Purpose |
 |----------|---------|
+| `.context/plans/implementation-plan.md` | Phased implementation plan |
 | `.context/architecture.md` | Component map and data flow |
 | `.context/toolchain.md` | Full tool choices with rationale |
 | `.context/workflows.md` | All GitHub Actions workflows with steps and secrets |
 | `.context/classification.md` | Classification schema design |
-| `.context/adr/` | All architectural decision records |
+| `.context/adr/` | All architectural decision records (001–022) |
