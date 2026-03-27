@@ -26,6 +26,19 @@ Implement all steps from `features/evaluate.feature`:
 Use `setDefaultTimeout(300_000)` in `cucumber.json`. Tag scenarios `@slow` to
 allow `--tags "not @slow"` for fast local runs.
 
+## Depends on
+
+- P01T11 — `evaluate.yml` must be deployed and dispatchable
+- P01T12 — `review.yml` must auto-merge passing PRs
+- P01T13 — `deploy.yml` must publish to GitHub Pages
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/018-testing-strategy.md` — BDD testing strategy, step polling pattern
+- `features/evaluate.feature` — the scenario whose steps you are implementing
+
 ## References
 - `adr/018-testing-strategy.md` — BDD testing strategy
 

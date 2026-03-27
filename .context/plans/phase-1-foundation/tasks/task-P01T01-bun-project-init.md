@@ -22,6 +22,16 @@ Bootstrap the repo with a Bun project: `package.json`, `bun.lockb`, `tsconfig.js
 - `scripts/check-yaml.ts`: glob all `**/*.yaml` / `**/*.yml` files (excluding `node_modules`),
   parse each with the `yaml` package, print filename + error on failure, exit non-zero if any fail.
 
+## Depends on
+
+Nothing — this is the first task (greenfield).
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — `tsconfig.json` fields, `biome.json` template, `.markdownlint.jsonc` template, Bun version pinning
+
 ## References
 - `../../../knowledge-base/toolchain.md` — exact `tsconfig.json` fields, `biome.json` template,
   `.markdownlint.jsonc` template, `check-yaml.ts` implementation, Bun version pinning

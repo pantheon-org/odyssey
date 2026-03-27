@@ -28,6 +28,13 @@ Write `scripts/generate-schema.test.ts` collocated **before** implementing.
 - `docs/schema/repo-page.schema.json` (committed artefact) — consumed by P01T09 (validate-page.ts) for Ajv frontmatter validation
 - `package.json` scripts `generate:schema` and `check:schema` — used in CI (ADR-017) and extended by P03T07
 
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/017-schema-drift-ci.md` — `check:schema` CI enforcement
+- `../../../knowledge-base/classification.md` — schema versioning
+
 ## References
 - `adr/017-schema-drift-ci.md` — `check:schema` CI enforcement
 - `../../../knowledge-base/classification.md` — schema versioning

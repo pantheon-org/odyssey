@@ -22,6 +22,16 @@ GitHub Actions workflow that runs `evaluate.ts` on a manually provided repo.
 - Idempotency: `evaluate.ts` skips if page exists (ADR-013); re-eval label
   overrides the guard.
 
+## Depends on
+
+- P01T10 — `scripts/evaluate.ts` must exist and be runnable from the workflow step
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — full YAML spec for evaluate.yml
+
 ## References
 - `../../../knowledge-base/workflows.md` — full YAML spec for evaluate.yml
 - `adr/013-evaluation-idempotency.md` — skip guard behaviour

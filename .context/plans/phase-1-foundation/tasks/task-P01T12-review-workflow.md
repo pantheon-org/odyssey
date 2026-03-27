@@ -16,6 +16,17 @@ CI workflow: validate page, check schema drift, auto-merge passing PRs.
   4. Auto-merge on success (via `gh pr merge --auto --squash`)
 - Must be the required status check configured in branch protection (P01T13).
 
+## Depends on
+
+- P01T09 — `scripts/validate-page.ts` must exist; the workflow calls it
+- P01T10 — `bun run check:schema` must be wired (added by P01T06, called after P01T10)
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — full YAML spec for review.yml
+
 ## References
 - `../../../knowledge-base/workflows.md` — full YAML spec for review.yml
 - `adr/017-schema-drift-ci.md` — `check:schema` step requirement

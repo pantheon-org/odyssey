@@ -27,6 +27,14 @@ Write `scripts/validate-page.test.ts` collocated **before** implementing.
 - P01T06 — reads `docs/schema/repo-page.schema.json` for Ajv; file must be committed before this script runs
 - P01T07 — reads `docs/schema/page-template.yaml` for required section names (`sections[]`) and `min_content_length`
 
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/008-response-validation.md` — Ajv validation approach
+- `../../../.context/adr/018-testing-strategy.md` — `--dry-run` flag requirement
+- `../../../knowledge-base/site-structure.md` — frontmatter schema, page body template
+
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
 - `adr/018-testing-strategy.md` — `--dry-run` flag requirement

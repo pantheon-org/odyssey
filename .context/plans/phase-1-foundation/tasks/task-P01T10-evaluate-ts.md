@@ -48,6 +48,18 @@ to make them testable in isolation.
 - P01T05 — imports `buildSchemas()` from `scripts/schema.ts` for Zod validation of LLM JSON response
 - P01T07 — reads `docs/schema/page-template.yaml` for the page body section structure used when rendering the output page
 
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/002-llm-model-and-auth.md` — GitHub Models API + gpt-4o-mini
+- `../../../.context/adr/007-prompt-enrichment.md` — pre-fetch repo data, README truncation
+- `../../../.context/adr/008-response-validation.md` — Zod validation
+- `../../../.context/adr/013-evaluation-idempotency.md` — page-exists guard
+- `../../../.context/adr/014-model-provenance.md` — `model_id` frontmatter
+- `../../../.context/adr/023-license-and-risk-evaluation.md` — `license`, `enterprise_use`, `risk_flags` fields
+- `../../../knowledge-base/site-structure.md` — page body template
+
 ## References
 - `adr/002-llm-model-and-auth.md` — GitHub Models API + gpt-4o-mini
 - `adr/007-prompt-enrichment.md` — pre-fetch repo data, README truncation

@@ -16,6 +16,16 @@ Define the required body sections for a repo evaluation page.
   - `sections[]` (string[]) — required heading names that every repo page body must contain
   - `min_content_length` (number) — minimum body character count threshold
 
+## Depends on
+
+- P01T01 — project must be initialised before any `docs/schema/` files are placed
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/site-structure.md` — page body template, required section list
+
 ## References
 - `../../../knowledge-base/site-structure.md` — page body template, required section list
 
