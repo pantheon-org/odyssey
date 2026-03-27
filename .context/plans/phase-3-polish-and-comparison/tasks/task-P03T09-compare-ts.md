@@ -29,6 +29,11 @@ pure functions to make them testable in isolation.
 - Prompt builder: all member page bodies injected into prompt string
 - `p-limit(3)`: ≤3 concurrent LLM call slots
 
+## Depends on
+- P03T05 — reads `docs/schema/groups.yaml`; group entry shape: `{ id: string, label: string, description: string, members: string[] }`
+- P03T06 — reads `docs/schema/compare-template.yaml` for required body section names when rendering the output page
+- P01T10 — reads existing evaluated repo pages from `docs/repos/<owner>-<repo>.md` (written by evaluate.ts) to build the comparison prompt; these pages must exist for any group member before compare.ts can run for that group
+
 ## References
 - `adr/015-compare-rankings.md` — comparison page design
 - `adr/016-compare-cascade-protection.md` — no-op fast exit, p-limit(3)

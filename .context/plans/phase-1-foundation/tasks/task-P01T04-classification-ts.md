@@ -18,6 +18,14 @@ Write `scripts/classification.test.ts` collocated **before** implementing.
 - Throws when `version`, `dimensions`, `categories`, or `verdicts` are missing
 - Throws on malformed YAML
 
+## Depends on
+- P01T03 — `docs/schema/classification.yaml` must exist; the test fixture loads it
+
+## Produces
+- `scripts/classification.ts` — exports `loadClassification(): Classification`
+  - `Classification` shape: `{ version: string, dimensions: Dimension[], categories: Category[], verdicts: Verdict[], enterprise_use_verdicts: Verdict[], risk_flags: RiskFlag[], tags: TagVocabulary }`
+  - Consumed by P01T05 (`buildSchemas()`), P01T06 (`generate-schema.ts`), P01T10 (`evaluate.ts`)
+
 ## References
 - `classification.md` — Classification type shape
 - `toolchain.md` — YAML parser choice

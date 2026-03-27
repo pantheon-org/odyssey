@@ -23,6 +23,10 @@ Write `scripts/validate-page.test.ts` collocated **before** implementing.
 - Missing required body section → exit 1
 - `--dry-run` with invalid page → logs errors but exits 0
 
+## Depends on
+- P01T06 — reads `docs/schema/repo-page.schema.json` for Ajv; file must be committed before this script runs
+- P01T07 — reads `docs/schema/page-template.yaml` for required section names (`sections[]`) and `min_content_length`
+
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
 - `adr/018-testing-strategy.md` — `--dry-run` flag requirement

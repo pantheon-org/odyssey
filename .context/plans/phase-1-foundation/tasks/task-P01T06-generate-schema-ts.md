@@ -21,6 +21,13 @@ Write `scripts/generate-schema.test.ts` collocated **before** implementing.
 - Running `generate:schema` produces a JSON Schema that validates a known-valid frontmatter object
 - Stale committed schema → `check:schema` exits 1; fresh schema → exits 0
 
+## Depends on
+- P01T05 — imports `buildSchemas()` from `scripts/schema.ts` to get the JSON Schema object to serialize
+
+## Produces
+- `docs/schema/repo-page.schema.json` (committed artefact) — consumed by P01T09 (validate-page.ts) for Ajv frontmatter validation
+- `package.json` scripts `generate:schema` and `check:schema` — used in CI (ADR-017) and extended by P03T07
+
 ## References
 - `adr/017-schema-drift-ci.md` — `check:schema` CI enforcement
 - `classification.md` — schema versioning
