@@ -13,13 +13,18 @@ Data loader returning the groups a given repo belongs to.
 - Used by the repo page template (P03T21).
 
 ## References
-- `site-structure.md` — groups cross-reference loader spec
-- `compare-rankings.md` — groups.yaml schema
+- `../../../knowledge-base/site-structure.md` — groups cross-reference loader spec
+- `../../../knowledge-base/compare-rankings.md` — groups.yaml schema
 
 ## Verification
 ```sh
 bun -e "import { getGroups } from './docs/.vitepress/loaders/groups.ts'; console.log(getGroups('owner/repo'))"
 ```
+
+## Acceptance Criteria
+- [ ] `getGroups('owner/repo')` returns all groups whose `members[]` contains that repo
+- [ ] Returns an empty array when the repo has no group membership
+- [ ] Each returned entry includes links to the group's comparison page (`/compare/<group-id>`) and ranking page (`/rankings/<group-id>`)
 
 ## Status
 pending

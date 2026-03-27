@@ -21,13 +21,20 @@ cascade storms.
 
 ## References
 - `adr/016-compare-cascade-protection.md` — cascade protection design
-- `workflows.md` — compare.yml spec
+- `../../../knowledge-base/workflows.md` — compare.yml spec
 
 ## Verification
 ```sh
 gh workflow run compare.yml
 gh run list --workflow=compare.yml --limit=1
 ```
+
+## Acceptance Criteria
+- [ ] Push of a file under `docs/repos/**` to `main` triggers `compare.yml`
+- [ ] Push of `docs/schema/groups.yaml` to `main` triggers `compare.yml`
+- [ ] A repo that belongs to no group causes the workflow to exit 0 without opening a PR
+- [ ] Concurrent workflow runs queue (not cancel) due to `concurrency: cancel-in-progress: false`
+- [ ] When a group is affected, a PR is opened on a branch matching `compare/<group-id>-<GITHUB_RUN_ID>`
 
 ## Status
 pending

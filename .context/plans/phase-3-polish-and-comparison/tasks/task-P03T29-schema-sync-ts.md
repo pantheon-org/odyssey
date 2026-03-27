@@ -34,5 +34,14 @@ bun scripts/schema-sync.ts --dry-run
 echo $?  # 0 = ran without error
 ```
 
+## Acceptance Criteria
+- [ ] `--dry-run` exits 0 without creating any issues
+- [ ] Repo pages with `schema_version` different from the current `classification.yaml` version are collected for re-evaluation
+- [ ] Repo pages with a matching `schema_version` are skipped
+- [ ] An empty `docs/repos/` directory exits 0 without error
+- [ ] An already-open `pending-re-evaluation` issue prevents a duplicate from being created
+- [ ] At most 5 simultaneous issue-creation calls are in flight (`p-limit(5)`)
+- [ ] All TDD cases pass (`bun test scripts/schema-sync.test.ts` exits 0)
+
 ## Status
 pending

@@ -12,12 +12,12 @@ Trigger `schema-sync.ts` whenever `classification.yaml` is pushed to `main`.
   → `bun scripts/schema-sync.ts`.
 - `check:schema` step comes first; if JSON schemas are stale, fail fast before
   scanning pages.
-- See `workflows.md` for full YAML spec.
+- See `../../../knowledge-base/workflows.md` for full YAML spec.
 
 ## References
 - `adr/017-schema-drift-ci.md` — `check:schema` step
 - `adr/019-schema-sync-throttling.md` — issue creation throttling
-- `workflows.md` — schema-sync.yml spec
+- `../../../knowledge-base/workflows.md` — schema-sync.yml spec
 
 ## Verification
 ```sh
@@ -25,6 +25,12 @@ Trigger `schema-sync.ts` whenever `classification.yaml` is pushed to `main`.
 gh workflow run schema-sync.yml
 gh run list --workflow=schema-sync.yml --limit=1
 ```
+
+## Acceptance Criteria
+- [ ] Push of `docs/schema/classification.yaml` to `main` triggers `schema-sync.yml`
+- [ ] `bun run check:schema` step runs first; a stale JSON schema causes the workflow to fail before scanning pages
+- [ ] Workflow completes with conclusion `success` when schemas are in sync and no stale pages are found
+- [ ] `workflow_dispatch` allows manual runs
 
 ## Status
 pending

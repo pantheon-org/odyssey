@@ -10,7 +10,7 @@ Extend the schema generator to also emit `docs/schema/compare-page.schema.json`.
 ## Implementation
 - Add `buildCompareSchema()` alongside existing `buildRepoPageSchema()`.
 - Compare page frontmatter: `group_id`, `group_label`, `members[]`, `generated_at`,
-  `model_id`, `schema_version` — see `compare-rankings.md`.
+  `model_id`, `schema_version` — see `../../../knowledge-base/compare-rankings.md`.
 - `generate:schema` script now emits both JSON Schema files.
 - `check:schema` script checks both files for drift — see ADR-017.
 
@@ -23,7 +23,7 @@ Extend the schema generator to also emit `docs/schema/compare-page.schema.json`.
   - Frontmatter fields: `group_id` (string), `group_label` (string), `members[]` (string[]), `generated_at` (ISO datetime string), `model_id` (string), `schema_version` (string)
 
 ## References
-- `compare-rankings.md` — compare page frontmatter schema
+- `../../../knowledge-base/compare-rankings.md` — compare page frontmatter schema
 - `adr/017-schema-drift-ci.md` — `check:schema` must cover both schemas
 
 ## Verification
@@ -32,6 +32,13 @@ bun run generate:schema
 test -f docs/schema/compare-page.schema.json && echo "ok"
 bun run check:schema && echo "schemas in sync"
 ```
+
+## Acceptance Criteria
+- [ ] `bun run generate:schema` emits both `repo-page.schema.json` and `compare-page.schema.json`
+- [ ] `bun run check:schema` exits 0 when both committed schemas are fresh
+- [ ] Stale `compare-page.schema.json` causes `bun run check:schema` to exit 1
+- [ ] `compare-page.schema.json` includes fields: `group_id`, `group_label`, `members`, `generated_at`, `model_id`, `schema_version`
+- [ ] Existing `repo-page.schema.json` generation is unaffected
 
 ## Status
 pending

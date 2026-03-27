@@ -48,5 +48,11 @@ body:
 # Confirm evaluate.yml fires for collaborators, no-ops for outsiders
 ```
 
+## Acceptance Criteria
+- [ ] Issue template appears under `https://github.com/pantheon-org/odyssey/issues/new/choose`
+- [ ] Submitting the form pre-applies the `pending-evaluation` label on the created issue
+- [ ] `evaluate.yml` fires automatically when the issue is opened by a collaborator or member
+- [ ] `evaluate.yml` silently no-ops when the issue is opened by an external account
+
 ## Status
 pending

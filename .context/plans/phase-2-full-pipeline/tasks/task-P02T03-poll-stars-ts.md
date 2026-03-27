@@ -29,13 +29,21 @@ Write `scripts/poll-stars.test.ts` collocated **before** implementing.
 ## References
 - `adr/022-github-list-intake.md` — GitHub List as intake source (replaces ADR-001 star polling)
 - `adr/009-deduplication.md` — issue dedup via search before create
-- `workflows.md` — poll-stars.yml trigger chain
+- `../../../knowledge-base/workflows.md` — poll-stars.yml trigger chain
 
 ## Verification
 ```sh
 bun scripts/poll-stars.ts --dry-run
 echo $?  # 0 = ran without error
 ```
+
+## Acceptance Criteria
+- [ ] `--dry-run` exits 0 without creating any GitHub issues
+- [ ] Repos in the matching `LIST_NAME` list are returned; repos in other lists are excluded
+- [ ] All pages of a multi-page list are collected before deduplication
+- [ ] Existing `Evaluate: owner/repo` issue prevents a duplicate issue from being created
+- [ ] Missing `LIST_NAME` among the owner's lists causes non-zero exit with a descriptive error
+- [ ] All TDD cases pass (`bun test scripts/poll-stars.test.ts` exits 0)
 
 ## Status
 pending

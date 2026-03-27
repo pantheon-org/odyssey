@@ -15,10 +15,10 @@ Bootstrap the repo with a Bun project: `package.json`, `bun.lockb`, `tsconfig.js
   `check:schema`), and runtime deps (`yaml`, `zod`, `ajv`, `p-limit`).
 - `tsconfig.json`: `strict: true`, `target: "ESNext"`, `module: "Preserve"`, `moduleResolution: "Bundler"`.
 - `biome.json`: formatter + linter enabled; organise-imports on.
-- `.bun-version`: pin Bun version; `setup-bun@v2` reads it automatically — see `toolchain.md`.
+- `.bun-version`: pin Bun version; `setup-bun@v2` reads it automatically — see `../../../knowledge-base/toolchain.md`.
 
 ## References
-- `toolchain.md` — exact `tsconfig.json` fields, `biome.json` template, Bun version pinning
+- `../../../knowledge-base/toolchain.md` — exact `tsconfig.json` fields, `biome.json` template, Bun version pinning
 
 ## Verification
 ```sh

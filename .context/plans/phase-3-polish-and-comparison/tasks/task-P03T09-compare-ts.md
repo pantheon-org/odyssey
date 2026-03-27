@@ -37,13 +37,21 @@ pure functions to make them testable in isolation.
 ## References
 - `adr/015-compare-rankings.md` — comparison page design
 - `adr/016-compare-cascade-protection.md` — no-op fast exit, p-limit(3)
-- `compare-rankings.md` — generation strategy, page schema
+- `../../../knowledge-base/compare-rankings.md` — generation strategy, page schema
 
 ## Verification
 ```sh
 bun scripts/compare.ts --dry-run <group-id>
 echo $?  # 0 = LLM round-trip succeeded, page not written
 ```
+
+## Acceptance Criteria
+- [ ] `--dry-run <group-id>` exits 0 (LLM round-trip succeeded, no file written)
+- [ ] A repo belonging to no group causes immediate exit 0 without making an LLM call
+- [ ] Generated comparison page contains "Summary table", "Recommendation", and "Comparison" sections
+- [ ] At most 3 simultaneous LLM calls are in flight at any time (`p-limit(3)` enforced)
+- [ ] LLM JSON validation failure causes non-zero exit; no file written
+- [ ] All TDD cases pass (`bun test scripts/compare.test.ts` exits 0)
 
 ## Status
 pending

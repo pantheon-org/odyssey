@@ -71,5 +71,12 @@ bunx cucumber-js --config cucumber.json --dry-run
 # All steps listed as "pending" — not yet implemented
 ```
 
+## Acceptance Criteria
+- [ ] `cucumber.json` defines `default`, `integration`, and `integration-lite` profiles
+- [ ] `bunx cucumber-js --profile default` excludes all `@integration`-tagged scenarios
+- [ ] `bunx cucumber-js --dry-run` lists all feature steps as "pending" with no "undefined" steps
+- [ ] `features/evaluate.feature` exists with the exact Gherkin scenario specified in this task
+- [ ] `features/step-definitions/evaluate.steps.ts` exists and exports step definitions (initially pending)
+
 ## Status
 pending

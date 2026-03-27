@@ -24,5 +24,11 @@ dependencies. This gives early signal while keeping the `@integration` gate on
 bunx cucumber-js --config cucumber.json --profile integration-lite
 ```
 
+## Acceptance Criteria
+- [ ] `bunx cucumber-js --profile integration-lite` exits 0 in a CI environment without live GitHub secrets
+- [ ] `integration-lite` scenarios use fixture data only — no live GitHub API calls
+- [ ] Scenarios tagged `@integration-lite` are included; scenarios tagged `@integration` (only) are excluded from this profile
+- [ ] PR CI workflow runs the `integration-lite` profile and fails fast on scenario failures
+
 ## Status
 pending

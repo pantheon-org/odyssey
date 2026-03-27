@@ -14,13 +14,20 @@ Make `review.yml` also validate comparison pages on `compare/*` branches.
 - All other steps (check:schema, auto-merge) remain unchanged.
 
 ## References
-- `workflows.md` — review.yml spec, branch filter details
+- `../../../knowledge-base/workflows.md` — review.yml spec, branch filter details
 
 ## Verification
 ```sh
 # Open a compare/* PR and confirm review.yml runs validate-compare.ts
 gh pr list --head "compare/" --limit 3
 ```
+
+## Acceptance Criteria
+- [ ] Opening a `compare/*` PR triggers `review.yml`
+- [ ] A changed file under `docs/compare/` causes `validate-compare.ts` to run (not `validate-page.ts`)
+- [ ] A changed file under `docs/repos/` still runs `validate-page.ts` as before
+- [ ] Auto-merge on success still applies for `compare/*` PRs
+- [ ] All other steps (check:schema) remain unchanged
 
 ## Status
 pending

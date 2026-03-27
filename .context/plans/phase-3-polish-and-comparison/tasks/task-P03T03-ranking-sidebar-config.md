@@ -13,7 +13,7 @@ Add `rankings/` to the VitePress sidebar config so ranking pages are navigable.
   enumerates `docs/rankings/*.md` at build time.
 
 ## References
-- `site-structure.md` — sidebar structure spec
+- `../../../knowledge-base/site-structure.md` — sidebar structure spec
 
 ## Verification
 ```sh
@@ -21,6 +21,12 @@ bun run docs:build
 # Rankings section visible in built HTML sidebar
 grep -r "rankings" docs/.vitepress/dist/ | head -5
 ```
+
+## Acceptance Criteria
+- [ ] Built HTML sidebar contains a "Rankings" section
+- [ ] "Rankings" section links to `rankings/index.md`
+- [ ] Per-group ranking pages are reachable from the sidebar navigation
+- [ ] `bun run docs:build` completes without errors after this change
 
 ## Status
 pending

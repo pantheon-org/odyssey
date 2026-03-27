@@ -10,7 +10,7 @@ and `version: "1.0.0"`.
 ## Implementation
 - Fields: `version`, `dimensions[]` (id, label, description, scale 1–5),
   `categories[]` (id, label), `verdicts[]` (id, label), `tags` grouped vocabulary.
-- Populate starter vocabulary for all four fields — see `classification.md` for
+- Populate starter vocabulary for all four fields — see `../../../knowledge-base/classification.md` for
   dimension weights policy (none), verdict numeric weights policy (none), and
   category/verdict change rules.
 - Tag vocabulary: controlled grouped flat tags, no language tags — see ADR-020.
@@ -26,13 +26,20 @@ and `version: "1.0.0"`.
   - `tags` (grouped vocabulary) — allowed values for the `tags[]` frontmatter array
 
 ## References
-- `classification.md` — full schema spec, dimension list, evolution policy
+- `../../../knowledge-base/classification.md` — full schema spec, dimension list, evolution policy
 - `adr/020-tag-vocabulary-model.md` — tag structure, starter vocabulary
 
 ## Verification
 ```sh
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; parse(readFileSync('docs/schema/classification.yaml', 'utf8')); console.log('ok')"
 ```
+
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `version` is a non-empty semantic-version string (e.g. `"1.0.0"`)
+- [ ] `dimensions[]`, `categories[]`, `verdicts[]`, `enterprise_use_verdicts[]`, `risk_flags[]` each contain at least one entry with an `id` field
+- [ ] `tags` vocabulary is non-empty and structured as named groups per ADR-020
+- [ ] No language tags are present in the `tags` vocabulary
 
 ## Status
 pending

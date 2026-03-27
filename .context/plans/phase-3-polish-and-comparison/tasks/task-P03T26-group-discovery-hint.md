@@ -15,7 +15,7 @@ any existing group's members.
 - No new workflow step needed — runs at the end of the existing evaluate workflow.
 
 ## References
-- `compare-rankings.md` — group-discovery hint design
+- `../../../knowledge-base/compare-rankings.md` — group-discovery hint design
 - `adr/015-compare-rankings.md` — comparison groups curation
 
 ## Verification
@@ -24,6 +24,12 @@ any existing group's members.
 gh workflow run evaluate.yml -f repo=owner/repo-with-shared-tags
 # Expect: PR comment listing candidate groups
 ```
+
+## Acceptance Criteria
+- [ ] Evaluating a repo that shares ≥2 tags with any existing group member posts a PR comment listing the matching group names
+- [ ] Evaluating a repo with fewer than 2 shared tags with any group member posts no comment
+- [ ] Comment is posted on the evaluation PR (not as a separate issue)
+- [ ] No new workflow step is required — hint runs at the end of the existing evaluate workflow
 
 ## Status
 pending

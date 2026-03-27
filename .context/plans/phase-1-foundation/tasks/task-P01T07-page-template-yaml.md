@@ -9,7 +9,7 @@ Define the required body sections for a repo evaluation page.
 ## Implementation
 - List required section headings (e.g. Overview, Scores, Rationale, Tags).
 - Used by `validate-page.ts` to check body completeness.
-- See `site-structure.md` for the full page body template and required sections.
+- See `../../../knowledge-base/site-structure.md` for the full page body template and required sections.
 
 ## Produces
 - `docs/schema/page-template.yaml` — consumed by P01T09 (validate-page.ts) and P01T10 (evaluate.ts prompt builder)
@@ -17,12 +17,17 @@ Define the required body sections for a repo evaluation page.
   - `min_content_length` (number) — minimum body character count threshold
 
 ## References
-- `site-structure.md` — page body template, required section list
+- `../../../knowledge-base/site-structure.md` — page body template, required section list
 
 ## Verification
 ```sh
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const t = parse(readFileSync('docs/schema/page-template.yaml', 'utf8')); console.log(t.sections?.length > 0 ? 'ok' : 'empty')"
 ```
+
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `sections[]` is a non-empty array of heading name strings matching the required sections in `../../../knowledge-base/site-structure.md`
+- [ ] `min_content_length` is a positive integer
 
 ## Status
 pending

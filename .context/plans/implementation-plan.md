@@ -2,11 +2,11 @@
 
 Refer to sibling documents for full detail on each area:
 
-- [`../architecture.md`](../architecture.md) — pipeline diagrams, component map
-- [`../classification.md`](../classification.md) — classification config, schema evolution
-- [`../workflows.md`](../workflows.md) — all six GitHub Actions workflows
-- [`../site-structure.md`](../site-structure.md) — VitePress layout, frontmatter schema, page template
-- [`../toolchain.md`](../toolchain.md) — Bun, TypeScript, Biome, package scripts
+- [`../knowledge-base/architecture.md`](../knowledge-base/architecture.md) — pipeline diagrams, component map
+- [`../knowledge-base/classification.md`](../knowledge-base/classification.md) — classification config, schema evolution
+- [`../knowledge-base/workflows.md`](../knowledge-base/workflows.md) — all six GitHub Actions workflows
+- [`../knowledge-base/site-structure.md`](../knowledge-base/site-structure.md) — VitePress layout, frontmatter schema, page template
+- [`../knowledge-base/toolchain.md`](../knowledge-base/toolchain.md) — Bun, TypeScript, Biome, package scripts
 - [`../adr/`](../adr/) — one ADR per architectural decision
 
 ---

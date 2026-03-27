@@ -43,5 +43,11 @@ bunx cucumber-js --config cucumber.json --tags "@phase2" --dry-run
 # All steps listed (pending or passing, no undefined)
 ```
 
+## Acceptance Criteria
+- [ ] `features/poll-stars.feature` exists and contains the exact Gherkin scenario specified in this task
+- [ ] Scenario is tagged `@phase2 @slow`
+- [ ] `bunx cucumber-js --tags "@phase2" --dry-run` exits 0 with no "undefined" steps
+- [ ] All step definitions are registered in `features/step-definitions/poll-stars.steps.ts`
+
 ## Status
 pending

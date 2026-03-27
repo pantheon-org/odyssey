@@ -11,7 +11,7 @@ This creates two problems:
 1. **GitHub secondary rate limits**: rapid sequential API calls (`POST /repos/.../issues`) can exceed GitHub's secondary rate limit (burst protection), causing 429 errors and partial issue creation.
 2. **Issue tracker noise**: hundreds of open issues appear simultaneously, degrading the Issues UI for any human operator inspecting the queue.
 
-`quarterly-check.ts` already uses `p-limit(5)` for its GitHub API calls (ADR note in `toolchain.md`). `schema-sync.ts` has no equivalent throttle.
+`quarterly-check.ts` already uses `p-limit(5)` for its GitHub API calls (ADR note in `../knowledge-base/toolchain.md`). `schema-sync.ts` has no equivalent throttle.
 
 ## Decision
 

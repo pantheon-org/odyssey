@@ -17,7 +17,7 @@ CI workflow: validate page, check schema drift, auto-merge passing PRs.
 - Must be the required status check configured in branch protection (P01T13).
 
 ## References
-- `workflows.md` — full YAML spec for review.yml
+- `../../../knowledge-base/workflows.md` — full YAML spec for review.yml
 - `adr/017-schema-drift-ci.md` — `check:schema` step requirement
 
 ## Verification
@@ -25,6 +25,13 @@ CI workflow: validate page, check schema drift, auto-merge passing PRs.
 gh workflow run evaluate.yml -f repo=owner/test-repo
 # Expect: review.yml triggers automatically on the opened PR
 ```
+
+## Acceptance Criteria
+- [ ] Opening an `eval/*` PR triggers `review.yml`
+- [ ] A stale JSON schema causes the workflow to exit 1 before `validate-page.ts` runs
+- [ ] An invalid repo page causes the job to exit 1 and the PR is not auto-merged
+- [ ] A valid repo page passes all checks and the PR is auto-merged via squash
+- [ ] `review / validate` is the status check name visible in the PR checks UI
 
 ## Status
 pending

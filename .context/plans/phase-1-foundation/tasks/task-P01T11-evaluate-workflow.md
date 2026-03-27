@@ -23,7 +23,7 @@ GitHub Actions workflow that runs `evaluate.ts` on a manually provided repo.
   overrides the guard.
 
 ## References
-- `workflows.md` — full YAML spec for evaluate.yml
+- `../../../knowledge-base/workflows.md` — full YAML spec for evaluate.yml
 - `adr/013-evaluation-idempotency.md` — skip guard behaviour
 
 ## Verification
@@ -32,6 +32,14 @@ GitHub Actions workflow that runs `evaluate.ts` on a manually provided repo.
 gh workflow run evaluate.yml -f repo=owner/repo
 gh run list --workflow=evaluate.yml --limit=1
 ```
+
+## Acceptance Criteria
+- [ ] `workflow_dispatch` with a valid `owner/repo` input triggers the workflow and opens a PR
+- [ ] An issue labeled `pending-evaluation` by an `OWNER`, `COLLABORATOR`, or `MEMBER` fires the workflow
+- [ ] An issue labeled `pending-evaluation` by an external user causes a silent no-op (job-level condition)
+- [ ] An issue labeled `pending-re-evaluation` fires the workflow and bypasses the idempotency guard
+- [ ] PR branch name matches `eval/<owner>-<repo>-<GITHUB_RUN_ID>` for manual dispatch
+- [ ] PR branch name matches `re-eval/<owner>-<repo>-<GITHUB_RUN_ID>` for re-evaluation
 
 ## Status
 pending

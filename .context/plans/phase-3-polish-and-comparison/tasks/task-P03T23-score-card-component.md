@@ -16,13 +16,20 @@ visual card on repo pages.
   VitePress default theme.
 
 ## References
-- `site-structure.md` — score card layout spec
+- `../../../knowledge-base/site-structure.md` — score card layout spec
 
 ## Verification
 ```sh
 bun run docs:build
 # Visually inspect a repo page for score card rendering
 ```
+
+## Acceptance Criteria
+- [ ] Score card renders all dimension labels and their numeric scores
+- [ ] Score cells use green for 4–5, yellow for 3, and red for 1–2
+- [ ] Component is registered globally in the VitePress theme index
+- [ ] `bun run docs:build` completes without component-resolution errors
+- [ ] No external UI library is introduced — styling uses inline CSS or VitePress CSS variables only
 
 ## Status
 pending

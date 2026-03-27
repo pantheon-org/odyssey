@@ -29,7 +29,7 @@ Run `check:schema` as an unconditional early step in `review.yml` — before the
 ## Consequences
 
 - **Coverage**: any PR that introduces a classification change without regenerating schemas is blocked at `review.yml` before validation runs.
-- **Developer workflow**: when changing `classification.yaml`, the required sequence is: edit → `bun run generate:schema` → commit both files together. This is documented in `site-structure.md`.
+- **Developer workflow**: when changing `classification.yaml`, the required sequence is: edit → `bun run generate:schema` → commit both files together. This is documented in `../knowledge-base/site-structure.md`.
 - **No runtime overhead**: `--check` mode writes to `/tmp`; no repo changes are made by the check.
-- **False negatives eliminated**: the existing note in `site-structure.md` ("Must be committed alongside any change to `classification.yaml`") becomes machine-enforced rather than convention-only.
+- **False negatives eliminated**: the existing note in `../knowledge-base/site-structure.md` ("Must be committed alongside any change to `classification.yaml`") becomes machine-enforced rather than convention-only.
 - **One extra CI step per PR**: negligible cost (< 2 s).
