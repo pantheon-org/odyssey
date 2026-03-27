@@ -1,7 +1,8 @@
 # ADR-001: Trigger Mechanism for New Starred Repos
 
-**Status**: Accepted
+**Status**: Superseded by ADR-022
 **Date**: 2026-03-25
+**Superseded by**: `adr/022-github-list-intake.md` (2026-03-27) — intake source changed from `thoroc`'s starred list to a named GitHub List ("Look the Loony Mob") owned by a project OWNER or COLLABORATOR; timestamp cursor retired in favour of full-list scan + issue dedup.
 
 ## Context
 

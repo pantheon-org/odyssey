@@ -8,23 +8,26 @@ Detect newly starred repos since the last cursor, deduplicate, and open a
 - `scripts/poll-stars.ts`
 
 ## Implementation
-- Read cursor from `.github/data/last-starred.txt`.
-- `GET /users/thoroc/starred?per_page=100&sort=created&direction=desc` — paginate
-  until cursor is reached.
-- Dedup: search existing issues before creating — see ADR-009.
+- Read `LIST_OWNER` and `LIST_NAME` from environment (set in `poll-stars.yml`).
+- Query the GitHub **GraphQL API** for `user(login: LIST_OWNER).lists` — filter nodes
+  where `name` matches `LIST_NAME` (case-insensitive) — paginate repositories via
+  `pageInfo.endCursor` until all pages are consumed.
+- No timestamp cursor — the full list is fetched on every run (see ADR-022).
+- Dedup: search existing `Evaluate: owner/repo` issues before creating — see ADR-009.
 - Create one GitHub Issue per new repo with label `pending-evaluation`.
-- Update cursor file with the newest star timestamp after successful run.
-- `--dry-run` flag: fetch + diff but do not create issues or update cursor — see ADR-018.
+- `--dry-run` flag: fetch + diff but do not create issues — see ADR-018.
 
 ## TDD
 Write `scripts/poll-stars.test.ts` collocated **before** implementing.
-- Cursor diff: repos newer than cursor → returned; repos at or before cursor → excluded
+- List filter: only repos in the matching list name → returned; other list names → excluded
+- Pagination: multiple pages of list repos → all collected before dedup
 - Dedup: existing issue found for repo → no new issue created
 - Dedup: no existing issue → issue would be created
 - `--dry-run`: no write operations executed, exits 0
+- Missing list: `LIST_NAME` not found among owner's lists → exits non-zero with clear error
 
 ## References
-- `adr/001-trigger-mechanism.md` — polling approach
+- `adr/022-github-list-intake.md` — GitHub List as intake source (replaces ADR-001 star polling)
 - `adr/009-deduplication.md` — issue dedup via search before create
 - `workflows.md` — poll-stars.yml trigger chain
 
