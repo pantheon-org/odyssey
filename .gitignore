@@ -1,4 +1,10 @@
 !CLAUDE.md
 !.context/
 !.mcp.json
+.agents/
+.claude/
+.codex/
 .cursor/
+.gemini/
+.github/
+.tessl/
