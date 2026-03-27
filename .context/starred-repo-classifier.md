@@ -2,7 +2,7 @@
 
 This document has been decomposed. All content lives in the following files:
 
-## Knowlege-base articles
+## Knowledge-base articles
 
 | Document | Contents |
 |----------|----------|
@@ -43,3 +43,6 @@ This document has been decomposed. All content lives in the following files:
 | [`018-testing-strategy.md`](adr/018-testing-strategy.md) | ADR: Bun test runner for pure functions + `--dry-run` flag on all scripts |
 | [`019-schema-sync-throttling.md`](adr/019-schema-sync-throttling.md) | ADR: p-limit(5) for issue creation in schema-sync.ts to prevent burst flooding |
 | [`020-tag-vocabulary-model.md`](adr/020-tag-vocabulary-model.md) | ADR: controlled grouped flat tags in classification.yaml; starter vocabulary; evolution policy |
+| [`021-open-intake.md`](adr/021-open-intake.md) | ADR: GitHub issue template for collaborator-submitted repos (Path D intake) |
+| [`022-github-list-intake.md`](adr/022-github-list-intake.md) | ADR: GitHub List as intake source via GraphQL; replaces star-polling cursor |
+| [`023-license-and-risk-evaluation.md`](adr/023-license-and-risk-evaluation.md) | ADR: `license`, `enterprise_use`, and `risk_flags` fields in frontmatter |
