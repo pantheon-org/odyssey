@@ -9,14 +9,14 @@ Define required sections for comparison pages.
 ## Implementation
 - Required sections: Summary table, Recommendation, Comparison.
 - Used by `validate-compare.ts` (P03T07) for body completeness checks.
-- See `compare-rankings.md` for the full compare page body template.
+- See `../../../knowledge-base/compare-rankings.md` for the full compare page body template.
 
 ## Produces
 - `docs/schema/compare-template.yaml` — consumed by P03T08 (validate-compare.ts)
   - `sections[]` (string[]) — required headings: "Summary table", "Recommendation", "Comparison"
 
 ## References
-- `compare-rankings.md` — comparison page schema, required sections
+- `../../../knowledge-base/compare-rankings.md` — comparison page schema, required sections
 
 ## Verification
 ```sh

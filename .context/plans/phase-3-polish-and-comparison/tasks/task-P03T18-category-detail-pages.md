@@ -12,8 +12,8 @@ Per-category detail page: all repos in this category, sorted by total score.
 - Renders as a ranked list with score, tags, and verdict.
 
 ## References
-- `site-structure.md` — category detail page layout
-- `classification.md` — category definitions
+- `../../../knowledge-base/site-structure.md` — category detail page layout
+- `../../../knowledge-base/classification.md` — category definitions
 
 ## Verification
 ```sh

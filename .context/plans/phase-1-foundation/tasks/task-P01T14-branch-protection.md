@@ -23,7 +23,7 @@ gh api repos/pantheon-org/odyssey/branches/main/protection \
 ```
 
 ## References
-- `workflows.md` — expected job name in review.yml
+- `../../../knowledge-base/workflows.md` — expected job name in review.yml
 
 ## Verification
 ```sh

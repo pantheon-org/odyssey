@@ -28,7 +28,7 @@ Write `scripts/validate-compare.test.ts` collocated **before** implementing.
 
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
-- `compare-rankings.md` — compare page schema
+- `../../../knowledge-base/compare-rankings.md` — compare page schema
 
 ## Verification
 ```sh

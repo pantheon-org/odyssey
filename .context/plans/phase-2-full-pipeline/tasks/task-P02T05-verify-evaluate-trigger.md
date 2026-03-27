@@ -17,7 +17,7 @@ correctly for `pending-re-evaluation`.
 
 ## References
 - `adr/013-evaluation-idempotency.md` — page-exists guard, re-eval override
-- `workflows.md` — evaluate.yml trigger spec
+- `../../../knowledge-base/workflows.md` — evaluate.yml trigger spec
 
 ## Verification
 ```sh

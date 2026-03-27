@@ -16,7 +16,7 @@ visual card on repo pages.
   VitePress default theme.
 
 ## References
-- `site-structure.md` — score card layout spec
+- `../../../knowledge-base/site-structure.md` — score card layout spec
 
 ## Verification
 ```sh

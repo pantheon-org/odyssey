@@ -10,7 +10,7 @@ and `version: "1.0.0"`.
 ## Implementation
 - Fields: `version`, `dimensions[]` (id, label, description, scale 1–5),
   `categories[]` (id, label), `verdicts[]` (id, label), `tags` grouped vocabulary.
-- Populate starter vocabulary for all four fields — see `classification.md` for
+- Populate starter vocabulary for all four fields — see `../../../knowledge-base/classification.md` for
   dimension weights policy (none), verdict numeric weights policy (none), and
   category/verdict change rules.
 - Tag vocabulary: controlled grouped flat tags, no language tags — see ADR-020.
@@ -26,7 +26,7 @@ and `version: "1.0.0"`.
   - `tags` (grouped vocabulary) — allowed values for the `tags[]` frontmatter array
 
 ## References
-- `classification.md` — full schema spec, dimension list, evolution policy
+- `../../../knowledge-base/classification.md` — full schema spec, dimension list, evolution policy
 - `adr/020-tag-vocabulary-model.md` — tag structure, starter vocabulary
 
 ## Verification

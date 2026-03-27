@@ -15,7 +15,7 @@ any existing group's members.
 - No new workflow step needed — runs at the end of the existing evaluate workflow.
 
 ## References
-- `compare-rankings.md` — group-discovery hint design
+- `../../../knowledge-base/compare-rankings.md` — group-discovery hint design
 - `adr/015-compare-rankings.md` — comparison groups curation
 
 ## Verification

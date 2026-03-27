@@ -13,7 +13,7 @@ Per-tag-group page: all tags in a group with their repos.
 - Pages are static (one per group); regenerated on every build.
 
 ## References
-- `site-structure.md` — tag group page layout
+- `../../../knowledge-base/site-structure.md` — tag group page layout
 - `adr/020-tag-vocabulary-model.md` — tag group structure
 
 ## Verification

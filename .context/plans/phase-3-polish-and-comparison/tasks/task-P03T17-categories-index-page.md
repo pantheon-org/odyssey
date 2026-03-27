@@ -13,8 +13,8 @@ Categories index page: all categories with repo counts and average total scores.
 - Renders as a table with links to category detail pages.
 
 ## References
-- `site-structure.md` — categories section layout
-- `classification.md` — category definitions
+- `../../../knowledge-base/site-structure.md` — categories section layout
+- `../../../knowledge-base/classification.md` — category definitions
 
 ## Verification
 ```sh

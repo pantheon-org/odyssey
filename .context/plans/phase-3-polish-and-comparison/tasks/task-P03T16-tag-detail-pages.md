@@ -13,7 +13,7 @@ Per-tag detail page: all repos with this tag, sorted by total score.
 - Pages are static; regenerated on every build.
 
 ## References
-- `site-structure.md` — tag detail page layout
+- `../../../knowledge-base/site-structure.md` — tag detail page layout
 - `adr/020-tag-vocabulary-model.md` — deprecated tag redirect notice
 
 ## Verification

@@ -12,11 +12,11 @@ Per-group ranking page: lists repos belonging to a group, sorted by total score.
 - At Phase 3 start, create the page for the first seeded group (see P03T11).
 - New group pages are created as groups are seeded in `groups.yaml` — manual
   process or scripted.
-- See `compare-rankings.md` for per-group ranking schema.
+- See `../../../knowledge-base/compare-rankings.md` for per-group ranking schema.
 
 ## References
-- `compare-rankings.md` — per-group ranking page schema
-- `site-structure.md` — data loader pattern
+- `../../../knowledge-base/compare-rankings.md` — per-group ranking page schema
+- `../../../knowledge-base/site-structure.md` — data loader pattern
 
 ## Verification
 ```sh

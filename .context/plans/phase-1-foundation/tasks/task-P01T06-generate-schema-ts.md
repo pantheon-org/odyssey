@@ -30,7 +30,7 @@ Write `scripts/generate-schema.test.ts` collocated **before** implementing.
 
 ## References
 - `adr/017-schema-drift-ci.md` — `check:schema` CI enforcement
-- `classification.md` — schema versioning
+- `../../../knowledge-base/classification.md` — schema versioning
 
 ## Verification
 ```sh

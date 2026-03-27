@@ -11,11 +11,11 @@ Run `quarterly-check.ts` on a quarterly cron schedule.
   09:00 UTC) and `workflow_dispatch`.
 - Steps: checkout → setup-bun → `bun install` → `bun scripts/quarterly-check.ts`.
 - No write-back needed (only creates GitHub Issues, no file commits).
-- See `workflows.md` for full YAML spec.
+- See `../../../knowledge-base/workflows.md` for full YAML spec.
 
 ## References
 - `adr/006-re-evaluation-cadence.md` — quarterly cron rationale
-- `workflows.md` — quarterly-check.yml spec
+- `../../../knowledge-base/workflows.md` — quarterly-check.yml spec
 
 ## Verification
 ```sh

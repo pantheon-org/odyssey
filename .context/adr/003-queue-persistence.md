@@ -16,7 +16,7 @@ Between detecting a new starred repo and running evaluation, we need a durable q
 
 GitHub Issues with labels (`pending-evaluation`, `pending-re-evaluation`). Each issue title encodes the target (`Evaluate: owner/repo`) and the body carries metadata (`starred_at`, `description`, `html_url`).
 
-Issues are created using `GH_PAT` (not `GITHUB_TOKEN`) to allow downstream workflow triggers (see Required Secrets in `workflows.md`).
+Issues are created using `GH_PAT` (not `GITHUB_TOKEN`) to allow downstream workflow triggers (see Required Secrets in `../knowledge-base/workflows.md`).
 
 ## Consequences
 

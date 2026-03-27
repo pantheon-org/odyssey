@@ -10,10 +10,10 @@ Add `tags/` and `categories/` navigation sections to the VitePress config.
 - Add sidebar sections for Tags (linking to `tags/index.md` and tag group pages)
   and Categories (linking to `categories/index.md` and category detail pages).
 - Dynamic children can use VitePress `generateSidebar` or a manual listing.
-- See `site-structure.md` for the complete sidebar structure spec.
+- See `../../../knowledge-base/site-structure.md` for the complete sidebar structure spec.
 
 ## References
-- `site-structure.md` — sidebar structure
+- `../../../knowledge-base/site-structure.md` — sidebar structure
 
 ## Verification
 ```sh

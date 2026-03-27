@@ -55,7 +55,7 @@ to make them testable in isolation.
 - `adr/013-evaluation-idempotency.md` — page-exists guard
 - `adr/014-model-provenance.md` — `model_id` frontmatter
 - `adr/023-license-and-risk-evaluation.md` — `license`, `enterprise_use`, `risk_flags` fields
-- `site-structure.md` — page body template
+- `../../../knowledge-base/site-structure.md` — page body template
 
 ## Verification
 ```sh

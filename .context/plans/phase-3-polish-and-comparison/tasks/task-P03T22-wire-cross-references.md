@@ -13,10 +13,10 @@ rendering.
   time for each repo page (via `<script setup>` + `useData()`).
 - Render a "Related repos" sidebar section (top 3) and a "Part of groups" section.
 - No new scripts; data provided by the loaders from P03T19 and P03T20.
-- See `site-structure.md` for the repo page cross-reference layout.
+- See `../../../knowledge-base/site-structure.md` for the repo page cross-reference layout.
 
 ## References
-- `site-structure.md` — cross-reference layout spec
+- `../../../knowledge-base/site-structure.md` — cross-reference layout spec
 
 ## Verification
 ```sh

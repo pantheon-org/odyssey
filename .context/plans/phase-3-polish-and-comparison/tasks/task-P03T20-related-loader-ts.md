@@ -14,7 +14,7 @@ Data loader returning the top-3 related repos for a given repo, by shared-tag co
 - Used by the repo page template (P03T21).
 
 ## References
-- `site-structure.md` — related repos loader spec
+- `../../../knowledge-base/site-structure.md` — related repos loader spec
 
 ## Verification
 ```sh

@@ -12,12 +12,12 @@ Trigger `schema-sync.ts` whenever `classification.yaml` is pushed to `main`.
   → `bun scripts/schema-sync.ts`.
 - `check:schema` step comes first; if JSON schemas are stale, fail fast before
   scanning pages.
-- See `workflows.md` for full YAML spec.
+- See `../../../knowledge-base/workflows.md` for full YAML spec.
 
 ## References
 - `adr/017-schema-drift-ci.md` — `check:schema` step
 - `adr/019-schema-sync-throttling.md` — issue creation throttling
-- `workflows.md` — schema-sync.yml spec
+- `../../../knowledge-base/workflows.md` — schema-sync.yml spec
 
 ## Verification
 ```sh

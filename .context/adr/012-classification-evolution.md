@@ -41,7 +41,7 @@ Each committed page records `schema_version` in frontmatter. `schema-sync.yml` f
 
 **Rationale**: `category` is a descriptive label applied per-repo — adding a new valid value does not invalidate existing pages, which remain schema-valid under an expanded enum. `verdict` is similarly additive. Only `dimensions` changes affect the scoring structure that every page encodes; those pages must be re-evaluated to include new dimension scores.
 
-**Operational rule** (see also `classification.md`):
+**Operational rule** (see also `../knowledge-base/classification.md`):
 
 | Change type | Bump `version`? | Re-evaluation triggered? |
 |-------------|----------------|--------------------------|

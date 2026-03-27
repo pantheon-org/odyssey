@@ -21,7 +21,7 @@ cascade storms.
 
 ## References
 - `adr/016-compare-cascade-protection.md` — cascade protection design
-- `workflows.md` — compare.yml spec
+- `../../../knowledge-base/workflows.md` — compare.yml spec
 
 ## Verification
 ```sh

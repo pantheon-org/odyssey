@@ -37,7 +37,7 @@ pure functions to make them testable in isolation.
 ## References
 - `adr/015-compare-rankings.md` — comparison page design
 - `adr/016-compare-cascade-protection.md` — no-op fast exit, p-limit(3)
-- `compare-rankings.md` — generation strategy, page schema
+- `../../../knowledge-base/compare-rankings.md` — generation strategy, page schema
 
 ## Verification
 ```sh

@@ -17,7 +17,7 @@ CI workflow: validate page, check schema drift, auto-merge passing PRs.
 - Must be the required status check configured in branch protection (P01T13).
 
 ## References
-- `workflows.md` — full YAML spec for review.yml
+- `../../../knowledge-base/workflows.md` — full YAML spec for review.yml
 - `adr/017-schema-drift-ci.md` — `check:schema` step requirement
 
 ## Verification

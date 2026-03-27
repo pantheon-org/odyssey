@@ -11,7 +11,7 @@ for repos that have changed significantly.
 - Read all `docs/repos/*.md` frontmatter to get the list of evaluated repos and
   their `evaluated_at` timestamps (no GitHub API calls at this stage).
 - For each repo, `GET /repos/{owner}/{repo}` to fetch current stats — concurrency
-  capped at `p-limit(5)` — see `toolchain.md`.
+  capped at `p-limit(5)` — see `../../../knowledge-base/toolchain.md`.
 - Material-change heuristics: star count delta ≥ 20%, description changed,
   archived status changed, null-safe version comparison for schema drift safety net.
 - Dedup before creating issues — see ADR-009.
@@ -30,7 +30,7 @@ Write `scripts/quarterly-check.test.ts` collocated **before** implementing.
 - `adr/006-re-evaluation-cadence.md` — material-change heuristics definition
 - `adr/009-deduplication.md` — issue dedup
 - `adr/018-testing-strategy.md` — `--dry-run`
-- `toolchain.md` — `p-limit(5)` usage
+- `../../../knowledge-base/toolchain.md` — `p-limit(5)` usage
 
 ## Verification
 ```sh

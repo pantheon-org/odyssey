@@ -30,7 +30,7 @@ Write `scripts/validate-page.test.ts` collocated **before** implementing.
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
 - `adr/018-testing-strategy.md` — `--dry-run` flag requirement
-- `site-structure.md` — frontmatter schema, page body template
+- `../../../knowledge-base/site-structure.md` — frontmatter schema, page body template
 
 ## Verification
 ```sh

@@ -15,7 +15,7 @@ Verify that VitePress local search indexes the repo and comparison page corpus c
 - No external search plugin needed — built into VitePress.
 
 ## References
-- `site-structure.md` — search configuration
+- `../../../knowledge-base/site-structure.md` — search configuration
 
 ## Verification
 ```sh

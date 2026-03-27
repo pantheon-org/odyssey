@@ -33,7 +33,7 @@ Write `scripts/schema.test.ts` collocated **before** implementing.
   - Schema fields: one integer (1–5) per `dimension.id`, `category` enum, `verdict` enum, `tags[]`, `enterprise_use` enum, `risk_flags[]`, `model_id` string, `schema_version` string
 
 ## References
-- `classification.md` — frontmatter field list
+- `../../../knowledge-base/classification.md` — frontmatter field list
 - `adr/014-model-provenance.md` — `model_id` requirement
 - `adr/008-response-validation.md` — Zod + JSON Schema + Ajv strategy
 

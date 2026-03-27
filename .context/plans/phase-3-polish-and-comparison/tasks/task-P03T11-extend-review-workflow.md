@@ -14,7 +14,7 @@ Make `review.yml` also validate comparison pages on `compare/*` branches.
 - All other steps (check:schema, auto-merge) remain unchanged.
 
 ## References
-- `workflows.md` — review.yml spec, branch filter details
+- `../../../knowledge-base/workflows.md` — review.yml spec, branch filter details
 
 ## Verification
 ```sh

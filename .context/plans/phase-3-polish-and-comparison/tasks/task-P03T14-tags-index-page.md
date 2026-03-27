@@ -13,7 +13,7 @@ Tags index page: all tags grouped by their `group`, with repo counts per tag.
 - Deprecated tags (with `replaced_by`) shown with a visual indicator — see ADR-020.
 
 ## References
-- `site-structure.md` — tags section layout
+- `../../../knowledge-base/site-structure.md` — tags section layout
 - `adr/020-tag-vocabulary-model.md` — deprecated tag rendering
 
 ## Verification

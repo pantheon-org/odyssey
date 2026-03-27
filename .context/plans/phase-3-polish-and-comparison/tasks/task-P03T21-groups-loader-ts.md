@@ -13,8 +13,8 @@ Data loader returning the groups a given repo belongs to.
 - Used by the repo page template (P03T21).
 
 ## References
-- `site-structure.md` — groups cross-reference loader spec
-- `compare-rankings.md` — groups.yaml schema
+- `../../../knowledge-base/site-structure.md` — groups cross-reference loader spec
+- `../../../knowledge-base/compare-rankings.md` — groups.yaml schema
 
 ## Verification
 ```sh

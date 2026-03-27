@@ -8,7 +8,7 @@ into a typed object.
 - `scripts/classification.ts`
 
 ## Implementation
-- Use `yaml` package (`eemeli/yaml`) for parsing — no `js-yaml` — see `toolchain.md`.
+- Use `yaml` package (`eemeli/yaml`) for parsing — no `js-yaml` — see `../../../knowledge-base/toolchain.md`.
 - Return typed `Classification` interface matching `classification.yaml` shape.
 - Export `loadClassification(): Classification`.
 
@@ -27,8 +27,8 @@ Write `scripts/classification.test.ts` collocated **before** implementing.
   - Consumed by P01T05 (`buildSchemas()`), P01T06 (`generate-schema.ts`), P01T10 (`evaluate.ts`)
 
 ## References
-- `classification.md` — Classification type shape
-- `toolchain.md` — YAML parser choice
+- `../../../knowledge-base/classification.md` — Classification type shape
+- `../../../knowledge-base/toolchain.md` — YAML parser choice
 
 ## Verification
 ```sh

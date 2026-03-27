@@ -11,10 +11,10 @@ Build the VitePress site and publish to GitHub Pages on every push to `main`.
 - Steps: checkout → setup-bun → `bun install` → `bun run docs:build` →
   deploy `docs/.vitepress/dist` to `gh-pages` branch (or Pages via Actions deploy).
 - Use `actions/deploy-pages` with appropriate permissions.
-- See `workflows.md` for the full YAML spec.
+- See `../../../knowledge-base/workflows.md` for the full YAML spec.
 
 ## References
-- `workflows.md` — full YAML spec for deploy.yml
+- `../../../knowledge-base/workflows.md` — full YAML spec for deploy.yml
 
 ## Verification
 ```sh

@@ -17,7 +17,7 @@ category breakdown.
 - Injects data into the home page hero section via VitePress data loader.
 
 ## References
-- `site-structure.md` — home page layout, stats section
+- `../../../knowledge-base/site-structure.md` — home page layout, stats section
 
 ## Verification
 ```sh

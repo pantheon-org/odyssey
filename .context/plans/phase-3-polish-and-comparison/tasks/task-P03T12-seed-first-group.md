@@ -16,7 +16,7 @@ Create deterministic fixture repos and seed the first real comparison group once
 - Commit to `main` via PR — this push triggers `compare.yml` automatically.
 
 ## References
-- `compare-rankings.md` — groups.yaml schema, seeding strategy
+- `../../../knowledge-base/compare-rankings.md` — groups.yaml schema, seeding strategy
 - `adr/015-compare-rankings.md` — comparison page rationale
 
 ## Verification

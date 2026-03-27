@@ -127,7 +127,7 @@ will include `schema_version`. When they diverge, `schema-sync.ts` creates a
 ### Secrets
 
 `GITHUB_TOKEN` cannot trigger downstream workflows. Use `GH_PAT` (Personal Access
-Token) for all cross-workflow trigger points. See `.context/workflows.md` for the full
+Token) for all cross-workflow trigger points. See `.context/knowledge-base/workflows.md` for the full
 secrets matrix.
 
 ### Concurrency limits (planned)
@@ -163,8 +163,8 @@ Three levels — see `.context/adr/018-testing-strategy.md` for full rationale.
 | Document | Purpose |
 |----------|---------|
 | `.context/plans/implementation-plan.md` | Phased implementation plan |
-| `.context/architecture.md` | Component map and data flow |
-| `.context/toolchain.md` | Full tool choices with rationale |
-| `.context/workflows.md` | All GitHub Actions workflows with steps and secrets |
-| `.context/classification.md` | Classification schema design |
+| `.context/knowledge-base/architecture.md` | Component map and data flow |
+| `.context/knowledge-base/toolchain.md` | Full tool choices with rationale |
+| `.context/knowledge-base/workflows.md` | All GitHub Actions workflows with steps and secrets |
+| `.context/knowledge-base/classification.md` | Classification schema design |
 | `.context/adr/` | All architectural decision records (001–022) |

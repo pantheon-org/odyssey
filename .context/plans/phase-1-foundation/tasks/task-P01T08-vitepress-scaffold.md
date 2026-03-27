@@ -12,10 +12,10 @@ Create the minimal VitePress site: `docs/index.md` home page and
 - `config.ts`: title, description, sidebar stub, `srcDir: 'docs'`.
 - `docs/index.md`: hero layout (stats dashboard added in Phase 3).
 - Register `repos/` in sidebar; leave `rankings/`, `tags/`, `categories/` for Phase 3.
-- See `site-structure.md` for the full VitePress layout specification.
+- See `../../../knowledge-base/site-structure.md` for the full VitePress layout specification.
 
 ## References
-- `site-structure.md` — VitePress config spec, sidebar structure, frontmatter schema
+- `../../../knowledge-base/site-structure.md` — VitePress config spec, sidebar structure, frontmatter schema
 
 ## Verification
 ```sh

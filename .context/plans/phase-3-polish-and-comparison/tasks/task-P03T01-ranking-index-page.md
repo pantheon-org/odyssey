@@ -14,8 +14,8 @@ VitePress data loader.
 - No new workflow needed — pure data loader, regenerated on every `docs:build`.
 
 ## References
-- `site-structure.md` — ranking page schema, data loader pattern
-- `compare-rankings.md` — ranking page design detail
+- `../../../knowledge-base/site-structure.md` — ranking page schema, data loader pattern
+- `../../../knowledge-base/compare-rankings.md` — ranking page design detail
 
 ## Verification
 ```sh

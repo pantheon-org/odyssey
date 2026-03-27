@@ -23,7 +23,7 @@ GitHub Actions workflow that runs `evaluate.ts` on a manually provided repo.
   overrides the guard.
 
 ## References
-- `workflows.md` — full YAML spec for evaluate.yml
+- `../../../knowledge-base/workflows.md` — full YAML spec for evaluate.yml
 - `adr/013-evaluation-idempotency.md` — skip guard behaviour
 
 ## Verification

@@ -29,7 +29,7 @@ Write `scripts/poll-stars.test.ts` collocated **before** implementing.
 ## References
 - `adr/022-github-list-intake.md` — GitHub List as intake source (replaces ADR-001 star polling)
 - `adr/009-deduplication.md` — issue dedup via search before create
-- `workflows.md` — poll-stars.yml trigger chain
+- `../../../knowledge-base/workflows.md` — poll-stars.yml trigger chain
 
 ## Verification
 ```sh
