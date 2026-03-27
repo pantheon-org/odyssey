@@ -1,4 +1,4 @@
-# P03T21 — `docs/.vitepress/loaders/groups.ts`
+# P04T08 — `docs/.vitepress/loaders/groups.ts`
 
 ## Goal
 Data loader returning the groups a given repo belongs to.
@@ -10,7 +10,7 @@ Data loader returning the groups a given repo belongs to.
 - Reads `docs/schema/groups.yaml`.
 - For a given `owner/repo`, returns all group entries where `members[]` contains
   it, along with links to the group's comparison and ranking pages.
-- Used by the repo page template (P03T21).
+- Used by the repo page template (P04T09).
 
 ## References
 - `../../../knowledge-base/site-structure.md` — groups cross-reference loader spec

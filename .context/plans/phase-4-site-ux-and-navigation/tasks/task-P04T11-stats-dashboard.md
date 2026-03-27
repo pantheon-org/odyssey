@@ -1,4 +1,4 @@
-# P03T24 — Stats dashboard on `docs/index.md`
+# P04T11 — Stats dashboard on `docs/index.md`
 
 ## Goal
 Add a stats dashboard to the home page: total repos, average scores, top tags,

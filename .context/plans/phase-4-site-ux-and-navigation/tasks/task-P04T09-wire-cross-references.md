@@ -1,4 +1,4 @@
-# P03T22 — Wire loaders into repo page template
+# P04T09 — Wire loaders into repo page template
 
 ## Goal
 Inject related repos and group membership data into the repo page template for
@@ -12,7 +12,7 @@ rendering.
 - Extend the VitePress theme to call `getRelated()` and `getGroups()` at build
   time for each repo page (via `<script setup>` + `useData()`).
 - Render a "Related repos" sidebar section (top 3) and a "Part of groups" section.
-- No new scripts; data provided by the loaders from P03T19 and P03T20.
+- No new scripts; data provided by the loaders from P04T07 and P04T08.
 - See `../../../knowledge-base/site-structure.md` for the repo page cross-reference layout.
 
 ## References

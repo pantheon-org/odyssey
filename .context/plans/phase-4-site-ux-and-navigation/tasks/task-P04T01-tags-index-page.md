@@ -1,4 +1,4 @@
-# P03T14 — `docs/tags/index.md`
+# P04T01 — `docs/tags/index.md`
 
 ## Goal
 Tags index page: all tags grouped by their `group`, with repo counts per tag.

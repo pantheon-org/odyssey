@@ -1,4 +1,4 @@
-# P03T25 — VitePress built-in local search
+# P04T12 — VitePress built-in local search
 
 ## Goal
 Verify that VitePress local search indexes the repo and comparison page corpus correctly.

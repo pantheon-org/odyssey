@@ -1,4 +1,4 @@
-# P03T19 — Register tags/ and categories/ in VitePress sidebar
+# P04T06 — Register tags/ and categories/ in VitePress sidebar
 
 ## Goal
 Add `tags/` and `categories/` navigation sections to the VitePress config.

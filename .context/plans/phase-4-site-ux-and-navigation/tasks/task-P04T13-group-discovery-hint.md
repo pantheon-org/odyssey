@@ -1,4 +1,4 @@
-# P03T26 — Group-discovery hint in `evaluate.ts`
+# P04T13 — Group-discovery hint in `evaluate.ts`
 
 ## Goal
 After evaluating a repo, post a comment on the PR if it shares ≥2 tags with

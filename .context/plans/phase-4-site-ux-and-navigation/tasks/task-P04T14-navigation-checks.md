@@ -1,4 +1,4 @@
-# P03T31 — Minimal automated navigation checks
+# P04T14 — Minimal automated navigation checks
 
 ## Goal
 Add a lightweight automated check that verifies critical navigation paths and

@@ -1,4 +1,4 @@
-# P03T17 — `docs/categories/index.md`
+# P04T04 — `docs/categories/index.md`
 
 ## Goal
 Categories index page: all categories with repo counts and average total scores.

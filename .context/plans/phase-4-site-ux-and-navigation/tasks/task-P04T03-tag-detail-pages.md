@@ -1,4 +1,4 @@
-# P03T16 — `docs/tags/<tag-id>.md`
+# P04T03 — `docs/tags/<tag-id>.md`
 
 ## Goal
 Per-tag detail page: all repos with this tag, sorted by total score.

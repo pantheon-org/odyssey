@@ -1,4 +1,4 @@
-# P03T15 — `docs/tags/groups/<group>.md`
+# P04T02 — `docs/tags/groups/<group>.md`
 
 ## Goal
 Per-tag-group page: all tags in a group with their repos.

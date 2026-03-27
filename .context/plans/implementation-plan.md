@@ -34,8 +34,8 @@ Refer to sibling documents for full detail on each area:
 |-------|------|-------|---------------|
 | [Phase 1 — Foundation](phase-1-foundation/README.md) | Working end-to-end evaluation, manually triggered | 16 | `bun test` + `cucumber @phase1` green; manual dispatch produces a published page |
 | [Phase 2 — Full Pipeline](phase-2-full-pipeline/README.md) | Fully automated star-to-page pipeline | 6 | `bun test` + `cucumber @phase2` green; starring produces a published page automatically |
-| [Phase 3a — Operational hygiene + comparison](phase-3-polish-and-comparison/README.md) | Hygiene scripts + cross-repo comparison pipeline | 17 | `bun test` + `cucumber @phase3a` green; quarterly-check/schema-sync dry-run pass; ≥1 comparison page live |
-| [Phase 3b — Navigation + UX](phase-3-polish-and-comparison/README.md) | Tags, categories, cross-references, site UX | 13 | `bun run docs:build` passes; tag/category pages navigable; score cards render |
+| [Phase 3 — Comparison Pipeline](phase-3-polish-and-comparison/README.md) | Hygiene scripts + cross-repo comparison pipeline | 17 | `bun test` + `cucumber @phase3a` green; quarterly-check/schema-sync dry-run pass; ≥1 comparison page live |
+| [Phase 4 — Site UX and Navigation](phase-4-site-ux-and-navigation/README.md) | Tags, categories, cross-references, site UX | 14 | `bun run docs:build` passes; tag/category pages navigable; score cards render |
 
 ---
 

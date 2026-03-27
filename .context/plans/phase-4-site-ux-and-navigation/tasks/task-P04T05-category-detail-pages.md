@@ -1,4 +1,4 @@
-# P03T18 — `docs/categories/<category>.md`
+# P04T05 — `docs/categories/<category>.md`
 
 ## Goal
 Per-category detail page: all repos in this category, sorted by total score.

@@ -1,12 +1,11 @@
 # Phase 3 — Polish and Comparison
 
-**Goal:** Operational hygiene, improved site UX, and cross-repo comparison.
+**Goal:** Operational hygiene and cross-repo comparison pipeline.
 
 **Depends on:** Phase 2 complete (automated pipeline running, ≥2 evaluated repos
 sharing tags for a first comparison group).
 
-This phase is split into two independently deliverable sub-phases so that a stall
-in the comparison pipeline does not block site UX work.
+> Phase 3b (navigation and site UX tasks) has been moved to [Phase 4](../phase-4-site-ux-and-navigation/README.md).
 
 ---
 
@@ -66,60 +65,4 @@ bunx cucumber-js --config cucumber.json --profile integration --tags "@phase3a"
 bun scripts/quarterly-check.ts --dry-run
 bun scripts/schema-sync.ts --dry-run
 # Comparison page generated end-to-end; hygiene scripts exit 0
-```
-
----
-
-## Phase 3b — Navigation and site UX
-
-**Exit criteria:** Global ranking page live; tag and category pages navigable;
-score cards render consistently; search functional; Phase 3b Cucumber scenario green.
-
-**Depends on:** Phase 3a complete (≥1 comparison page live, ≥several evaluated repos
-to populate tag/category pages meaningfully).
-
-### Testing approach
-
-No new TDD targets in 3b (all logic is data-loader or VitePress config). BDD scenario
-at P03T04 covers the comparison side. Add a minimal automated navigation check
-(link-check or loader unit tests) to reduce regression risk; supplement with
-visual/navigation smoke tests.
-
-### Navigation — tags and categories
-
-| ID | Task | Status |
-|----|------|--------|
-| [P03T14](tasks/task-P03T14-tags-index-page.md) | `docs/tags/index.md` | pending |
-| [P03T15](tasks/task-P03T15-tags-group-pages.md) | `docs/tags/groups/<group>.md` | pending |
-| [P03T16](tasks/task-P03T16-tag-detail-pages.md) | `docs/tags/<tag-id>.md` | pending |
-| [P03T17](tasks/task-P03T17-categories-index-page.md) | `docs/categories/index.md` | pending |
-| [P03T18](tasks/task-P03T18-category-detail-pages.md) | `docs/categories/<category>.md` | pending |
-| [P03T19](tasks/task-P03T19-nav-sidebar-config.md) | Register tags/ and categories/ in sidebar | pending |
-
-### Navigation — per-page cross-references
-
-| ID | Task | Status |
-|----|------|--------|
-| [P03T20](tasks/task-P03T20-related-loader-ts.md) | `docs/.vitepress/loaders/related.ts` | pending |
-| [P03T21](tasks/task-P03T21-groups-loader-ts.md) | `docs/.vitepress/loaders/groups.ts` | pending |
-| [P03T22](tasks/task-P03T22-wire-cross-references.md) | Wire loaders into repo page template | pending |
-
-### Site UX
-
-| ID | Task | Status |
-|----|------|--------|
-| [P03T23](tasks/task-P03T23-score-card-component.md) | VitePress theme — score card component | pending |
-| [P03T24](tasks/task-P03T24-stats-dashboard.md) | Stats dashboard on `docs/index.md` | pending |
-| [P03T25](tasks/task-P03T25-local-search.md) | VitePress built-in local search | pending |
-| [P03T26](tasks/task-P03T26-group-discovery-hint.md) | Group-discovery hint in `evaluate.ts` | pending |
-| [P03T31](tasks/task-P03T31-navigation-checks.md) | Minimal automated navigation checks | pending |
-
-### Phase 3b gate
-
-```sh
-bun run docs:build   # VitePress build must pass with all pages rendering
-bun test
-# Minimal navigation checks (link-check or loader unit tests)
-bun run check:links
-# Tag, category, and cross-reference pages navigable; score cards render
 ```

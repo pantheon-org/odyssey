@@ -1,4 +1,4 @@
-# P03T20 — `docs/.vitepress/loaders/related.ts`
+# P04T07 — `docs/.vitepress/loaders/related.ts`
 
 ## Goal
 Data loader returning the top-3 related repos for a given repo, by shared-tag count.
@@ -11,7 +11,7 @@ Data loader returning the top-3 related repos for a given repo, by shared-tag co
 - Algorithm: for each other evaluated repo, count shared tags; sort by count
   descending, tie-break by total score; keep top 3; require ≥1 shared tag minimum.
 - Returns an array of `{ owner, repo, sharedTags, totalScore }`.
-- Used by the repo page template (P03T21).
+- Used by the repo page template (P04T08).
 
 ## References
 - `../../../knowledge-base/site-structure.md` — related repos loader spec

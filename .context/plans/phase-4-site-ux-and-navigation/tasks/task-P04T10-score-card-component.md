@@ -1,4 +1,4 @@
-# P03T23 — VitePress theme — score card component
+# P04T10 — VitePress theme — score card component
 
 ## Goal
 Implement a reusable score card component that renders dimension scores as a
