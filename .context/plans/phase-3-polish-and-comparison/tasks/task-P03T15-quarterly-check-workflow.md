@@ -1,4 +1,4 @@
-# P03T28 — `.github/workflows/quarterly-check.yml`
+# P03T15 — `.github/workflows/quarterly-check.yml`
 
 ## Goal
 Run `quarterly-check.ts` on a quarterly cron schedule.

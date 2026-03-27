@@ -1,4 +1,4 @@
-# P03T29 — `scripts/schema-sync.ts`
+# P03T16 — `scripts/schema-sync.ts`
 
 ## Goal
 Scan all evaluated pages for `schema_version` mismatches and open
