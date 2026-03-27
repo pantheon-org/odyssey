@@ -22,6 +22,16 @@ gh api repos/pantheon-org/odyssey/branches/main/protection \
   --field restrictions=null
 ```
 
+## Depends on
+
+- P01T12 — `review.yml` must exist and define the `review / validate` job name
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — expected job name in review.yml
+
 ## References
 - `../../../knowledge-base/workflows.md` — expected job name in review.yml
 

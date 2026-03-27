@@ -14,6 +14,16 @@ Create the minimal VitePress site: `docs/index.md` home page and
 - Register `repos/` in sidebar; leave `rankings/`, `tags/`, `categories/` for Phase 3.
 - See `../../../knowledge-base/site-structure.md` for the full VitePress layout specification.
 
+## Depends on
+
+- P01T01 — `package.json` must exist to add VitePress; `docs:build` script registered there
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/site-structure.md` — VitePress config spec, sidebar structure, frontmatter schema
+
 ## References
 - `../../../knowledge-base/site-structure.md` — VitePress config spec, sidebar structure, frontmatter schema
 

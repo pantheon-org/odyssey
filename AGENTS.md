@@ -160,6 +160,46 @@ Three levels — see `.context/adr/018-testing-strategy.md` for full rationale.
 - All diagrams must be Mermaid — never ASCII art.
 - `.context/` files shard at 300 lines.
 
+## Picking up a task
+
+When implementing a task, read **only** the following — nothing else from `.context/`:
+
+1. The task file (e.g. `.context/plans/phase-1-foundation/tasks/task-P01T04-classification-ts.md`)
+2. The files listed in its `## Context` section (minimum required reads)
+3. This file (`AGENTS.md`)
+
+The `## Depends on` section in each task file lists what must already be merged to `main`
+before the task can start. Verify those are done before beginning.
+
+Update the `Status` field at the bottom of the task file as you progress:
+`pending` → `in-progress` → `done`.
+
+Also update the `Status` column in the phase README (`phase-X-*/README.md`) to match.
+
+## Parallelising tasks
+
+Tasks within the same **Wave** in a phase README can be implemented concurrently.
+Use Claude Code's `Agent` tool with `isolation: "worktree"` to run parallel tasks in
+isolated git worktrees — each agent gets its own branch and cannot conflict with others.
+
+Example: to run Wave 2 of Phase 1 in parallel, launch four agents simultaneously:
+
+```text
+Agent(isolation: "worktree", prompt: "Implement P01T02 ...")
+Agent(isolation: "worktree", prompt: "Implement P01T03 ...")
+Agent(isolation: "worktree", prompt: "Implement P01T07 ...")
+Agent(isolation: "worktree", prompt: "Implement P01T08 ...")
+```
+
+Each agent should:
+
+1. Read its task file and `## Context` docs only
+2. Create a branch named `feat/<task-id>-<short-description>`
+3. Implement, run verification commands, commit, push, open a PR
+4. Mark the task `done` in both the task file and the phase README
+
+Do not start a Wave N+1 agent until all Wave N PRs are merged.
+
 ## Context documents
 
 | Document | Purpose |
@@ -169,4 +209,4 @@ Three levels — see `.context/adr/018-testing-strategy.md` for full rationale.
 | `.context/knowledge-base/toolchain.md` | Full tool choices with rationale |
 | `.context/knowledge-base/workflows.md` | All GitHub Actions workflows with steps and secrets |
 | `.context/knowledge-base/classification.md` | Classification schema design |
-| `.context/adr/` | All architectural decision records (001–022) |
+| `.context/adr/` | All architectural decision records (001–023) |

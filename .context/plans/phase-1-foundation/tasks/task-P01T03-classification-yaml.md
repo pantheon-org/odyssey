@@ -25,6 +25,17 @@ and `version: "1.0.0"`.
   - `risk_flags[].id` (string[]) — allowed values in the `risk_flags[]` frontmatter array
   - `tags` (grouped vocabulary) — allowed values for the `tags[]` frontmatter array
 
+## Depends on
+
+- P01T01 — project must be initialised before any `docs/schema/` files are placed
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/classification.md` — full schema spec, dimension list, evolution policy
+- `../../../.context/adr/020-tag-vocabulary-model.md` — tag structure, starter vocabulary
+
 ## References
 - `../../../knowledge-base/classification.md` — full schema spec, dimension list, evolution policy
 - `adr/020-tag-vocabulary-model.md` — tag structure, starter vocabulary

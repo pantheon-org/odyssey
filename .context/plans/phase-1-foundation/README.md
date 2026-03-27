@@ -20,24 +20,29 @@ published to GitHub Pages, `bun test` passes, and the Phase 1 Cucumber e2e scena
 
 ## Tasks
 
-| ID | Task | Status |
-|----|------|--------|
-| [P01T01](tasks/task-P01T01-bun-project-init.md) | Bun project init | pending |
-| [P01T02](tasks/task-P01T02-cucumberjs-scaffold.md) | **BDD: CucumberJS scaffold + Phase 1 e2e feature** | pending |
-| [P01T03](tasks/task-P01T03-classification-yaml.md) | `docs/schema/classification.yaml` | pending |
-| [P01T04](tasks/task-P01T04-classification-ts.md) | `scripts/classification.ts` (TDD) | pending |
-| [P01T05](tasks/task-P01T05-schema-ts.md) | `scripts/schema.ts` (TDD) | pending |
-| [P01T06](tasks/task-P01T06-generate-schema-ts.md) | `scripts/generate-schema.ts` (TDD) | pending |
-| [P01T07](tasks/task-P01T07-page-template-yaml.md) | `docs/schema/page-template.yaml` | pending |
-| [P01T08](tasks/task-P01T08-vitepress-scaffold.md) | VitePress scaffold | pending |
-| [P01T09](tasks/task-P01T09-validate-page-ts.md) | `scripts/validate-page.ts` (TDD) | pending |
-| [P01T10](tasks/task-P01T10-evaluate-ts.md) | `scripts/evaluate.ts` (TDD) | pending |
-| [P01T11](tasks/task-P01T11-evaluate-workflow.md) | `.github/workflows/evaluate.yml` | pending |
-| [P01T12](tasks/task-P01T12-review-workflow.md) | `.github/workflows/review.yml` | pending |
-| [P01T13](tasks/task-P01T13-deploy-workflow.md) | `.github/workflows/deploy.yml` | pending |
-| [P01T15](tasks/task-P01T15-smoke-test.md) | BDD: Phase 1 step definitions + run scenarios | pending |
-| [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | done |
-| [P01T17](tasks/task-P01T17-integration-lite.md) | Integration-lite test profile (fixture repo / mocked GH) | pending |
+Parallel waves — tasks in the same wave can be implemented concurrently in separate
+worktrees (see AGENTS.md for the worktree pattern). A task cannot start until all its
+dependencies are merged to `main`.
+
+| ID | Task | Depends | Wave | Status |
+|----|------|---------|------|--------|
+| [P01T01](tasks/task-P01T01-bun-project-init.md) | Bun project init | — | 1 | pending |
+| [P01T02](tasks/task-P01T02-cucumberjs-scaffold.md) | **BDD: CucumberJS scaffold + Phase 1 e2e feature** | [P01T01](tasks/task-P01T01-bun-project-init.md) | 2 | pending |
+| [P01T03](tasks/task-P01T03-classification-yaml.md) | `docs/schema/classification.yaml` | [P01T01](tasks/task-P01T01-bun-project-init.md) | 2 | pending |
+| [P01T07](tasks/task-P01T07-page-template-yaml.md) | `docs/schema/page-template.yaml` | [P01T01](tasks/task-P01T01-bun-project-init.md) | 2 | pending |
+| [P01T08](tasks/task-P01T08-vitepress-scaffold.md) | VitePress scaffold | [P01T01](tasks/task-P01T01-bun-project-init.md) | 2 | pending |
+| [P01T04](tasks/task-P01T04-classification-ts.md) | `scripts/classification.ts` (TDD) | [P01T03](tasks/task-P01T03-classification-yaml.md) | 3 | pending |
+| [P01T13](tasks/task-P01T13-deploy-workflow.md) | `.github/workflows/deploy.yml` | [P01T08](tasks/task-P01T08-vitepress-scaffold.md) | 3 | pending |
+| [P01T05](tasks/task-P01T05-schema-ts.md) | `scripts/schema.ts` (TDD) | [P01T04](tasks/task-P01T04-classification-ts.md) | 4 | pending |
+| [P01T06](tasks/task-P01T06-generate-schema-ts.md) | `scripts/generate-schema.ts` (TDD) | [P01T05](tasks/task-P01T05-schema-ts.md) | 5 | pending |
+| [P01T09](tasks/task-P01T09-validate-page-ts.md) | `scripts/validate-page.ts` (TDD) | [P01T06](tasks/task-P01T06-generate-schema-ts.md), [P01T07](tasks/task-P01T07-page-template-yaml.md) | 6 | pending |
+| [P01T10](tasks/task-P01T10-evaluate-ts.md) | `scripts/evaluate.ts` (TDD) | [P01T04](tasks/task-P01T04-classification-ts.md), [P01T05](tasks/task-P01T05-schema-ts.md), [P01T07](tasks/task-P01T07-page-template-yaml.md) | 6 | pending |
+| [P01T11](tasks/task-P01T11-evaluate-workflow.md) | `.github/workflows/evaluate.yml` | [P01T10](tasks/task-P01T10-evaluate-ts.md) | 7 | pending |
+| [P01T12](tasks/task-P01T12-review-workflow.md) | `.github/workflows/review.yml` | [P01T09](tasks/task-P01T09-validate-page-ts.md), [P01T10](tasks/task-P01T10-evaluate-ts.md) | 7 | pending |
+| [P01T14](tasks/task-P01T14-branch-protection.md) | Branch protection on `main` | [P01T12](tasks/task-P01T12-review-workflow.md) | 8 | pending |
+| [P01T15](tasks/task-P01T15-smoke-test.md) | BDD: Phase 1 step definitions + run scenarios | [P01T11](tasks/task-P01T11-evaluate-workflow.md), [P01T12](tasks/task-P01T12-review-workflow.md), [P01T13](tasks/task-P01T13-deploy-workflow.md) | 8 | pending |
+| [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | [P01T11](tasks/task-P01T11-evaluate-workflow.md) | 8 | pending |
+| [P01T17](tasks/task-P01T17-integration-lite.md) | Integration-lite test profile (fixture repo / mocked GH) | [P01T02](tasks/task-P01T02-cucumberjs-scaffold.md), [P01T15](tasks/task-P01T15-smoke-test.md) | 9 | pending |
 
 ---
 

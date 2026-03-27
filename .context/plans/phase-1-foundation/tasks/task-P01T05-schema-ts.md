@@ -32,6 +32,14 @@ Write `scripts/schema.test.ts` collocated **before** implementing.
   - `repoPageJsonSchema` (plain object) — consumed by P01T06 to serialize to `repo-page.schema.json`
   - Schema fields: one integer (1–5) per `dimension.id`, `category` enum, `verdict` enum, `tags[]`, `enterprise_use` enum, `risk_flags[]`, `model_id` string, `schema_version` string
 
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/classification.md` — frontmatter field list
+- `../../../.context/adr/014-model-provenance.md` — `model_id` requirement
+- `../../../.context/adr/008-response-validation.md` — Zod + JSON Schema + Ajv strategy
+
 ## References
 - `../../../knowledge-base/classification.md` — frontmatter field list
 - `adr/014-model-provenance.md` — `model_id` requirement

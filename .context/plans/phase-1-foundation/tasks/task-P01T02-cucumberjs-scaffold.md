@@ -62,6 +62,16 @@ Phase gates use the `integration` profile:
 bunx cucumber-js --config cucumber.json --profile integration --tags "@phase1"
 ```
 
+## Depends on
+
+- P01T01 — `package.json` must exist to run `bun add`; `.bun-version` must be pinned
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/018-testing-strategy.md` — BDD strategy, profile requirements
+
 ## References
 - `adr/018-testing-strategy.md` — BDD testing strategy
 

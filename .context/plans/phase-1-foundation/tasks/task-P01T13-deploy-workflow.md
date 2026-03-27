@@ -13,6 +13,16 @@ Build the VitePress site and publish to GitHub Pages on every push to `main`.
 - Use `actions/deploy-pages` with appropriate permissions.
 - See `../../../knowledge-base/workflows.md` for the full YAML spec.
 
+## Depends on
+
+- P01T08 — VitePress must be scaffolded; `bun run docs:build` must succeed
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — full YAML spec for deploy.yml
+
 ## References
 - `../../../knowledge-base/workflows.md` — full YAML spec for deploy.yml
 

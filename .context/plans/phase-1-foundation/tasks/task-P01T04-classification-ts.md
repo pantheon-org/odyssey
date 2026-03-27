@@ -26,6 +26,13 @@ Write `scripts/classification.test.ts` collocated **before** implementing.
   - `Classification` shape: `{ version: string, dimensions: Dimension[], categories: Category[], verdicts: Verdict[], enterprise_use_verdicts: Verdict[], risk_flags: RiskFlag[], tags: TagVocabulary }`
   - Consumed by P01T05 (`buildSchemas()`), P01T06 (`generate-schema.ts`), P01T10 (`evaluate.ts`)
 
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/classification.md` — Classification type shape
+- `../../../knowledge-base/toolchain.md` — YAML parser choice (`yaml` not `js-yaml`)
+
 ## References
 - `../../../knowledge-base/classification.md` — Classification type shape
 - `../../../knowledge-base/toolchain.md` — YAML parser choice

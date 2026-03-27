@@ -19,6 +19,18 @@ dependencies. This gives early signal while keeping the `@integration` gate on
   `--profile integration-lite`.
 - Keep `@integration` scenarios unchanged for the `main`-branch gate.
 
+## Depends on
+
+- P01T02 — `cucumber.json` and step definition stubs must exist to add the new profile
+- P01T15 — live step definitions should be green before adding the fixture-based mirror
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../.context/adr/018-testing-strategy.md` — testing strategy, integration-lite rationale
+- `features/evaluate.feature` — the scenarios being mirrored with fixtures
+
 ## Verification
 ```sh
 bunx cucumber-js --config cucumber.json --profile integration-lite
