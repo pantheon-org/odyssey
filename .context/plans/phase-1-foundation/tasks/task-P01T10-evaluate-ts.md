@@ -9,12 +9,16 @@ write evaluated page as a pull request branch.
 
 ## Implementation
 - **Repo data fetch**: `GET /repos/{owner}/{repo}` via GitHub REST API — name,
-  description, language, stars, topics, homepage, README (truncated at last
-  newline ≤ 4000 chars — see ADR-007).
+  description, language, stars, topics, homepage, `license.spdx_id` (stored as
+  `license` frontmatter field; `null` → `"none"`, `NOASSERTION` → `"unclear"`),
+  and README (truncated at last newline ≤ 4000 chars — see ADR-007).
+  `license` is written to frontmatter verbatim — the LLM does **not** infer it.
 - **Prompt builder**: inject fetched data + classification schema into system
   prompt; request structured JSON response matching Zod schema.
 - **LLM call**: GitHub Models API, `gpt-4o-mini` — see ADR-002.
 - **Response validation**: Zod parse → exit on failure — see ADR-008.
+  LLM output schema includes `enterprise_use` (one `enterprise_use_verdict` id)
+  and `risk_flags` (`string[]`, subset of `risk_flags` vocabulary) — see ADR-023.
 - **Idempotency guard**: if `docs/repos/<owner>-<repo>.md` already exists, skip
   (no re-evaluation unless `pending-re-evaluation` label) — see ADR-013.
 - **Page writer**: render validated response into frontmatter + body per
@@ -45,6 +49,7 @@ to make them testable in isolation.
 - `adr/008-response-validation.md` — Zod validation
 - `adr/013-evaluation-idempotency.md` — page-exists guard
 - `adr/014-model-provenance.md` — `model_id` frontmatter
+- `adr/023-license-and-risk-evaluation.md` — `license`, `enterprise_use`, `risk_flags` fields
 - `site-structure.md` — page body template
 
 ## Verification

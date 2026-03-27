@@ -94,6 +94,66 @@ tags:
   - { id: github-actions,     group: ecosystem,  description: "GitHub Actions workflow or custom action" }
   - { id: nx,                 group: ecosystem,  description: "Nx monorepo plugin or integration" }
   - { id: bun,                group: ecosystem,  description: "Bun runtime library or tight Bun integration" }
+
+# Controlled vocabulary for enterprise licensing classification (LLM-assigned, one value)
+# See ADR-023
+enterprise_use_verdicts:
+  - id: free
+    description: >
+      Permissive license (MIT, Apache-2.0, BSD-*) — safe for commercial and enterprise
+      use at no cost. No conditions imposed on consumers beyond attribution.
+  - id: restricted
+    description: >
+      Copyleft license (GPL-2.0, GPL-3.0, AGPL-3.0, LGPL) — usable but viral.
+      Distribution or network use of a derivative may require open-sourcing it.
+  - id: commercial
+    description: >
+      Source-available but commercially restricted (BSL-1.1, SSPL-1.0, Commons Clause,
+      or an explicit non-commercial clause) — not freely usable in enterprise SaaS or
+      commercial products without a paid licence.
+  - id: unclear
+    description: >
+      No license file, a custom or unrecognised license, or genuinely ambiguous terms.
+      Treat as all-rights-reserved until legal counsel verifies.
+
+# Controlled vocabulary for liability risk signals (LLM-assigned, 0–N per repo)
+# See ADR-023
+risk_flags:
+  - id: no-license
+    description: >
+      No license file present. Copyright defaults to all-rights-reserved; using this
+      project in any product is legally unsafe without explicit permission from the author.
+  - id: license-changed
+    description: >
+      The project has a documented history of switching from a permissive to a more
+      restrictive license (e.g. Terraform → BSL, Redis → SSPL, Elasticsearch → SSPL).
+  - id: copyleft-viral
+    description: >
+      GPL or AGPL license. Linking or deploying a modified version may require
+      open-sourcing the consuming codebase under the same terms.
+  - id: sspl-bsl
+    description: >
+      SSPL or BSL licence — explicitly restricts use in competing commercial services.
+      OSI does not recognise either as an open-source licence.
+  - id: single-maintainer
+    description: >
+      A single active maintainer with no clear succession plan or governance structure.
+      Bus-factor of one.
+  - id: no-recent-activity
+    description: >
+      No commits, releases, or issue responses detectable in the past 12 months.
+  - id: known-cve
+    description: >
+      Has publicly disclosed CVEs or documented security vulnerabilities that are
+      unpatched or patched only in versions incompatible with common usage.
+  - id: vendor-capture
+    description: >
+      Controlled by a commercial vendor whose interests may diverge from the open-source
+      community — evidenced by CLA requirements, proprietary extensions, or fork restrictions.
+  - id: deep-lock-in
+    description: >
+      Adopting this project creates hard-to-reverse coupling to a specific vendor,
+      proprietary protocol, or hosted service.
 ```
 
 ---
@@ -150,6 +210,9 @@ Each evaluated page records `schema_version` in its frontmatter. Two mechanisms 
 | **Add a tag or tag group** | **No** | No — run `bun run generate:schema` and commit only |
 | **Change a tag `description` or `group`** | No | No — commit only |
 | **Rename or remove a tag `id`** | **Yes** | Yes — add `replaced_by`/`deprecated` field, then bump |
+| **Add an `enterprise_use_verdict` or `risk_flag`** | **No** | No — run `bun run generate:schema` and commit only |
+| **Change a verdict/flag `description`** | No | No — commit only |
+| **Rename or remove a verdict/flag `id`** | **Yes** | Yes — bump version; schema-sync queues re-evals |
 
 > Bumping `version` is the signal to `schema-sync.yml` and `quarterly-check.ts` to queue re-evaluations. Keep this signal meaningful — do not bump for additive or display-only changes.
 
@@ -204,6 +267,24 @@ Each evaluated page records `schema_version` in its frontmatter. Two mechanisms 
 3. Run `bun run generate:schema` and commit both files
 4. The tag data loader renders the old tag page with a redirect notice during the re-evaluation window
 5. After all pages re-evaluated, remove the old tag entry in a follow-up commit (no version bump needed at that point)
+
+---
+
+## Adding a New Enterprise Use Verdict or Risk Flag
+
+1. Add entry to `enterprise_use_verdicts` or `risk_flags` in `classification.yaml`
+2. Do **not** bump `version`
+3. Run `bun run generate:schema` — updates `docs/schema/repo-page.schema.json`
+4. Commit `classification.yaml` + `repo-page.schema.json` together
+5. New evaluations will use the new value immediately; existing pages remain valid
+
+## Renaming or Removing an Enterprise Use Verdict or Risk Flag
+
+1. For verdicts: add `replaced_by: new-id` to the old entry; add the new entry
+2. For flags: add `deprecated: true` to the entry
+3. Bump `version` — triggers re-evaluation of all pages
+4. Run `bun run generate:schema` and commit both files
+5. Remove deprecated entries after all pages re-evaluated
 
 ---
 
