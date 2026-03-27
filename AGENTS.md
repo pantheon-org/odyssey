@@ -31,7 +31,9 @@ bun install                     # Install dependencies (uses bun.lockb)
 bun test                        # Run unit tests (collocated *.test.ts files)
 bunx cucumber-js --config cucumber.json  # Run BDD e2e scenarios
 bunx cucumber-js --tags "not @slow"      # Skip long-running pipeline scenarios
-bun run lint                    # biome ci .
+bun run lint                    # biome ci . (TS/JS/JSON)
+bun run lint:md                 # markdownlint-cli2 (Markdown)
+bun run check:yaml              # parse-check all .yaml/.yml files
 bun run check                   # biome check --write .
 bun run format                  # biome format --write .
 bun run generate:schema         # Emit docs/schema/repo-page.schema.json

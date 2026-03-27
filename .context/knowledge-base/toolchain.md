@@ -6,7 +6,9 @@
 |---------|------|-------|
 | Runtime | **Bun** | All scripts run with `bun run`; no Node required |
 | Language | **TypeScript** | Strict mode; `.ts` extensions throughout |
-| Linting / formatting | **Biome** (`@biomejs/biome`) | Replaces ESLint + Prettier; enforced in CI |
+| Linting / formatting (TS/JS/JSON) | **Biome** (`@biomejs/biome`) | Replaces ESLint + Prettier for TS/JS/JSON; enforced in CI |
+| Markdown linting | **markdownlint-cli2** | Lints all `**/*.md` files; config in `.markdownlint.jsonc` |
+| YAML validation | **`scripts/check-yaml.ts`** | Parses all `**/*.yaml`/`**/*.yml` with `yaml` pkg; exits non-zero on syntax error; no extra dep |
 | Package manager | **Bun** | `bun install`, `bun.lockb` committed |
 | Schema validation (runtime) | **Zod** | Dynamic schemas built from `classification.yaml` |
 | Schema generation | **zod-to-json-schema** | Emits `repo-page.schema.json` |
@@ -29,6 +31,8 @@
     "check:schema":    "bun scripts/generate-schema.ts --check",
     "validate:page":   "bun scripts/validate-page.ts",
     "lint":            "biome ci .",
+    "lint:md":         "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+    "check:yaml":      "bun scripts/check-yaml.ts",
     "format":          "biome format --write .",
     "check":           "biome check --write .",
     "test":            "bun test",
@@ -67,13 +71,52 @@ Minimal starting config — extend as needed.
 
 ---
 
+## `.markdownlint.jsonc`
+
+```jsonc
+{
+  "default": true,
+  "MD013": false,   // line-length — disabled; long lines are fine in generated/data MD
+  "MD033": false,   // inline HTML — VitePress components use it
+  "MD041": false    // first-line-heading — not all files start with H1
+}
+```
+
+---
+
+## `scripts/check-yaml.ts`
+
+```ts
+import { glob } from "bun";
+import { parse } from "yaml";
+
+const files = await Array.fromAsync(glob("**/*.{yaml,yml}", { exclude: ["node_modules/**"] }));
+let failed = false;
+
+for (const file of files) {
+  try {
+    parse(await Bun.file(file).text());
+  } catch (err) {
+    console.error(`YAML parse error in ${file}: ${(err as Error).message}`);
+    failed = true;
+  }
+}
+
+if (failed) process.exit(1);
+console.log(`✓ ${files.length} YAML file(s) valid`);
+```
+
+---
+
 ## CI Setup (all workflows that install deps)
 
 ```yaml
 - uses: oven-sh/setup-bun@v2
   # no bun-version: — setup-bun@v2 reads .bun-version from repo root automatically
 - run: bun install --frozen-lockfile
-- run: bun run lint      # biome ci — fails on format or lint violations
+- run: bun run lint      # biome ci — fails on format or lint violations (TS/JS/JSON)
+- run: bun run lint:md  # markdownlint-cli2 — fails on markdown violations
+- run: bun run check:yaml  # parse-check all .yaml/.yml files
 ```
 
 Add these steps before any `bun scripts/...` call in every workflow job.
@@ -105,3 +148,6 @@ Add these steps before any `bun scripts/...` call in every workflow job.
 - ~~`js-yaml` vs Bun-native?~~ — **`yaml` package** (`eemeli/yaml`): TypeScript types included, actively maintained, no `@types/` dependency. Bun has no built-in YAML parser.
 - ~~Testing approach for CI-first scripts?~~ — **Bun built-in test runner + `--dry-run` flags**: unit tests for pure functions (`scripts/__tests__/`); dry-run suppresses all writes for local iteration. See ADR-018.
 - ~~Schema drift detection?~~ — **`check:schema` CI step**: `generate-schema.ts --check` enforced in `review.yml` and `schema-sync.yml`. See ADR-017.
+- ~~YAML linting?~~ — **`scripts/check-yaml.ts`**: parse-check using the `yaml` package (already a dep); no Python, no extra linter. Style enforcement deferred — author-controlled files make syntax the only real risk.
+- ~~Markdown linting?~~ — **markdownlint-cli2**: dev dep, `.markdownlint.jsonc` config; MD013/MD033/MD041 disabled for VitePress compatibility.
+- ~~JSON linting?~~ — **Biome** already covers JSON formatting and validation.
