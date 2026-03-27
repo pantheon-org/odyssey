@@ -41,7 +41,7 @@ dependencies are merged to `main`.
 | [P01T12](tasks/task-P01T12-review-workflow.md) | `.github/workflows/review.yml` | [P01T09](tasks/task-P01T09-validate-page-ts.md), [P01T10](tasks/task-P01T10-evaluate-ts.md) | 7 | pending |
 | [P01T14](tasks/task-P01T14-branch-protection.md) | Branch protection on `main` | [P01T12](tasks/task-P01T12-review-workflow.md) | 8 | pending |
 | [P01T15](tasks/task-P01T15-smoke-test.md) | BDD: Phase 1 step definitions + run scenarios | [P01T11](tasks/task-P01T11-evaluate-workflow.md), [P01T12](tasks/task-P01T12-review-workflow.md), [P01T13](tasks/task-P01T13-deploy-workflow.md) | 8 | pending |
-| [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | [P01T11](tasks/task-P01T11-evaluate-workflow.md) | 8 | done |
+| [P01T16](tasks/task-P01T16-issue-template.md) | `.github/ISSUE_TEMPLATE/submit-repo.yml` | [P01T11](tasks/task-P01T11-evaluate-workflow.md) | 8 | pending |
 | [P01T17](tasks/task-P01T17-integration-lite.md) | Integration-lite test profile (fixture repo / mocked GH) | [P01T02](tasks/task-P01T02-cucumberjs-scaffold.md), [P01T15](tasks/task-P01T15-smoke-test.md) | 9 | pending |
 
 ---
