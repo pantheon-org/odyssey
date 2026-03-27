@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "plan-schema.json",
+  "title": "Odyssey Implementation Plan",
+  "type": "object",
+  "required": ["$schema", "version", "phases"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "SemVer of the plan format"
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/Phase" }
+    }
+  },
+  "definitions": {
+    "Phase": {
+      "type": "object",
+      "required": ["id", "name", "goal", "exit_criteria", "depends_on", "status", "bdd_tag", "gate_commands", "tasks"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^P\\d{2}$",
+          "description": "Phase identifier, e.g. P01"
+        },
+        "name": {
+          "type": "string"
+        },
+        "goal": {
+          "type": "string",
+          "description": "One-sentence goal statement"
+        },
+        "exit_criteria": {
+          "type": "string",
+          "description": "Prose description of what done means for this phase"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^P\\d{2}$"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in-progress", "done"]
+        },
+        "bdd_tag": {
+          "oneOf": [
+            { "type": "string", "pattern": "^@" },
+            { "type": "null" }
+          ],
+          "description": "Cucumber tag for the phase gate e2e run; null if no BDD gate"
+        },
+        "gate_commands": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ordered shell commands the phase gate agent runs to certify completion"
+        },
+        "tasks": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Task" }
+        }
+      }
+    },
+    "Task": {
+      "type": "object",
+      "required": ["id", "title", "file", "wave", "depends", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^P\\d{2}T\\d{2}$",
+          "description": "Task identifier, e.g. P01T04"
+        },
+        "title": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "description": "Repo-root-relative path to the full task spec file"
+        },
+        "wave": {
+          "oneOf": [
+            { "type": "integer", "minimum": 1 },
+            { "type": "null" }
+          ],
+          "description": "Parallel execution group; null means task is superseded or not on the critical path"
+        },
+        "depends": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^P\\d{2}T\\d{2}$"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in-progress", "done"]
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional annotation"
+        }
+      }
+    }
+  }
+}

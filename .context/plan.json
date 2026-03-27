@@ -1,0 +1,517 @@
+{
+  "$schema": "./plan-schema.json",
+  "version": "1.0.0",
+  "phases": [
+    {
+      "id": "P01",
+      "name": "Foundation",
+      "goal": "Working end-to-end evaluation triggered manually. No automation yet.",
+      "exit_criteria": "Manually triggering evaluate.yml produces a valid evaluated page published to GitHub Pages, bun test passes, and the Phase 1 Cucumber e2e scenario is green.",
+      "depends_on": [],
+      "status": "pending",
+      "bdd_tag": "@phase1",
+      "gate_commands": [
+        "bun test",
+        "bun run docs:build",
+        "bunx cucumber-js --config cucumber.json --profile integration --tags \"@phase1\""
+      ],
+      "tasks": [
+        {
+          "id": "P01T01",
+          "title": "Bun project init",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T01-bun-project-init.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P01T02",
+          "title": "BDD: CucumberJS scaffold + Phase 1 e2e feature",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T02-cucumberjs-scaffold.md",
+          "wave": 2,
+          "depends": ["P01T01"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T03",
+          "title": "docs/schema/classification.yaml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T03-classification-yaml.md",
+          "wave": 2,
+          "depends": ["P01T01"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T07",
+          "title": "docs/schema/page-template.yaml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T07-page-template-yaml.md",
+          "wave": 2,
+          "depends": ["P01T01"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T08",
+          "title": "VitePress scaffold",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T08-vitepress-scaffold.md",
+          "wave": 2,
+          "depends": ["P01T01"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T04",
+          "title": "scripts/classification.ts (TDD)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T04-classification-ts.md",
+          "wave": 3,
+          "depends": ["P01T03"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T13",
+          "title": ".github/workflows/deploy.yml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T13-deploy-workflow.md",
+          "wave": 3,
+          "depends": ["P01T08"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T05",
+          "title": "scripts/schema.ts (TDD)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T05-schema-ts.md",
+          "wave": 4,
+          "depends": ["P01T04"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T06",
+          "title": "scripts/generate-schema.ts (TDD)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T06-generate-schema-ts.md",
+          "wave": 5,
+          "depends": ["P01T05"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T09",
+          "title": "scripts/validate-page.ts (TDD)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T09-validate-page-ts.md",
+          "wave": 6,
+          "depends": ["P01T06", "P01T07"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T10",
+          "title": "scripts/evaluate.ts (TDD)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T10-evaluate-ts.md",
+          "wave": 6,
+          "depends": ["P01T04", "P01T05", "P01T07"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T11",
+          "title": ".github/workflows/evaluate.yml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T11-evaluate-workflow.md",
+          "wave": 7,
+          "depends": ["P01T10"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T12",
+          "title": ".github/workflows/review.yml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T12-review-workflow.md",
+          "wave": 7,
+          "depends": ["P01T09", "P01T10"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T14",
+          "title": "Branch protection on main",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T14-branch-protection.md",
+          "wave": 8,
+          "depends": ["P01T12"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T15",
+          "title": "BDD: Phase 1 step definitions + run scenarios",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T15-smoke-test.md",
+          "wave": 8,
+          "depends": ["P01T11", "P01T12", "P01T13"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T16",
+          "title": ".github/ISSUE_TEMPLATE/submit-repo.yml",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T16-issue-template.md",
+          "wave": 8,
+          "depends": ["P01T11"],
+          "status": "pending"
+        },
+        {
+          "id": "P01T17",
+          "title": "Integration-lite test profile (fixture repo / mocked GH)",
+          "file": ".context/plans/phase-1-foundation/tasks/task-P01T17-integration-lite.md",
+          "wave": 9,
+          "depends": ["P01T02", "P01T15"],
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "name": "Full Pipeline",
+      "goal": "Fully automated star-to-page pipeline.",
+      "exit_criteria": "Starring a repo produces a published page with no manual intervention; bun test passes; the Phase 2 Cucumber e2e scenario is green.",
+      "depends_on": ["P01"],
+      "status": "pending",
+      "bdd_tag": "@phase2",
+      "gate_commands": [
+        "bun test",
+        "bunx cucumber-js --config cucumber.json --profile integration --tags \"@phase2\""
+      ],
+      "tasks": [
+        {
+          "id": "P02T01",
+          "title": "actions/cache cursor initialisation",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T01-last-starred-cursor.md",
+          "wave": null,
+          "depends": [],
+          "status": "pending",
+          "note": "Not on critical path — wave superseded"
+        },
+        {
+          "id": "P02T02",
+          "title": "BDD: Phase 2 e2e feature + step definitions stub",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T02-phase2-bdd-feature.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P02T03",
+          "title": "scripts/poll-stars.ts (TDD)",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T03-poll-stars-ts.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P02T05",
+          "title": "Verify evaluate.yml label trigger",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T05-verify-evaluate-trigger.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P02T04",
+          "title": ".github/workflows/poll-stars.yml",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T04-poll-stars-workflow.md",
+          "wave": 2,
+          "depends": ["P02T03"],
+          "status": "pending"
+        },
+        {
+          "id": "P02T06",
+          "title": "Run Phase 2 BDD scenarios",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T06-e2e-test.md",
+          "wave": 3,
+          "depends": ["P02T02", "P02T04", "P02T05"],
+          "status": "pending"
+        },
+        {
+          "id": "P02T07",
+          "title": "Star automation test harness (test acct + fallback trigger)",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T07-star-test-harness.md",
+          "wave": 3,
+          "depends": ["P02T02", "P02T04"],
+          "status": "pending"
+        },
+        {
+          "id": "P02T08",
+          "title": "Enable branch protection after workflows stable",
+          "file": ".context/plans/phase-2-full-pipeline/tasks/task-P02T08-branch-protection.md",
+          "wave": 3,
+          "depends": ["P02T04", "P02T05"],
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "name": "Polish and Comparison",
+      "goal": "Operational hygiene and cross-repo comparison pipeline.",
+      "exit_criteria": "At least one comparison page generated end-to-end; quarterly-check and schema-sync workflows green on dry-run; Phase 3 Cucumber comparison scenario green.",
+      "depends_on": ["P02"],
+      "status": "pending",
+      "bdd_tag": "@phase3a",
+      "gate_commands": [
+        "bun test",
+        "bunx cucumber-js --config cucumber.json --profile integration --tags \"@phase3a\"",
+        "bun scripts/quarterly-check.ts --dry-run",
+        "bun scripts/schema-sync.ts --dry-run"
+      ],
+      "tasks": [
+        {
+          "id": "P03T01",
+          "title": "docs/rankings/index.md",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T01-ranking-index-page.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T04",
+          "title": "BDD: Comparison pipeline feature scenario + step definitions",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T04-bdd-comparison-feature.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T05",
+          "title": "docs/schema/groups.yaml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T05-groups-yaml.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T06",
+          "title": "docs/schema/compare-template.yaml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T06-compare-template-yaml.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T14",
+          "title": "scripts/quarterly-check.ts (TDD)",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T14-quarterly-check-ts.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T16",
+          "title": "scripts/schema-sync.ts (TDD)",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T16-schema-sync-ts.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P03T02",
+          "title": "docs/rankings/<group-slug>.md",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T02-ranking-group-pages.md",
+          "wave": 2,
+          "depends": ["P03T05"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T07",
+          "title": "Extend scripts/generate-schema.ts",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T07-extend-generate-schema-ts.md",
+          "wave": 2,
+          "depends": ["P03T05"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T09",
+          "title": "scripts/compare.ts (TDD)",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T09-compare-ts.md",
+          "wave": 2,
+          "depends": ["P03T05", "P03T06"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T15",
+          "title": ".github/workflows/quarterly-check.yml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T15-quarterly-check-workflow.md",
+          "wave": 2,
+          "depends": ["P03T14"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T17",
+          "title": ".github/workflows/schema-sync.yml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T17-schema-sync-workflow.md",
+          "wave": 2,
+          "depends": ["P03T16"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T03",
+          "title": "Register rankings in VitePress sidebar",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T03-ranking-sidebar-config.md",
+          "wave": 3,
+          "depends": ["P03T01", "P03T02"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T08",
+          "title": "scripts/validate-compare.ts (TDD)",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T08-validate-compare-ts.md",
+          "wave": 3,
+          "depends": ["P03T07", "P03T06"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T10",
+          "title": ".github/workflows/compare.yml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T10-compare-workflow.md",
+          "wave": 3,
+          "depends": ["P03T09"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T11",
+          "title": "Extend review.yml for compare branches",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T11-extend-review-workflow.md",
+          "wave": 4,
+          "depends": ["P03T08", "P03T10"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T12",
+          "title": "Seed fixture repos + first group in groups.yaml",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T12-seed-first-group.md",
+          "wave": 4,
+          "depends": ["P03T09", "P03T10", "P03T11"],
+          "status": "pending"
+        },
+        {
+          "id": "P03T13",
+          "title": "Run Phase 3 BDD comparison scenarios",
+          "file": ".context/plans/phase-3-polish-and-comparison/tasks/task-P03T13-run-comparison-scenarios.md",
+          "wave": 5,
+          "depends": ["P03T04", "P03T11", "P03T12"],
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "name": "Site UX and Navigation",
+      "goal": "Tags and category navigation, per-page cross-references, score card component, stats dashboard, and local search.",
+      "exit_criteria": "bun run docs:build passes; tag/category pages navigable; score cards render consistently; navigation checks green.",
+      "depends_on": ["P03"],
+      "status": "pending",
+      "bdd_tag": null,
+      "gate_commands": [
+        "bun run docs:build"
+      ],
+      "tasks": [
+        {
+          "id": "P04T01",
+          "title": "docs/tags/index.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T01-tags-index-page.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T02",
+          "title": "docs/tags/groups/<group>.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T02-tags-group-pages.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T03",
+          "title": "docs/tags/<tag-id>.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T03-tag-detail-pages.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T04",
+          "title": "docs/categories/index.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T04-categories-index-page.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T05",
+          "title": "docs/categories/<category>.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T05-category-detail-pages.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T07",
+          "title": "docs/.vitepress/loaders/related.ts",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T07-related-loader-ts.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T08",
+          "title": "docs/.vitepress/loaders/groups.ts",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T08-groups-loader-ts.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T10",
+          "title": "VitePress theme — score card component",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T10-score-card-component.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T11",
+          "title": "Stats dashboard on docs/index.md",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T11-stats-dashboard.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T12",
+          "title": "VitePress built-in local search",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T12-local-search.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T13",
+          "title": "Group-discovery hint in evaluate.ts",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T13-group-discovery-hint.md",
+          "wave": 1,
+          "depends": [],
+          "status": "pending"
+        },
+        {
+          "id": "P04T06",
+          "title": "Register tags/ and categories/ in sidebar",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T06-nav-sidebar-config.md",
+          "wave": 2,
+          "depends": ["P04T01", "P04T02", "P04T03", "P04T04", "P04T05"],
+          "status": "pending"
+        },
+        {
+          "id": "P04T09",
+          "title": "Wire loaders into repo page template",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T09-wire-cross-references.md",
+          "wave": 2,
+          "depends": ["P04T07", "P04T08"],
+          "status": "pending"
+        },
+        {
+          "id": "P04T14",
+          "title": "Minimal automated navigation checks",
+          "file": ".context/plans/phase-4-site-ux-and-navigation/tasks/task-P04T14-navigation-checks.md",
+          "wave": 3,
+          "depends": ["P04T06", "P04T09"],
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}
