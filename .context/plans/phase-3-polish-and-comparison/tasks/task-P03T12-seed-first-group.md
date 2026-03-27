@@ -46,5 +46,17 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const g
 **Won't Have (this iteration)**
 - Automated group-candidate discovery tooling — the group-discovery hint from P03T26 surfaces candidates but manual curation is the process
 
+## Depends on
+
+- [P03T09](task-P03T09-compare-ts.md) — `scripts/compare.ts` must be runnable to generate the fixture comparison page
+- [P03T10](task-P03T10-compare-workflow.md) — `compare.yml` must be merged so the fixture group triggers correctly
+- [P03T11](task-P03T11-extend-review-workflow.md) — `review.yml` must handle compare branches before the fixture PR can auto-merge
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — fixture repo pattern and groups.yaml structure
+
 ## Status
 pending

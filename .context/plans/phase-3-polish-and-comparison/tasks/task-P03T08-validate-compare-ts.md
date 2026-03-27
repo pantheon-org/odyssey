@@ -21,10 +21,9 @@ Write `scripts/validate-compare.test.ts` collocated **before** implementing.
 - `--dry-run` with invalid page → logs errors but exits 0
 
 ## Depends on
-- P03T07 — reads `docs/schema/compare-page.schema.json` for Ajv; file must be committed before this script runs
-  - Expected frontmatter fields: `group_id`, `group_label`, `members[]`, `generated_at`, `model_id`, `schema_version`
-- P03T06 — reads `docs/schema/compare-template.yaml` for required section names
-  - Required sections: "Summary table", "Recommendation", "Comparison"
+
+- [P03T07](task-P03T07-extend-generate-schema-ts.md) — `docs/schema/compare-page.schema.json` must be generated and committed
+- [P03T06](task-P03T06-compare-template-yaml.md) — `docs/schema/compare-template.yaml` must exist
 
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
@@ -57,6 +56,13 @@ echo $?  # 0 = valid
 
 **Won't Have (this iteration)**
 - Auto-fix mode that inserts missing sections — validation-only is the intended scope
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — Ajv validation approach
+- `../../../knowledge-base/architecture.md` — compare page frontmatter fields
 
 ## Status
 pending

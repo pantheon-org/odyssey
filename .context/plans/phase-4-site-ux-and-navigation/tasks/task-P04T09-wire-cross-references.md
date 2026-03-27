@@ -47,5 +47,17 @@ grep -r "related\|groups" docs/.vitepress/dist/repos/ | head -5
 **Won't Have (this iteration)**
 - User-facing "add to group" or "suggest related repo" interactions — read-only display only
 
+## Depends on
+
+- [P04T07](task-P04T07-related-loader-ts.md) — `related.ts` loader must be implemented before wiring
+- [P04T08](task-P04T08-groups-loader-ts.md) — `groups.ts` loader must be implemented before wiring
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress data loader wiring pattern
+- `../../../knowledge-base/architecture.md` — repo page template structure
+
 ## Status
 pending

@@ -30,5 +30,16 @@ Attempt a direct push to `main` and confirm it is blocked without required check
 **Won't Have (this iteration)**
 - Infrastructure-as-code (e.g. Terraform) management of branch protection — manual GitHub UI configuration is sufficient
 
+## Depends on
+
+- [P02T04](task-P02T04-poll-stars-workflow.md) — poll-stars.yml must be stable before protecting
+- [P02T05](task-P02T05-verify-evaluate-trigger.md) — evaluate.yml trigger verified and stable
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — required status checks per workflow
+
 ## Status
 pending

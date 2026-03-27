@@ -45,5 +45,16 @@ gh pr list --head "compare/" --limit 3
 **Won't Have (this iteration)**
 - Separate review workflow file for compare branches — a conditional step within the existing `review.yml` is the chosen approach
 
+## Depends on
+
+- [P03T08](task-P03T08-validate-compare-ts.md) — `scripts/validate-compare.ts` must exist; review.yml calls it on compare branches
+- [P03T10](task-P03T10-compare-workflow.md) — `compare.yml` must exist to know what branch naming convention review.yml must handle
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — review.yml current structure and extension points
+
 ## Status
 pending

@@ -46,5 +46,16 @@ gh workflow run evaluate.yml -f repo=owner/repo-with-shared-tags
 **Won't Have (this iteration)**
 - Automated group creation from the discovery hint — manual curation of `groups.yaml` remains the process
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete (groups.yaml must exist)._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — evaluate.ts role and group-discovery hint
+- `../../../knowledge-base/classification.md` — classification dimensions used for group matching
+
 ## Status
 pending

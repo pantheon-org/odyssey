@@ -44,5 +44,16 @@ ls docs/.vitepress/dist/tags/ | head -5
 **Won't Have (this iteration)**
 - Automatic tag alias resolution in repo frontmatter — deprecated tags are rendered with a notice, not silently remapped
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — tag detail page structure
+- `../../../knowledge-base/classification.md` — classification dimensions that produce tags
+
 ## Status
 pending

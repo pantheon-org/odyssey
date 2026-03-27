@@ -43,5 +43,17 @@ bun run check:links
 **Won't Have (this iteration)**
 - External URL validation (e.g. checking GitHub repo links are still live) — internal static link checking only
 
+## Depends on
+
+- [P04T06](task-P04T06-nav-sidebar-config.md) — tags/ and categories/ sidebar must be registered before navigation checks can verify it
+- [P04T09](task-P04T09-wire-cross-references.md) — loaders must be wired into the repo page template before cross-reference checks work
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — VitePress build and test approach
+- `../../../adr/018-testing-strategy.md` — minimal automated checks rationale
+
 ## Status
 pending

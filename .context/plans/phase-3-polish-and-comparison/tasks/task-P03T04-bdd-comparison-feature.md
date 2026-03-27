@@ -67,5 +67,16 @@ bunx cucumber-js --config cucumber.json --tags "@phase3"
 **Won't Have (this iteration)**
 - Live end-to-end scenario execution — that is deferred to P03T13 once the full comparison pipeline is implemented
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 2 must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — compare.yml pipeline flow
+- `../../../adr/018-testing-strategy.md` — BDD-first rationale
+
 ## Status
 pending

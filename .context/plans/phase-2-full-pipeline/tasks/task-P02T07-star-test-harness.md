@@ -45,5 +45,17 @@ bunx cucumber-js --config cucumber.json --profile integration --tags "@phase2"
 **Won't Have (this iteration)**
 - Automated PAT rotation or secret management for the test account — manual rotation is acceptable at this stage
 
+## Depends on
+
+- [P02T02](task-P02T02-phase2-bdd-feature.md) — BDD scenarios must exist to validate against
+- [P02T04](task-P02T04-poll-stars-workflow.md) — poll-stars.yml must be runnable
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — PAT scopes and star trigger flow
+- `../../../adr/022-github-list-intake.md` — GitHub List intake approach
+
 ## Status
 pending

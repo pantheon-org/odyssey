@@ -47,5 +47,16 @@ grep -r "total\|average" docs/.vitepress/dist/index.html | head -5
 **Won't Have (this iteration)**
 - Live/real-time stats updates — data is computed from committed frontmatter at build time only
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — docs/index.md role as the site home
+- `../../../knowledge-base/toolchain.md` — VitePress data loader for aggregated stats
+
 ## Status
 pending

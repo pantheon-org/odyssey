@@ -43,5 +43,16 @@ bun -e "import { getRelated } from './docs/.vitepress/loaders/related.ts'; conso
 **Won't Have (this iteration)**
 - Semantic or embedding-based similarity — shared-tag count is the sole similarity signal for this iteration
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 3a must be complete._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/architecture.md` — related.ts loader role and data shape
+- `../../../knowledge-base/toolchain.md` — VitePress data loader pattern
+
 ## Status
 pending

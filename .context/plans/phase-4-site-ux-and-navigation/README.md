@@ -17,46 +17,28 @@ tests.
 
 ---
 
-## Ordering constraints
+## Tasks
 
-- **P04T01–P04T06** (tags/categories nav): can proceed in parallel once Phase 3a is
-  complete.
-- **P04T07–P04T08** (loaders): should be implemented before P04T09 (wiring), as the
-  wiring task depends on both loaders being available.
-- **P04T10–P04T14** (UX polish — score card, stats dashboard, local search,
-  group-discovery hint, navigation checks): best tackled last, after the navigation
-  structure is in place.
+Parallel waves — tasks in the same wave can be implemented concurrently in separate
+worktrees (see AGENTS.md for the worktree pattern). A task cannot start until all its
+dependencies are merged to `main`.
 
----
-
-## Navigation — tags and categories
-
-| ID | Task | Status |
-|----|------|--------|
-| [P04T01](tasks/task-P04T01-tags-index-page.md) | `docs/tags/index.md` | pending |
-| [P04T02](tasks/task-P04T02-tags-group-pages.md) | `docs/tags/groups/<group>.md` | pending |
-| [P04T03](tasks/task-P04T03-tag-detail-pages.md) | `docs/tags/<tag-id>.md` | pending |
-| [P04T04](tasks/task-P04T04-categories-index-page.md) | `docs/categories/index.md` | pending |
-| [P04T05](tasks/task-P04T05-category-detail-pages.md) | `docs/categories/<category>.md` | pending |
-| [P04T06](tasks/task-P04T06-nav-sidebar-config.md) | Register tags/ and categories/ in sidebar | pending |
-
-## Navigation — per-page cross-references
-
-| ID | Task | Status |
-|----|------|--------|
-| [P04T07](tasks/task-P04T07-related-loader-ts.md) | `docs/.vitepress/loaders/related.ts` | pending |
-| [P04T08](tasks/task-P04T08-groups-loader-ts.md) | `docs/.vitepress/loaders/groups.ts` | pending |
-| [P04T09](tasks/task-P04T09-wire-cross-references.md) | Wire loaders into repo page template | pending |
-
-## Site UX
-
-| ID | Task | Status |
-|----|------|--------|
-| [P04T10](tasks/task-P04T10-score-card-component.md) | VitePress theme — score card component | pending |
-| [P04T11](tasks/task-P04T11-stats-dashboard.md) | Stats dashboard on `docs/index.md` | pending |
-| [P04T12](tasks/task-P04T12-local-search.md) | VitePress built-in local search | pending |
-| [P04T13](tasks/task-P04T13-group-discovery-hint.md) | Group-discovery hint in `evaluate.ts` | pending |
-| [P04T14](tasks/task-P04T14-navigation-checks.md) | Minimal automated navigation checks | pending |
+| ID | Task | Depends | Wave | Status |
+|----|------|---------|------|--------|
+| [P04T01](tasks/task-P04T01-tags-index-page.md) | `docs/tags/index.md` | — | 1 | pending |
+| [P04T02](tasks/task-P04T02-tags-group-pages.md) | `docs/tags/groups/<group>.md` | — | 1 | pending |
+| [P04T03](tasks/task-P04T03-tag-detail-pages.md) | `docs/tags/<tag-id>.md` | — | 1 | pending |
+| [P04T04](tasks/task-P04T04-categories-index-page.md) | `docs/categories/index.md` | — | 1 | pending |
+| [P04T05](tasks/task-P04T05-category-detail-pages.md) | `docs/categories/<category>.md` | — | 1 | pending |
+| [P04T07](tasks/task-P04T07-related-loader-ts.md) | `docs/.vitepress/loaders/related.ts` | — | 1 | pending |
+| [P04T08](tasks/task-P04T08-groups-loader-ts.md) | `docs/.vitepress/loaders/groups.ts` | — | 1 | pending |
+| [P04T10](tasks/task-P04T10-score-card-component.md) | VitePress theme — score card component | — | 1 | pending |
+| [P04T11](tasks/task-P04T11-stats-dashboard.md) | Stats dashboard on `docs/index.md` | — | 1 | pending |
+| [P04T12](tasks/task-P04T12-local-search.md) | VitePress built-in local search | — | 1 | pending |
+| [P04T13](tasks/task-P04T13-group-discovery-hint.md) | Group-discovery hint in `evaluate.ts` | — | 1 | pending |
+| [P04T06](tasks/task-P04T06-nav-sidebar-config.md) | Register tags/ and categories/ in sidebar | [P04T01](tasks/task-P04T01-tags-index-page.md), [P04T02](tasks/task-P04T02-tags-group-pages.md), [P04T03](tasks/task-P04T03-tag-detail-pages.md), [P04T04](tasks/task-P04T04-categories-index-page.md), [P04T05](tasks/task-P04T05-category-detail-pages.md) | 2 | pending |
+| [P04T09](tasks/task-P04T09-wire-cross-references.md) | Wire loaders into repo page template | [P04T07](tasks/task-P04T07-related-loader-ts.md), [P04T08](tasks/task-P04T08-groups-loader-ts.md) | 2 | pending |
+| [P04T14](tasks/task-P04T14-navigation-checks.md) | Minimal automated navigation checks | [P04T06](tasks/task-P04T06-nav-sidebar-config.md), [P04T09](tasks/task-P04T09-wire-cross-references.md) | 3 | pending |
 
 ---
 

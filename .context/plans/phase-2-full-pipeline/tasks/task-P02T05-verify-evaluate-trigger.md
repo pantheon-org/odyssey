@@ -49,5 +49,15 @@ gh run list --workflow=evaluate.yml --limit=3
 **Won't Have (this iteration)**
 - Additional label variants or label-hierarchy logic beyond the two defined labels
 
+## Depends on
+
+_None — this is a Wave 1 task. Phase 1 evaluate.yml must be merged._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — evaluate.yml trigger and label flow
+
 ## Status
 pending

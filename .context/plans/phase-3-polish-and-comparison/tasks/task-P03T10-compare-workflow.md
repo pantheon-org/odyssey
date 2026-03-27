@@ -52,5 +52,15 @@ gh run list --workflow=compare.yml --limit=1
 **Won't Have (this iteration)**
 - Fan-out parallelism across groups within a single workflow run — `p-limit(3)` within a single job is the design
 
+## Depends on
+
+- [P03T09](task-P03T09-compare-ts.md) — `scripts/compare.ts` must be implemented; the workflow calls it
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — compare.yml steps and GH_PAT secrets
+
 ## Status
 pending

@@ -44,5 +44,15 @@ gh run list --workflow=quarterly-check.yml --limit=1
 **Won't Have (this iteration)**
 - Per-repo configurable re-evaluation cadence — the quarterly schedule applies uniformly to all evaluated repos
 
+## Depends on
+
+- [P03T14](task-P03T14-quarterly-check-ts.md) — `scripts/quarterly-check.ts` must be implemented; the workflow calls it
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — quarterly-check.yml cron schedule and GH_PAT secrets
+
 ## Status
 pending

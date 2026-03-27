@@ -47,5 +47,16 @@ bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const g
 **Won't Have (this iteration)**
 - Automated group-membership validation against existing `docs/repos/` pages — that is handled by P03T12 seeding prerequisites
 
+## Depends on
+
+_None — this is a Wave 1 task._
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/classification.md` — classification dimensions and tag structure
+- `../../../knowledge-base/architecture.md` — groups.yaml role in comparison pipeline
+
 ## Status
 pending

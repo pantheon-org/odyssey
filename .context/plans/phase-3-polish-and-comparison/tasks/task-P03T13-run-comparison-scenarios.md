@@ -45,5 +45,18 @@ bunx cucumber-js --config cucumber.json --tags "@phase3"
 **Won't Have (this iteration)**
 - Multi-group parallel scenario coverage — single group scenario is the target for this phase
 
+## Depends on
+
+- [P03T04](task-P03T04-bdd-comparison-feature.md) — BDD feature file and step definitions must exist
+- [P03T11](task-P03T11-extend-review-workflow.md) — review.yml compare branch support must be merged
+- [P03T12](task-P03T12-seed-first-group.md) — fixture repos and first group must be seeded
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — full comparison pipeline flow
+- `../../../adr/018-testing-strategy.md` — BDD integration test scope
+
 ## Status
 pending

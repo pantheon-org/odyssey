@@ -44,5 +44,18 @@ bunx cucumber-js --config cucumber.json --tags "@phase2"
 **Won't Have (this iteration)**
 - Parallelised multi-repo pipeline scenario — single scenario coverage is the target for this phase
 
+## Depends on
+
+- [P02T02](task-P02T02-phase2-bdd-feature.md) — feature file and step definitions must exist
+- [P02T04](task-P02T04-poll-stars-workflow.md) — poll-stars.yml must be merged and working
+- [P02T05](task-P02T05-verify-evaluate-trigger.md) — evaluate.yml label trigger verified
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/workflows.md` — full pipeline flow end-to-end
+- `../../../adr/018-testing-strategy.md` — BDD integration test scope
+
 ## Status
 pending

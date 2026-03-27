@@ -15,8 +15,8 @@ Extend the schema generator to also emit `docs/schema/compare-page.schema.json`.
 - `check:schema` script checks both files for drift — see ADR-017.
 
 ## Depends on
-- P01T06 — extends `scripts/generate-schema.ts`; must understand the existing `buildRepoPageSchema()` pattern before adding `buildCompareSchema()` alongside it
-- P03T05 — `members[]` in the compare schema maps to the `groups.yaml` `members[]` shape (array of `owner/repo` strings)
+
+- [P03T05](task-P03T05-groups-yaml.md) — `docs/schema/groups.yaml` schema shape must be finalised before extending the generator
 
 ## Produces
 - `docs/schema/compare-page.schema.json` (committed artefact) — consumed by P03T08 (validate-compare.ts) for Ajv frontmatter validation
@@ -55,6 +55,13 @@ bun run check:schema && echo "schemas in sync"
 
 **Won't Have (this iteration)**
 - Automatic schema publishing to an external registry — committed JSON Schema files in the repo are sufficient
+
+## Context
+
+_Minimum reads before starting:_
+
+- `../../../knowledge-base/toolchain.md` — Zod + JSON Schema generation approach
+- `../../../knowledge-base/classification.md` — schema versioning
 
 ## Status
 pending
