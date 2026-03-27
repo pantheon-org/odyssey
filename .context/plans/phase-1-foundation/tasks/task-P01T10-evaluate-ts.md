@@ -43,6 +43,11 @@ to make them testable in isolation.
 - GitHub REST API returns 404 for the repo → script exits non-zero with "repo not found" message
 - PR already open on branch `eval/<owner>-<repo>-*` → script exits 0 with "PR already open, skipping" message (idempotent)
 
+## Depends on
+- P01T04 — imports `loadClassification()` from `scripts/classification.ts` to inject dimension/category/verdict vocabulary into the LLM prompt
+- P01T05 — imports `buildSchemas()` from `scripts/schema.ts` for Zod validation of LLM JSON response
+- P01T07 — reads `docs/schema/page-template.yaml` for the page body section structure used when rendering the output page
+
 ## References
 - `adr/002-llm-model-and-auth.md` — GitHub Models API + gpt-4o-mini
 - `adr/007-prompt-enrichment.md` — pre-fetch repo data, README truncation

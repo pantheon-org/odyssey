@@ -15,6 +15,16 @@ and `version: "1.0.0"`.
   category/verdict change rules.
 - Tag vocabulary: controlled grouped flat tags, no language tags — see ADR-020.
 
+## Produces
+- `docs/schema/classification.yaml` — consumed by P01T04, P01T05, P01T10
+  - `version` (string) — written verbatim to `schema_version` frontmatter on every repo page
+  - `dimensions[].id` (string[]) — each becomes a required integer frontmatter field (score 1–5)
+  - `categories[].id` (string[]) — allowed values for the `category` frontmatter enum
+  - `verdicts[].id` (string[]) — allowed values for the `verdict` frontmatter enum
+  - `enterprise_use_verdicts[].id` (string[]) — allowed values for the `enterprise_use` frontmatter enum
+  - `risk_flags[].id` (string[]) — allowed values in the `risk_flags[]` frontmatter array
+  - `tags` (grouped vocabulary) — allowed values for the `tags[]` frontmatter array
+
 ## References
 - `classification.md` — full schema spec, dimension list, evolution policy
 - `adr/020-tag-vocabulary-model.md` — tag structure, starter vocabulary

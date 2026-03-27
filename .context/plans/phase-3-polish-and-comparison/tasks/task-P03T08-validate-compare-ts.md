@@ -20,6 +20,12 @@ Write `scripts/validate-compare.test.ts` collocated **before** implementing.
 - Missing required section (e.g. "Recommendation") → exit 1
 - `--dry-run` with invalid page → logs errors but exits 0
 
+## Depends on
+- P03T07 — reads `docs/schema/compare-page.schema.json` for Ajv; file must be committed before this script runs
+  - Expected frontmatter fields: `group_id`, `group_label`, `members[]`, `generated_at`, `model_id`, `schema_version`
+- P03T06 — reads `docs/schema/compare-template.yaml` for required section names
+  - Required sections: "Summary table", "Recommendation", "Comparison"
+
 ## References
 - `adr/008-response-validation.md` — Ajv validation approach
 - `compare-rankings.md` — compare page schema

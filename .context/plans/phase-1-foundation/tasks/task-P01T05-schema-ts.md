@@ -22,6 +22,16 @@ Write `scripts/schema.test.ts` collocated **before** implementing.
 - Extra fields rejected
 - `model_id` and `schema_version` fields present
 
+## Depends on
+- P01T04 — imports `loadClassification` and `Classification` type from `scripts/classification.ts`
+
+## Produces
+- `scripts/schema.ts` — exports `buildSchemas(c: Classification)`
+  - Returns `{ repoPageSchema: ZodObject, repoPageJsonSchema: JSONSchema }`
+  - `repoPageSchema` (Zod) — consumed by P01T10 (evaluate.ts) for LLM response validation
+  - `repoPageJsonSchema` (plain object) — consumed by P01T06 to serialize to `repo-page.schema.json`
+  - Schema fields: one integer (1–5) per `dimension.id`, `category` enum, `verdict` enum, `tags[]`, `enterprise_use` enum, `risk_flags[]`, `model_id` string, `schema_version` string
+
 ## References
 - `classification.md` — frontmatter field list
 - `adr/014-model-provenance.md` — `model_id` requirement
