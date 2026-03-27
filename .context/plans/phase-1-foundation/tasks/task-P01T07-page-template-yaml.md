@@ -24,5 +24,10 @@ Define the required body sections for a repo evaluation page.
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const t = parse(readFileSync('docs/schema/page-template.yaml', 'utf8')); console.log(t.sections?.length > 0 ? 'ok' : 'empty')"
 ```
 
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `sections[]` is a non-empty array of heading name strings matching the required sections in `site-structure.md`
+- [ ] `min_content_length` is a positive integer
+
 ## Status
 pending

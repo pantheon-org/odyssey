@@ -23,5 +23,11 @@ gh workflow run poll-stars.yml
 gh run list --workflow=poll-stars.yml --limit=1
 ```
 
+## Acceptance Criteria
+- [ ] `gh workflow run poll-stars.yml` completes with conclusion `success`
+- [ ] Workflow is configured with a `schedule` cron trigger running every 15 minutes
+- [ ] `workflow_dispatch` trigger allows manual re-runs
+- [ ] Workflow requires `contents: write` permission (to support future cursor commits if needed)
+
 ## Status
 pending

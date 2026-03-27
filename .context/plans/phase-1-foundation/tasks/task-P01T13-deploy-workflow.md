@@ -23,5 +23,11 @@ gh workflow run deploy.yml
 curl -sf https://pantheon-org.github.io/odyssey/ | grep -q "odyssey" && echo "ok"
 ```
 
+## Acceptance Criteria
+- [ ] Every push to `main` triggers `deploy.yml`
+- [ ] Workflow job completes with conclusion `success`
+- [ ] `curl -sf https://pantheon-org.github.io/odyssey/` returns HTTP 200
+- [ ] The published page contains the word "odyssey" in the HTML
+
 ## Status
 pending

@@ -22,5 +22,12 @@ Make `review.yml` also validate comparison pages on `compare/*` branches.
 gh pr list --head "compare/" --limit 3
 ```
 
+## Acceptance Criteria
+- [ ] Opening a `compare/*` PR triggers `review.yml`
+- [ ] A changed file under `docs/compare/` causes `validate-compare.ts` to run (not `validate-page.ts`)
+- [ ] A changed file under `docs/repos/` still runs `validate-page.ts` as before
+- [ ] Auto-merge on success still applies for `compare/*` PRs
+- [ ] All other steps (check:schema) remain unchanged
+
 ## Status
 pending

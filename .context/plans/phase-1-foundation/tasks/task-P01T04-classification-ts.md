@@ -35,5 +35,11 @@ Write `scripts/classification.test.ts` collocated **before** implementing.
 bun -e "import { loadClassification } from './scripts/classification.ts'; console.log(loadClassification().version)"
 ```
 
+## Acceptance Criteria
+- [ ] `loadClassification()` returns an object with non-empty `version`, `dimensions`, `categories`, `verdicts` arrays
+- [ ] Calling `loadClassification()` on malformed YAML throws a descriptive error
+- [ ] Calling `loadClassification()` on a file missing `version` or `dimensions` throws
+- [ ] All three TDD cases pass (`bun test scripts/classification.test.ts` exits 0)
+
 ## Status
 pending

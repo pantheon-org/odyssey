@@ -23,5 +23,11 @@ gh workflow run quarterly-check.yml
 gh run list --workflow=quarterly-check.yml --limit=1
 ```
 
+## Acceptance Criteria
+- [ ] `gh workflow run quarterly-check.yml` completes with conclusion `success`
+- [ ] Workflow YAML contains a `schedule` cron trigger: `0 9 1 1,4,7,10 *`
+- [ ] `workflow_dispatch` trigger allows manual runs without changing the schedule
+- [ ] Workflow creates `pending-re-evaluation` issues only (no file writes)
+
 ## Status
 pending

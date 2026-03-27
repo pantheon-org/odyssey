@@ -21,5 +21,12 @@ bun run docs:build
 ls docs/.vitepress/dist/categories/ | head -5
 ```
 
+## Acceptance Criteria
+- [ ] `bun run docs:build` generates one detail page per category in `docs/.vitepress/dist/categories/`
+- [ ] Each page lists only repos whose `category` frontmatter matches that category
+- [ ] Repos are sorted by total score descending
+- [ ] Each row includes score, tags, and verdict
+- [ ] A category with no repos renders an empty list without a build error
+
 ## Status
 pending

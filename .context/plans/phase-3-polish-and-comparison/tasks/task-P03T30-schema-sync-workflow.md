@@ -26,5 +26,11 @@ gh workflow run schema-sync.yml
 gh run list --workflow=schema-sync.yml --limit=1
 ```
 
+## Acceptance Criteria
+- [ ] Push of `docs/schema/classification.yaml` to `main` triggers `schema-sync.yml`
+- [ ] `bun run check:schema` step runs first; a stale JSON schema causes the workflow to fail before scanning pages
+- [ ] Workflow completes with conclusion `success` when schemas are in sync and no stale pages are found
+- [ ] `workflow_dispatch` allows manual runs
+
 ## Status
 pending

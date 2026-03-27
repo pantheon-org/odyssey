@@ -63,5 +63,15 @@ bun scripts/evaluate.ts --dry-run owner/repo
 echo $?  # 0 = LLM round-trip succeeded, page not written
 ```
 
+## Acceptance Criteria
+- [ ] `--dry-run owner/repo` exits 0 (LLM round-trip succeeded, no file written)
+- [ ] Existing `docs/repos/<owner>-<repo>.md` is skipped; script exits 0 without opening a PR
+- [ ] `pending-re-evaluation` label bypasses the idempotency guard and produces a `re-eval/` branch
+- [ ] LLM JSON failing Zod schema causes non-zero exit with raw response excerpt logged; no file written
+- [ ] GitHub Models 429 response causes non-zero exit with "rate limited" in the error message
+- [ ] GitHub REST 404 for the repo causes non-zero exit with "repo not found" in the message
+- [ ] Generated frontmatter includes `license`, `enterprise_use`, `risk_flags`, and `model_id` fields
+- [ ] All TDD cases pass (`bun test scripts/evaluate.test.ts` exits 0)
+
 ## Status
 pending

@@ -22,5 +22,11 @@ bun run docs:build
 grep -r "categories/index" docs/.vitepress/dist/ | head -3
 ```
 
+## Acceptance Criteria
+- [ ] `bun run docs:build` generates `docs/.vitepress/dist/categories/index.html` without error
+- [ ] Index table lists all categories defined in `classification.yaml`
+- [ ] Each row shows repo count, average total score, and a link to the category detail page
+- [ ] Categories are sorted by repo count descending
+
 ## Status
 pending

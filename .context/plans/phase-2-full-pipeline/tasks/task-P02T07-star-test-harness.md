@@ -22,5 +22,12 @@ test account and a fallback trigger when star events are unreliable.
 bunx cucumber-js --config cucumber.json --profile integration --tags "@phase2"
 ```
 
+## Acceptance Criteria
+- [ ] Required PAT scopes for starring and polling are documented (in a comment or README section)
+- [ ] A dedicated test account and controlled fixture repo are defined and referenced in step definitions
+- [ ] Step definitions use the real star path by default; fallback trigger is invoked only when the API is unavailable
+- [ ] The fallback trigger mechanism is documented with a clear note on when to use it
+- [ ] `bunx cucumber-js --profile integration --tags "@phase2"` exits 0
+
 ## Status
 pending

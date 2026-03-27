@@ -27,5 +27,11 @@ gh issue create --title "test: owner/repo" --label "pending-evaluation"
 gh run list --workflow=evaluate.yml --limit=3
 ```
 
+## Acceptance Criteria
+- [ ] Adding `pending-evaluation` label to an issue triggers `evaluate.yml` within seconds
+- [ ] Adding `pending-re-evaluation` label triggers `evaluate.yml` and the run bypasses the idempotency guard
+- [ ] Re-evaluation PR branch name matches `re-eval/<owner>-<repo>-<GITHUB_RUN_ID>`
+- [ ] `evaluate.yml` workflow file contains both label values in the `issues: labeled` trigger filter
+
 ## Status
 pending

@@ -23,5 +23,11 @@ bun run docs:build 2>&1 | grep -i "rankings"
 # page renders without error
 ```
 
+## Acceptance Criteria
+- [ ] `bun run docs:build` generates `docs/.vitepress/dist/rankings/index.html` without error
+- [ ] Rankings table lists all evaluated repos sorted by total score descending
+- [ ] Each row includes repo name (as a link to the repo page), category, total score, and top tags
+- [ ] An empty `docs/repos/` directory renders an empty table without a build error
+
 ## Status
 pending

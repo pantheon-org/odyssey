@@ -24,5 +24,12 @@ bun run docs:build
 grep -r "related\|groups" docs/.vitepress/dist/repos/ | head -5
 ```
 
+## Acceptance Criteria
+- [ ] Built repo pages include a "Related repos" section listing up to 3 repos
+- [ ] Built repo pages include a "Part of groups" section listing any groups the repo belongs to
+- [ ] "Related repos" section is absent when the repo shares no tags with any other evaluated repo
+- [ ] "Part of groups" section is absent when the repo has no group membership
+- [ ] `bun run docs:build` completes without theme or component errors
+
 ## Status
 pending

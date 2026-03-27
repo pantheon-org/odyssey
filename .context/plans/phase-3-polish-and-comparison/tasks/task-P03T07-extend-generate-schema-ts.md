@@ -33,5 +33,12 @@ test -f docs/schema/compare-page.schema.json && echo "ok"
 bun run check:schema && echo "schemas in sync"
 ```
 
+## Acceptance Criteria
+- [ ] `bun run generate:schema` emits both `repo-page.schema.json` and `compare-page.schema.json`
+- [ ] `bun run check:schema` exits 0 when both committed schemas are fresh
+- [ ] Stale `compare-page.schema.json` causes `bun run check:schema` to exit 1
+- [ ] `compare-page.schema.json` includes fields: `group_id`, `group_label`, `members`, `generated_at`, `model_id`, `schema_version`
+- [ ] Existing `repo-page.schema.json` generation is unaffected
+
 ## Status
 pending

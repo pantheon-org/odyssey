@@ -38,5 +38,15 @@ bun scripts/quarterly-check.ts --dry-run
 echo $?  # 0 = ran without error
 ```
 
+## Acceptance Criteria
+- [ ] `--dry-run` exits 0 without creating any issues
+- [ ] A repo with a star count delta ≥20% since evaluation is flagged for re-evaluation
+- [ ] A repo with a star count delta <20% is not flagged
+- [ ] A repo whose description changed since evaluation is flagged
+- [ ] A repo whose archived status changed is flagged
+- [ ] A `pending-re-evaluation` issue already open for a repo prevents a duplicate
+- [ ] At most 5 simultaneous GitHub API calls are in flight at any time (`p-limit(5)`)
+- [ ] All TDD cases pass (`bun test scripts/quarterly-check.test.ts` exits 0)
+
 ## Status
 pending

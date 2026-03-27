@@ -21,5 +21,11 @@ bun run docs:build
 grep -r "tags\|categories" docs/.vitepress/dist/index.html | head -5
 ```
 
+## Acceptance Criteria
+- [ ] Built `index.html` sidebar contains "Tags" and "Categories" sections
+- [ ] "Tags" section links to `tags/index.md` and at least one tag group page
+- [ ] "Categories" section links to `categories/index.md`
+- [ ] `bun run docs:build` completes without errors after this change
+
 ## Status
 pending

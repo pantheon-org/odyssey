@@ -26,5 +26,12 @@ gh workflow run evaluate.yml -f repo=owner/test-repo
 # Expect: review.yml triggers automatically on the opened PR
 ```
 
+## Acceptance Criteria
+- [ ] Opening an `eval/*` PR triggers `review.yml`
+- [ ] A stale JSON schema causes the workflow to exit 1 before `validate-page.ts` runs
+- [ ] An invalid repo page causes the job to exit 1 and the PR is not auto-merged
+- [ ] A valid repo page passes all checks and the PR is auto-merged via squash
+- [ ] `review / validate` is the status check name visible in the PR checks UI
+
 ## Status
 pending

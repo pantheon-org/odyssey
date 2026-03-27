@@ -26,5 +26,11 @@ Create the initial groups config file with an empty groups list and `version: "1
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const g = parse(readFileSync('docs/schema/groups.yaml', 'utf8')); console.log(g.version, Array.isArray(g.groups) ? 'ok' : 'bad')"
 ```
 
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `version` is `"1.0.0"` on creation
+- [ ] `groups` is an array (empty at creation)
+- [ ] Once a group is added, each entry contains `id`, `label`, `description`, and `members[]` fields
+
 ## Status
 pending

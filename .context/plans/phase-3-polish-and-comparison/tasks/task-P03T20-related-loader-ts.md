@@ -21,5 +21,12 @@ Data loader returning the top-3 related repos for a given repo, by shared-tag co
 bun -e "import { getRelated } from './docs/.vitepress/loaders/related.ts'; console.log(getRelated(['owner/repo']))"
 ```
 
+## Acceptance Criteria
+- [ ] `getRelated('owner/repo')` returns at most 3 repos
+- [ ] All returned repos share at least 1 tag with the input repo
+- [ ] Repos with more shared tags rank higher; ties broken by total score descending
+- [ ] Returns an empty array when no repos share any tags with the input
+- [ ] Does not return the input repo itself in the results
+
 ## Status
 pending

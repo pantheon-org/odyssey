@@ -34,5 +34,12 @@ and `version: "1.0.0"`.
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; parse(readFileSync('docs/schema/classification.yaml', 'utf8')); console.log('ok')"
 ```
 
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `version` is a non-empty semantic-version string (e.g. `"1.0.0"`)
+- [ ] `dimensions[]`, `categories[]`, `verdicts[]`, `enterprise_use_verdicts[]`, `risk_flags[]` each contain at least one entry with an `id` field
+- [ ] `tags` vocabulary is non-empty and structured as named groups per ADR-020
+- [ ] No language tags are present in the `tags` vocabulary
+
 ## Status
 pending

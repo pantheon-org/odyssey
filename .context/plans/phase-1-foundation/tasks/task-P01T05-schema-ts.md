@@ -42,5 +42,12 @@ Write `scripts/schema.test.ts` collocated **before** implementing.
 bun -e "import { buildSchemas } from './scripts/schema.ts'; import { loadClassification } from './scripts/classification.ts'; const s = buildSchemas(loadClassification()); console.log(Object.keys(s))"
 ```
 
+## Acceptance Criteria
+- [ ] `buildSchemas()` returns both `repoPageSchema` (Zod object) and `repoPageJsonSchema` (plain object)
+- [ ] Zod schema rejects dimension scores `< 1` and `> 5`; accepts `1` through `5`
+- [ ] Zod schema rejects objects with extra fields not in the classification
+- [ ] `model_id` and `schema_version` fields are present in the schema
+- [ ] All TDD cases pass (`bun test scripts/schema.test.ts` exits 0)
+
 ## Status
 pending

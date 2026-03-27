@@ -22,5 +22,11 @@ bun run docs:build 2>&1 | grep -i "tags"
 grep -r "tags/index" docs/.vitepress/dist/ | head -3
 ```
 
+## Acceptance Criteria
+- [ ] `bun run docs:build` generates `docs/.vitepress/dist/tags/index.html` without error
+- [ ] Index lists all tag groups from `classification.yaml` as named sections
+- [ ] Each tag shows its repo usage count and links to `docs/tags/<tag-id>.md`
+- [ ] Deprecated tags (with `replaced_by`) are visually distinguished from active tags
+
 ## Status
 pending

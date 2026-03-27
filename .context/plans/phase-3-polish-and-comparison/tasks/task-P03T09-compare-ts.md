@@ -45,5 +45,13 @@ bun scripts/compare.ts --dry-run <group-id>
 echo $?  # 0 = LLM round-trip succeeded, page not written
 ```
 
+## Acceptance Criteria
+- [ ] `--dry-run <group-id>` exits 0 (LLM round-trip succeeded, no file written)
+- [ ] A repo belonging to no group causes immediate exit 0 without making an LLM call
+- [ ] Generated comparison page contains "Summary table", "Recommendation", and "Comparison" sections
+- [ ] At most 3 simultaneous LLM calls are in flight at any time (`p-limit(3)` enforced)
+- [ ] LLM JSON validation failure causes non-zero exit; no file written
+- [ ] All TDD cases pass (`bun test scripts/compare.test.ts` exits 0)
+
 ## Status
 pending

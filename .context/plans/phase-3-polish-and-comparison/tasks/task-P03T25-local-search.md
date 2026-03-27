@@ -24,5 +24,11 @@ ls docs/.vitepress/dist/assets/ | grep -i "search\|index"
 # Built site search icon functional in browser
 ```
 
+## Acceptance Criteria
+- [ ] A search index file is present in `docs/.vitepress/dist/assets/` after `bun run docs:build`
+- [ ] Search covers repo pages, comparison pages, tag pages, and category pages
+- [ ] `search: { provider: 'local' }` is set in `docs/.vitepress/config.ts`
+- [ ] No external search plugin or additional dependency is introduced
+
 ## Status
 pending

@@ -38,5 +38,13 @@ bun scripts/validate-page.ts docs/repos/example.md
 echo $?  # 0 = valid
 ```
 
+## Acceptance Criteria
+- [ ] Valid page (correct frontmatter + all required sections) exits 0
+- [ ] Page missing a dimension score field exits 1 with that field named in the error output
+- [ ] Page body shorter than `min_content_length` exits 1
+- [ ] Page missing a required body section exits 1 with the section name in the error output
+- [ ] `--dry-run` with an invalid page exits 0 but prints all validation errors
+- [ ] All TDD cases pass (`bun test scripts/validate-page.test.ts` exits 0)
+
 ## Status
 pending

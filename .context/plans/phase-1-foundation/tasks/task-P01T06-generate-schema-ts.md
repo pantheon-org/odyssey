@@ -39,5 +39,12 @@ bun run check:schema
 echo $?  # must be 0
 ```
 
+## Acceptance Criteria
+- [ ] `bun run generate:schema` writes `docs/schema/repo-page.schema.json` without error
+- [ ] `bun run check:schema` exits 0 when the committed schema matches the generated schema
+- [ ] Manually modifying the committed JSON causes `bun run check:schema` to exit 1
+- [ ] Generated schema validates a known-valid frontmatter fixture object
+- [ ] All TDD cases pass (`bun test scripts/generate-schema.test.ts` exits 0)
+
 ## Status
 pending

@@ -25,5 +25,11 @@ gh workflow run evaluate.yml -f repo=owner/repo-with-shared-tags
 # Expect: PR comment listing candidate groups
 ```
 
+## Acceptance Criteria
+- [ ] Evaluating a repo that shares ≥2 tags with any existing group member posts a PR comment listing the matching group names
+- [ ] Evaluating a repo with fewer than 2 shared tags with any group member posts no comment
+- [ ] Comment is posted on the evaluation PR (not as a separate issue)
+- [ ] No new workflow step is required — hint runs at the end of the existing evaluate workflow
+
 ## Status
 pending

@@ -22,5 +22,11 @@ bun run docs:build
 grep -r "rankings" docs/.vitepress/dist/ | head -5
 ```
 
+## Acceptance Criteria
+- [ ] Built HTML sidebar contains a "Rankings" section
+- [ ] "Rankings" section links to `rankings/index.md`
+- [ ] Per-group ranking pages are reachable from the sidebar navigation
+- [ ] `bun run docs:build` completes without errors after this change
+
 ## Status
 pending

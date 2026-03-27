@@ -36,5 +36,12 @@ bun scripts/validate-compare.ts docs/compare/example-group.md
 echo $?  # 0 = valid
 ```
 
+## Acceptance Criteria
+- [ ] Valid compare page (correct frontmatter + all required sections) exits 0
+- [ ] Page missing `members` field exits 1 with a descriptive error
+- [ ] Page missing "Recommendation" section exits 1 with the section name in the error output
+- [ ] `--dry-run` with an invalid page exits 0 but prints all validation errors
+- [ ] All TDD cases pass (`bun test scripts/validate-compare.test.ts` exits 0)
+
 ## Status
 pending

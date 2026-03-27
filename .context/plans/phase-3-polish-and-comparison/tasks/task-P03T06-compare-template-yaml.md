@@ -23,5 +23,10 @@ Define required sections for comparison pages.
 bun -e "import { parse } from 'yaml'; import { readFileSync } from 'fs'; const t = parse(readFileSync('docs/schema/compare-template.yaml', 'utf8')); console.log(t.sections?.length > 0 ? 'ok' : 'empty')"
 ```
 
+## Acceptance Criteria
+- [ ] File parses as valid YAML without error
+- [ ] `sections[]` contains exactly "Summary table", "Recommendation", and "Comparison"
+- [ ] `validate-compare.ts` (P03T08) uses these section names verbatim for its body check
+
 ## Status
 pending
